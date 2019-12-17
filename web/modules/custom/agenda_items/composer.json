@@ -1,0 +1,13 @@
+{
+    "name": "agenda_items",
+    "type": "drupal-module",
+    "description": "Handler of Agenda Items",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/agenda_items",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/agenda_items",
+        "source": "http://cgit.drupalcode.org/agenda_items",
+    },
+}

@@ -1,0 +1,5 @@
+name: 'Agenda Items'
+type: module
+description: 'Handler of Agenda Items'
+core: 8.x
+package: 'Custom'

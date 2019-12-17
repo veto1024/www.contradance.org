@@ -1,0 +1,59 @@
+modal_menu_button.add.person:
+  title: 'Add a Person'
+  parent: system.admin
+  route_name: node.add
+  weight: 100
+  # The menu link is enabled by default, we can override it with:
+  enabled: TRUE
+  route_parameters:
+    node_type: person
+  # If menu_name is omitted, the "Tools" menu will be used.
+  menu_name: admin
+  options:
+    attributes:
+      target: _self
+      class:
+        - use-ajax
+        -
+      data-dialog-type:
+        - modal
+
+modal_menu_button.add.band:
+  title: 'Add Band'
+  parent: system.admin
+  route_name: node.add
+  weight: 100
+  # The menu link is enabled by default, we can override it with:
+  enabled: TRUE
+  route_parameters:
+    node_type: band
+  # If menu_name is omitted, the "Tools" menu will be used.
+  menu_name: admin
+  options:
+    attributes:
+      target: _self
+      class:
+        - use-ajax
+        -
+      data-dialog-type:
+        - modal
+
+modal_menu_button.add.event:
+  title: 'Add Event'
+  parent: system.admin
+  route_name: node.add
+  weight: 100
+  # The menu link is enabled by default, we can override it with:
+  enabled: TRUE
+  route_parameters:
+    node_type: event
+  # If menu_name is omitted, the "Tools" menu will be used.
+  menu_name: admin
+  options:
+    attributes:
+      target: _self
+      class:
+        - use-ajax
+        -
+      data-dialog-type:
+        - modal

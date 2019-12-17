@@ -1,0 +1,5 @@
+# Schema for the theme setting configuration file of the CCD Bootstrap 3 theme.
+
+THEMENAME.settings:
+  type: theme_settings
+  label: 'CCD BS3 settings'

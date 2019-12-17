@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Contains agenda_items.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+/**
+ * Implements hook_help().
+ */
+function agenda_items_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the agenda_items module.
+    case 'help.page.agenda_items':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Handler of Agenda Items') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_contextual_links_view_alter().
+ *
+ * Open the paragraph_edit contextual links in a modal dialog.
+ */
+function agenda_items_contextual_links_view_alter(&$element, $items) {
+
+  if (isset($element['#links']['paragraphs-editedit-form'])) {
+    $element['#links']['paragraphs-editedit-form']['attributes'] = [
+      'class' => ['use-ajax'],
+      'data-dialog-type' => 'dialog',
+      'data-dialog-renderer' => 'off_canvas',
+      'data-dialog-options' => json_encode(['width' => '50%']),
+    ];
+  }
+
+  if (isset($element['#links']['paragraphs-editclone-form'])) {
+    $element['#links']['paragraphs-editclone-form']['attributes'] = [
+      'class' => ['use-ajax'],
+      'data-dialog-type' => 'dialog',
+      'data-dialog-renderer' => 'off_canvas',
+      'data-dialog-options' => json_encode(['width' => '50%']),
+    ];
+  }
+
+  if (isset($element['#links']['paragraphs-editdelete-form'])) {
+    $element['#links']['paragraphs-editdelete-form']['attributes'] = [
+      'class' => ['use-ajax'],
+      'data-dialog-type' => 'dialog',
+      'data-dialog-renderer' => 'modal',
+    ];
+  }
+
+}
+
+
+

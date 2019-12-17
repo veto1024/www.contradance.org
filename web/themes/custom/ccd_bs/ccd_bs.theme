@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function ccd_bs_page_attachments_alter(&$attachments) {
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $attachments['#attached']['library'][] = 'ccd_bs/slide.js';
+  }
+}

@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains modal_menu_buttons.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function modal_menu_buttons_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the modal_menu_buttons module.
+    case 'help.page.modal_menu_buttons':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module for creating menu links that show up as modals') . '</p>';
+      return $output;
+
+    default:
+  }
+}

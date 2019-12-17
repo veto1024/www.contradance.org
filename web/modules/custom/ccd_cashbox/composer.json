@@ -1,0 +1,13 @@
+{
+    "name": "ccd_cashbox",
+    "type": "drupal-module",
+    "description": "CCD Cashbox Module",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/ccd_cashbox",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/ccd_cashbox",
+        "source": "http://cgit.drupalcode.org/ccd_cashbox",
+    },
+}

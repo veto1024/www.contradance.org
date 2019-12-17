@@ -1,0 +1,219 @@
+<?php
+
+/**
+ * @file
+ * Contains ccd_cashbox.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\Entity\Node;
+use Drupal\paragraphs\Entity\Paragraph;
+
+
+/**
+ * Implements hook_help().
+ */
+function ccd_cashbox_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ccd_cashbox module.
+    case 'help.page.ccd_cashbox':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('CCD Cashbox Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_form
+ */
+
+function ccd_cashbox_form_node_event_edit_form_alter(&$form, FormStateInterface &$form_state, $form_id) {
+  foreach (array_keys($form['actions']) as $action) {
+    if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+      $form['actions'][$action]['#submit'][] = 'ccd_cashbox_form_submit';
+      $form['submit_email'] = array(
+        '#type' => 'submit',
+        '#value' => t('Save & Email to SC'),
+        '#weight' => 99,
+        '#validate' => array('node_form_validate'),
+        // Use default and an additional submit handler.
+        '#submit' => array('ccd_cashbox_form_submit', 'ccd_cashbox_mail'),
+      );
+    }
+  }
+}
+
+/**
+ *  Implements hook_email
+ *
+ * @param $key
+ * @param $message
+ * @param $params
+ */
+
+function ccd_cashbox_mail(&$message, $params) {
+  $module = 'ccd_cashbox';
+  $send = true;
+  $key = 'mymail';
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $to = 'veto1024@gmail.com';
+  // Set headers etc
+  $message['from'] = 'no-reply@contradance.org';
+  $message['reply-to'] = 'steering@contradance.org';
+  $message['subject'] = t('Cashbox report sent out for Event: ');
+  $message['body'] = t('The main part of the message.');
+
+  $result = \Drupal::service('plugin.manager.mail')->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  $messenger= \Drupal::messenger();
+  if ($result['result'] !== true) {
+    $messenger->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
+  }
+  else {
+    $messenger->addMessage(t('Your message has been sent.'));
+  }
+
+
+}
+
+
+/**
+ * @param array $form
+ * @param FormStateInterface $form_state
+ *
+ * Computes form fields from following D7 version
+ * $cashfromATM=field_get_items($entity_type, $entity, "field_cash_added_from_atm")[0]["value"];
+ * $cashtoATM=field_get_items($entity_type, $entity, "field_cash_to_atm")[0]["value"];
+ * $cashOut=field_get_items($entity_type, $entity, "field_ending_cash")[0]["value"];
+ * $checkDance=field_get_items($entity_type, $entity, "field_check_dance_pay")[0]["value"];
+ * $venmoDance=field_get_items($entity_type, $entity, "field_venmo_dance_pay")[0]["value"];
+ * $cashIn=field_get_items($entity_type, $entity, "field_starting_cash")[0]["value"];
+ * $cashDon=field_get_items($entity_type, $entity, "field_cash_donations")[0]["value"];
+ * $checkDon=field_get_items($entity_type, $entity, "field_check_donations")[0]["value"];
+ * $bandPay = field_get_items($entity_type, $entity,"field_band_pay")[0]["value"];
+ * $bandTravel=field_get_items($entity_type, $entity,"field_band_travel")[0]["value"];
+ * $callerPay = field_get_items($entity_type, $entity,"field_caller_pay")[0]["value"];
+ * $callerTravel=field_get_items($entity_type, $entity,"field_caller_travel")[0]["value"];
+ * $soundPay=field_get_items($entity_type, $entity,"field_sound_pay")[0]["value"];
+ * $rent=field_get_items($entity_type, $entity,"field_rent")[0]["value"];
+ * $otherExp=field_get_items($entity_type, $entity,"field_other_expenses")[0]["value"];
+ * $numStud=field_get_items($entity_type, $entity,"field_student_dancers")[0]["value"];
+ * $numFree=field_get_items($entity_type, $entity,"field_iou_student_dancers")[0]["value"] + field_get_items($entity_type, $entity,"field_iou_dancers")[0]["value"]  + field_get_items($entity_type, $entity,"field_get_in_free_card")[0]["value"];
+ * $totIOU = 5.0* field_get_items($entity_type, $entity,"field_iou_student_dancers")[0]["value"]+ 10.0*field_get_items($entity_type, $entity,"field_iou_dancers")[0]["value"];
+ * $numFreebies= field_get_items($entity_type, $entity,"field_iou_student_dancers")[0]["value"] + field_get_items($entity_type, $entity,"field_iou_dancers")[0]["value"] +field_get_items($entity_type, $entity,"field_get_in_free_card")[0]["value"];
+
+ * $netInorent=$cashOut+$cashtoATM+$checkDance+$venmoDance-$cashIn-$cashfromATM-$cashDon;
+ * $expenses=$bandPay+$bandTravel+$callerPay+$callerTravel+$soundPay+$otherExp;
+ * $gross=$netInorent+$expenses;
+ * $studentRev = 5.*$numStud;
+ * $fullDancers = ($gross - $studentRev) / 10.;
+ * $numDancers=$fullDancers+$numStud+$numFreebies;
+ * $netIRent= $netInorent - $rent + $totIOU;
+ * $totDep = $cashtoATM + $checkDance +$checkDon;
+ * $grossAdj = $gross+$totIOU;
+ * $entity_field[0]['value'] = $totDep;
+ */
+
+function ccd_cashbox_form_submit(array $form, FormStateInterface $form_state) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    // You can get nid and anything else you need from the node object.
+    $nid = $node->id();
+  }
+  $node= Node::load($nid);
+  $venmoPayments = ccd_cashbox_get_venmo_payments($node, $form);
+  $venmoDonations = ccd_cashbox_get_venmo_donations($node, $form);
+  $venmoAdmission = $venmoPayments - $venmoDonations;
+  $cashDon = ccd_cashbox_get_cash_donations($node, $form);
+  $checkDon = ccd_cashbox_get_check_donations($node, $form);
+  $cashFromATM = $node->field_cash_added_from_atm->value;
+  $cashDeposit = $node->field_cash_to_be_deposited->value;
+  $cashOut = $node->field_ending_cash->value;
+  $checkDance = $node->field_checks_for_dance_admission->value;
+  $cashIn = $node->field_starting_cash->value;
+  $expensesNoRent = $node->field_band_pay->value +
+    $node->field_band_travel->value +
+    $node->field_caller_pay->value +
+    $node->field_caller_travel->value +
+    $node->field_sound_pay->value +
+    $node->field_other_expenses->value;
+  $rent = $node->field_rent_cost->value;
+  $numStud = $node->field_student_dancers->value;
+  $numFree = $node->field_num_of_comped_dancers->value;
+  $totIOU = 5.0 * $node->field_iou_dancers_student->value + 10.0 * $node->field_iou_dancers_full->value;
+  $numFreebies = $node->field_iou_dancers_student->value + $node->field_iou_dancers_full->value;
+
+  $netInNoRent = $cashOut + $cashDeposit + $checkDance + $venmoAdmission - $cashIn - $cashFromATM - $cashDon;
+  $gross = $netInNoRent+$expensesNoRent;
+  $studentRev = 5.0 * $numStud;
+  $fullDancers = ($gross - $studentRev) / 10.0;
+  $numDancers = $fullDancers + $numStud + $numFreebies;
+  $netInRent = $netInNoRent - $rent + $totIOU;
+  $totalDeposit = $cashDeposit + $checkDance + $checkDon;
+  $grossAdj = $gross + $totIOU;
+
+  $node->set('field_cash_donations', $cashDon);
+  $node->set('field_cash_to_be_deposited', $cashDeposit);
+  $node->set('field_check_donations', $checkDon);
+  $node->set('field_deposited',  $totalDeposit);
+  $node->set('field_gross_revenue', $grossAdj);
+  $node->set('field_net_income', $netInRent);
+  $node->set('field_total_full_pay_dancers', $fullDancers);
+  $node->set('field_total_no_of_dancers', $numDancers);
+  $node->set('field_venmo_admission', $venmoAdmission);
+
+  $node->save();
+
+}
+
+function ccd_cashbox_get_venmo_payments($node, $form) {
+  $admissions = 0.0;
+  $paragraphs = $node->field_venmo_payment->getValue();
+
+  foreach ($paragraphs as $element) {
+    $p = Paragraph::load($element['target_id']);
+    $admissions += $p->field_amount->getValue();
+  }
+  return $admissions;
+
+}
+
+function ccd_cashbox_get_cash_donations($node, $form) {
+  $cashDonations = 0.0;
+  $paragraphs = $node->field_donation_info->getValue();
+
+  foreach ($paragraphs as $element) {
+    $p = Paragraph::load($element['target_id']);
+    $cashDonations += $p->field_cash_donation->value;
+  }
+  return $cashDonations;
+
+}
+
+function ccd_cashbox_get_check_donations($node, $form) {
+  $checkDonations = 0.0;
+  $paragraphs = $node->field_donation_info->getValue();
+
+  foreach ($paragraphs as $element) {
+    $p = Paragraph::load($element['target_id']);
+    $cashDonations += $p->field_check_donation->value;
+  }
+  return $checkDonations;
+
+}
+
+function ccd_cashbox_get_venmo_donations($node, $form) {
+  $venmoDonations = 0.0;
+  $paragraphs = $node->field_donation_info->getValue();
+
+  foreach ($paragraphs as $element) {
+    $p = Paragraph::load($element['target_id']);
+    $cashDonations += $p->field_venmo_donation->value;
+  }
+  return $venmoDonations;
+
+}

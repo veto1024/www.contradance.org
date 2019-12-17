@@ -1,0 +1,7 @@
+agenda_items_contribute:
+  path: 'agenda_items/agenda_form'
+  defaults:
+    _form: '\Drupal\agenda_items\Form\AgendaForm'
+    _title: 'Contribute Agenda Item'
+  requirements:
+    _permission: 'access content'

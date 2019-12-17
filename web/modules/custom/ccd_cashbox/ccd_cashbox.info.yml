@@ -1,0 +1,5 @@
+name: 'CCD Cashbox'
+type: module
+description: 'CCD Cashbox Module'
+core: 8.x
+package: 'Custom'

@@ -1,0 +1,98 @@
+2019-11-24 19:13:01,324 - root - INFO - Logging in as  set(['ccd.venmo']) 
+2019-11-24 19:13:01,551 - root - INFO - Login successful
+2019-11-24 19:42:44,850 - root - ERROR - Failed to mark email  as read. Exception occured
+Traceback (most recent call last):
+  File "/var/www/www.contradance.org/scripts/venmo/GmailWrapper.py", line 80, in markAsRead
+    server.store(num, "+FLAGS", SEEN)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1144, in store
+    return self._simple_command('STORE', message_set, command, flags, **kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1643, in _simple_command
+    return self._command_complete(self._command(name, *args), kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1399, in _command_complete
+    raise self.error('%s command error: %s %s. Data: %.100s' % (rqb.name, typ, dat, rqb.data))
+error: STORE command error: BAD ['Could not parse command']. Data: CKBH12 STORE "" +FLAGS (\Seen)
+
+2019-11-24 19:42:44,884 - root - ERROR - Mail id  failed to find subject. Exception: FETCH command error: BAD ['Could not parse command']. Data: CKBH13 FETCH "" (RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])
+Traceback (most recent call last):
+  File "/var/www/www.contradance.org/scripts/venmo/GmailWrapper.py", line 91, in parseEmails
+    typ, data = server.fetch(num, '(RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])')
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 766, in fetch
+    return self._simple_command(name, message_set, message_parts, **kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1643, in _simple_command
+    return self._command_complete(self._command(name, *args), kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1399, in _command_complete
+    raise self.error('%s command error: %s %s. Data: %.100s' % (rqb.name, typ, dat, rqb.data))
+error: FETCH command error: BAD ['Could not parse command']. Data: CKBH13 FETCH "" (RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])
+
+2019-11-24 20:11:45,094 - root - ERROR - Failed to mark email  as read. Exception occured
+Traceback (most recent call last):
+  File "/var/www/www.contradance.org/scripts/venmo/GmailWrapper.py", line 80, in markAsRead
+    server.store(num, "+FLAGS", SEEN)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1144, in store
+    return self._simple_command('STORE', message_set, command, flags, **kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1643, in _simple_command
+    return self._command_complete(self._command(name, *args), kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1399, in _command_complete
+    raise self.error('%s command error: %s %s. Data: %.100s' % (rqb.name, typ, dat, rqb.data))
+error: STORE command error: BAD ['Could not parse command']. Data: CKBH17 STORE "" +FLAGS (\Seen)
+
+2019-11-24 20:11:45,128 - root - ERROR - Mail id  failed to find subject. Exception: FETCH command error: BAD ['Could not parse command']. Data: CKBH18 FETCH "" (RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])
+Traceback (most recent call last):
+  File "/var/www/www.contradance.org/scripts/venmo/GmailWrapper.py", line 91, in parseEmails
+    typ, data = server.fetch(num, '(RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])')
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 766, in fetch
+    return self._simple_command(name, message_set, message_parts, **kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1643, in _simple_command
+    return self._command_complete(self._command(name, *args), kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1399, in _command_complete
+    raise self.error('%s command error: %s %s. Data: %.100s' % (rqb.name, typ, dat, rqb.data))
+error: FETCH command error: BAD ['Could not parse command']. Data: CKBH18 FETCH "" (RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])
+
+2019-11-24 20:40:45,367 - root - ERROR - Failed to mark email  as read. Exception occured
+Traceback (most recent call last):
+  File "/var/www/www.contradance.org/scripts/venmo/GmailWrapper.py", line 80, in markAsRead
+    server.store(num, "+FLAGS", SEEN)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1144, in store
+    return self._simple_command('STORE', message_set, command, flags, **kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1643, in _simple_command
+    return self._command_complete(self._command(name, *args), kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1399, in _command_complete
+    raise self.error('%s command error: %s %s. Data: %.100s' % (rqb.name, typ, dat, rqb.data))
+error: STORE command error: BAD ['Could not parse command']. Data: CKBH22 STORE "" +FLAGS (\Seen)
+
+2019-11-24 20:40:45,400 - root - ERROR - Mail id  failed to find subject. Exception: FETCH command error: BAD ['Could not parse command']. Data: CKBH23 FETCH "" (RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])
+Traceback (most recent call last):
+  File "/var/www/www.contradance.org/scripts/venmo/GmailWrapper.py", line 91, in parseEmails
+    typ, data = server.fetch(num, '(RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])')
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 766, in fetch
+    return self._simple_command(name, message_set, message_parts, **kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1643, in _simple_command
+    return self._command_complete(self._command(name, *args), kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1399, in _command_complete
+    raise self.error('%s command error: %s %s. Data: %.100s' % (rqb.name, typ, dat, rqb.data))
+error: FETCH command error: BAD ['Could not parse command']. Data: CKBH23 FETCH "" (RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])
+
+2019-11-24 21:09:45,576 - root - ERROR - Failed to mark email  as read. Exception occured
+Traceback (most recent call last):
+  File "/var/www/www.contradance.org/scripts/venmo/GmailWrapper.py", line 80, in markAsRead
+    server.store(num, "+FLAGS", SEEN)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1144, in store
+    return self._simple_command('STORE', message_set, command, flags, **kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1643, in _simple_command
+    return self._command_complete(self._command(name, *args), kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1399, in _command_complete
+    raise self.error('%s command error: %s %s. Data: %.100s' % (rqb.name, typ, dat, rqb.data))
+error: STORE command error: BAD ['Could not parse command']. Data: CKBH27 STORE "" +FLAGS (\Seen)
+
+2019-11-24 21:09:45,609 - root - ERROR - Mail id  failed to find subject. Exception: FETCH command error: BAD ['Could not parse command']. Data: CKBH28 FETCH "" (RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])
+Traceback (most recent call last):
+  File "/var/www/www.contradance.org/scripts/venmo/GmailWrapper.py", line 91, in parseEmails
+    typ, data = server.fetch(num, '(RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])')
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 766, in fetch
+    return self._simple_command(name, message_set, message_parts, **kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1643, in _simple_command
+    return self._command_complete(self._command(name, *args), kw)
+  File "/home/jonathan/.local/lib/python2.7/site-packages/imaplib2/imaplib2.py", line 1399, in _command_complete
+    raise self.error('%s command error: %s %s. Data: %.100s' % (rqb.name, typ, dat, rqb.data))
+error: FETCH command error: BAD ['Could not parse command']. Data: CKBH28 FETCH "" (RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])
+

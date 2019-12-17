@@ -1,0 +1,49 @@
+#!/usr/bin/python
+
+# PHP code to push node updates and perform creation
+import subprocess
+
+def createPHP(name, amount):
+
+	php = """<?php
+
+	$node = new stdClass();  // Create a new node object
+	$node->type = 'venmo_payment';  // Content type
+	$node->language = LANGUAGE_NONE;  // Or e.g. 'en' if locale is enabled
+	node_object_prepare($node);  //Set some default values
+	
+	$node->title = "Venmo Payment";
+	$node->field_amount['und'][0]['value'] = "%s";
+	$node->field_dancer_name['und'][0]['value'] = "%s";
+	$node->field_payment_ts['und'][0]['value'] = time();
+
+	$node->status = 1;   // (1 or 0): published or unpublished
+	$node->promote = 0;  // (1 or 0): promoted to front page or not
+	$node->sticky = 0;  // (1 or 0): sticky at top of lists or not
+	$node->comment = 1;  // 2 = comments open, 1 = comments closed, 0 = comments hidden
+	// Add author of the node
+	$node->uid = 1;
+
+	// Save the node
+	node_save($node);
+""" % (amount, name)
+	return  php
+
+def drushPush(subs,logger=None):
+	if not subs:
+		try:
+			logging.info("Received blank submission. Skipping D7 push")
+		except: 
+			print("Recevied blanks submission. Skipping D7 push")
+		return
+	for (a,b) in subs:
+#		print(createPHP(a,b))
+		try:
+#			f=open("venmo.php","w+")
+#			f.write(createPHP(a,b))
+#			f.close()
+			sub=subprocess.Popen(['drush','scr'], stdin=subprocess.PIPE) # < %s" % createPHP(a,b))
+			sub.communicate(createPHP(a,b))
+		except Exception as e:
+			print("Failed to execute drush command with error: %s" % str(e))
+	

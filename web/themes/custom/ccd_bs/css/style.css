@@ -1,0 +1,478 @@
+/**
+ * If using a CSS pre-processor, tell it to overwrite this file. If not, place
+ * your custom CSS modifications here.
+ */
+
+@text-color:white;
+
+body {
+  background-image: url("/themes/custom/ccd_bs/images/layout/bgimages/wood.jpg");
+  background-repeat: repeat;
+  z-index: -99;
+  color:white;
+  background-attachment: fixed;
+}
+
+body.path-frontpage {
+  background-image: none;
+  color:white;
+  animation: fadein 2s;
+}
+
+div iframe.iframe-centered {
+  display:block;
+  margin: 0 auto;
+}
+
+span.field-content {
+  color:white;
+}
+
+body.front span.date-display-single,
+body.front div.field-name-field-cost,
+body.page-calendar span.date-display-single,
+body.page-calendar div.field-name-field-cost {
+  color:black;
+}
+
+body.front div.field-name-field-cost	 {
+  color:black;
+}
+
+table.views-table {
+  color:white;
+}
+
+tfoot {
+  color:black;
+}
+div.view-id-board_members div.row {
+  margin-bottom:2em;
+}
+
+div.view-id-board_members div.views-field-title {
+  margin-top:.5em;
+}
+
+div.view-id-board_members {
+  border: 10px solid blue;
+  border-radius: 20px;
+  padding:1em;
+}
+/**
+ * Make the main page video responsive
+ *
+ */
+
+.embedded-video .player {
+  position: relative;
+  padding-bottom: 56%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.embedded-video .player iframe,
+.embedded-video .player object,
+.embedded-video .player embed {
+  position: absolute;
+  margin:auto;
+  width: 100%;
+  height: 100%;
+  border: 2px;
+  border-color: black;
+}
+
+/*
+ * Provide some space at teh bottom of the main player
+*/
+
+div.embedded-video {
+  padding-bottom:10px;
+  color:black;
+}
+
+
+.region-header {
+  margin-top:2px;
+  margin-bottom:2px;
+}
+
+div.highlighted.jumbotron {
+  padding:5px;
+}
+/**
+ * Turn off to title of main page
+ *
+*/
+
+.lead {
+  display: none;
+}
+
+/**
+ * Provide some padding below the carousel on the front
+ *
+*/
+
+.carousel-inner {
+  margin-bottom:10px;
+}
+
+/**
+ * Soocial media links CSS
+ *
+*/
+
+#block-social-media-links-social-media-links {
+  border-radius:20px;
+  background: #8B3051;
+  padding: 20px;
+  width: 100%;
+  height: 20%;
+}
+
+footer.footer {
+  padding-left;
+}
+/*
+ * Make footer text readable
+ *
+*/
+
+.footer h2.block-title{
+  color:white;
+}
+
+/*
+ * background color
+ *
+*/
+
+body {
+  background-color:black;
+}
+
+/*
+ * Border around site
+ *
+ */
+
+div.main-container.container {
+  border-radius: 10px;
+  background: color;
+  padding:20px;
+//    width: 100%;
+//    height: 100%;
+}
+
+/*
+ * Front page background
+*/
+
+
+div.jumbotron.jumbotronImg {
+  margin:0em;
+  padding:0em;
+  width: 100%;
+}
+header#navbarfront.navbar.container.navbar-default div.jumbotron.jumbotronImg div.container.drop div#navbar-collapse.navbar-collapse.collapse {
+  width:100%;
+}
+
+/*
+ *  Push down front page content
+*/
+div.main-container-front {
+  margin-top:12vh;
+}
+
+/*
+ * Make navbars transparent
+*/
+header#navbarfront-transparent.navbar.container.navbar-default {
+  background:none;
+  border:none;
+  padding-top:12vh;
+}
+
+header#navbar.navbar.container.navbar-default {
+  background:none;
+  border:none;
+  padding-top:12vh;
+}
+
+div.jumbotron.jumbotronImg {
+  background-attachment: fixed;
+  background:contain;
+  background-position: top;
+  background-repeat: no-repeat;
+  opacity:.3;
+  margin:-2em 0 0 0;
+  padding:0em;
+}
+
+@media only screen and (min-width : 992px) and (max-width:3000px) {
+  div.jumbotron.jumbotronImg {
+    background-attachment: fixed;
+    background:contain;
+    background-size:cover;
+    background-repeat: no-repeat;
+    opacity:.1;
+    margin:-2em 0 0 0;
+    padding:0em;
+    background-position: 0;
+  }
+}
+
+
+/*
+ * Fix menu on mobile devices
+*/
+
+/*header#navbarfront.navbar.container.navbar-default div.jumbotron.jumbotronImg div.container {
+
+  padding: 5px;
+  margin:5px;
+
+}
+*/
+
+/*
+ * Background jumbotron
+*/
+
+.jumbotron {
+  position: absolute;
+  z-index: -5;
+  background-color:transparent;
+}
+
+#video-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: -5;
+  width: 100%;
+  opacity: .2;
+}
+
+/*
+ *
+ * Upcoming events styling
+ *
+*/
+
+.upcoming-panel {
+  padding:1em;
+//  box-shadow: 10px 10px 25px grey;
+
+}
+
+/*
+ *
+ * Front page styling
+ *
+*/
+.upcoming-panel {
+  padding: 1em;
+  margin:1em;
+}
+body header div#navbar-collapse a {
+  color:white;
+}
+
+div.view-display-id-block_2 {
+  color:white;
+}
+
+div.main-container-front {
+  margin-top:0;
+}
+
+section#block-views-block-agenda-items-block-5 {
+  border: 10px solid blue;
+  border-radius: 20px;
+  padding:1em;
+}
+
+div.views-field-rendered-entity span.agenda-item-render div.paragraph--view-mode--agenda-items-private {
+  padding-top:.5em;
+}
+
+div.ui-dialog div.captcha p strong {
+  color:green !important;
+}
+
+
+a.about-ccd-blocks img {
+  border: 5px dashed #0a83ff;
+  border-radius: 10px;
+}
+
+
+a.band-info-pane, a.caller-info-pane {
+}
+
+section#block-infoforbandsandcallers div.container {
+  padding: 0;
+  margin:0;
+  width:100%;
+}
+section#block-infoforbandsandcallers div.container div.row {
+  margin:0;
+  padding:0;
+}
+
+
+/*
+*
+* Layout builder formatting
+*
+ */
+
+div.layout-builder {
+  background-color:black;
+}
+
+div.layout-builder section {
+  background-color:black;
+}
+
+
+/*
+*
+* Modal changes for adding content
+*
+ */
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons {
+  max-width:50% !important;
+  width:50% !important;
+  top:10% !important;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons  button.tabledrag-toggle-weight {
+  display:none;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons  button.field-add-more-submit {
+  display:none;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-title-wrapper] {
+  width:48%;
+  display:block;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field] {
+  width:50%;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-address] {
+  width:100%;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-image]{
+  width:50em;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-website] {
+  width:75%;
+  display:block;
+}
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-location] {
+  width:100%;
+}
+/*
+*
+* Remove unnecessary information when creating events from dialogue
+*
+*/
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-revenue-summary],
+  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-cashbox],
+  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-ious],
+  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons table[id|=field-person-paid],
+  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons table[id|=field-people-and-payments-values],
+  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-donation],
+  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-event-pay-boolean]{
+  display:none;
+}
+
+
+  /*
+  *
+  * Add icons to menu items
+  *
+   */
+.toolbar-icon-modal-menu-button-add-band:before, .toolbar-icon-modal-menu-button-add-person:before, .toolbar-icon-modal-menu-button-add-event:before  {
+  background-image: url("../images/layout/icons/LogoFullBack.jpg");
+}
+
+
+/*
+*
+* Front page off-screen load and header fade in
+*
+ */
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+div.upcoming-panel {
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 4s ease-out 0s 1 slideInFromLeft;
+}
+
+
+body.path-frontpage header.navbar {
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 6s; /* Firefox < 16 */
+  -o-animation: fadein 6s; /* Opera < 12.1 */
+  animation: ease-in fadein 6s;
+
+/*  -webkit-animation-delay: 3s;
+  -moz-animation-delay:3s;
+  -o-animation-delay:3s;
+  animation-delay: 3s
+*/
+}
+ */
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
