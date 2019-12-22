@@ -106,8 +106,7 @@
     },
     "autoload": {
         "classmap": [
-            "scripts/composer/ScriptHandler.php",
-            "scripts/drushlinker/Linker.php"
+            "scripts/composer/ScriptHandler.php"
         ],
         "files": ["load.environment.php"]
     },
@@ -119,8 +118,7 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "DrushLinker\\Linker::linkDrush"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
