@@ -28,6 +28,9 @@ class Linker {
         $event->getIO()->write("Symlink to Drush NOT created!");
       }
     }
+    else {
+      $event->getIO()->write("Symlink to Drush already exists");
+    }
   }
 
 }
