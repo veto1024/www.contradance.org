@@ -20,8 +20,8 @@ class Linker {
   public static function linkDrush(Event $event) {
     $drupalFinder = new DrupalFinder();
     $drupalFinder->locateRoot(getcwd());
-    $drupalFinder->getDrupalRoot();
-    $target_pointer = $drupalRoot . "/vendor/bin/drush";
+    $drupalRoot = $drupalFinder->getDrupalRoot();
+    $target_pointer = $drupalRoot . "../vendor/bin/drush";
     $link_name = "/usr/bin/drush";
     if (!is_link($link_name)) {
       $result = symlink($target_pointer, $link_name);
