@@ -3,8 +3,6 @@
  * your custom CSS modifications here.
  */
 
-@text-color:white;
-
 body {
   background-image: url("/themes/custom/ccd_bs/images/layout/bgimages/wood.jpg");
   background-repeat: repeat;
@@ -133,7 +131,7 @@ div.highlighted.jumbotron {
 }
 
 footer.footer {
-  padding-left;
+  padding-left: inherit;
 }
 /*
  * Make footer text readable
@@ -160,7 +158,7 @@ body {
 
 div.main-container.container {
   border-radius: 10px;
-  background: color;
+  background-color:black;
   padding:20px;
 //    width: 100%;
 //    height: 100%;
@@ -172,8 +170,8 @@ div.main-container.container {
 
 
 div.jumbotron.jumbotronImg {
-  margin:0em;
-  padding:0em;
+  margin:0;
+  padding:0;
   width: 100%;
 }
 header#navbarfront.navbar.container.navbar-default div.jumbotron.jumbotronImg div.container.drop div#navbar-collapse.navbar-collapse.collapse {
@@ -363,6 +361,11 @@ div.layout-builder section {
   display:none;
 }
 
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons  button[name=field_positions_add_more] {
+  display:inline-block;
+}
+
+
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-title-wrapper] {
   width:48%;
   display:block;
@@ -452,7 +455,6 @@ body.path-frontpage header.navbar {
   animation-delay: 3s
 */
 }
- */
 
 @keyframes fadein {
   from { opacity: 0; }

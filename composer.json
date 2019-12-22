@@ -49,6 +49,7 @@
         "drupal/entity_browser": "^2.2",
         "drupal/entity_print": "^2.0",
         "drupal/entity_usage": "^2.0@beta",
+        "drupal/feeds": "^3.0",
         "drupal/field_group": "^3.0",
         "drupal/flag": "^4.0",
         "drupal/flag_search_api": "^1.4",
@@ -121,6 +122,9 @@
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-create-project-cmd": [
+            "DrushLinker\\Linker::linkDrush"
         ]
     },
     "extra": {
