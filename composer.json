@@ -118,14 +118,12 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrushLinker\\Linker::linkDrush"
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
-        "post-create-project-cmd": [
-            "DrushLinker\\Linker::linkDrush"
-        ]
     },
     "extra": {
         "composer-exit-on-patch-failure": true,
