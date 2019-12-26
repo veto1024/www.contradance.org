@@ -164,9 +164,11 @@ div.main-container.container {
 //    height: 100%;
 }
 
-/*
- * Front page background
-*/
+/**************************************************************
+*
+* Front page background
+*
+***************************************************************/
 
 
 div.jumbotron.jumbotronImg {
@@ -178,16 +180,22 @@ header#navbarfront.navbar.container.navbar-default div.jumbotron.jumbotronImg di
   width:100%;
 }
 
-/*
- *  Push down front page content
-*/
+/**************************************************************
+*
+* Move front page content down
+*
+***************************************************************/
+
 div.main-container-front {
   margin-top:12vh;
 }
 
-/*
- * Make navbars transparent
-*/
+/**************************************************************
+*
+* Make navbars transparent
+*
+***************************************************************/
+
 header#navbarfront-transparent.navbar.container.navbar-default {
   background:none;
   border:none;
@@ -224,21 +232,11 @@ div.jumbotron.jumbotronImg {
 }
 
 
-/*
- * Fix menu on mobile devices
-*/
-
-/*header#navbarfront.navbar.container.navbar-default div.jumbotron.jumbotronImg div.container {
-
-  padding: 5px;
-  margin:5px;
-
-}
-*/
-
-/*
- * Background jumbotron
-*/
+/**************************************************************
+*
+* Background video jumbotron styling
+*
+***************************************************************/
 
 .jumbotron {
   position: absolute;
@@ -258,11 +256,11 @@ div.jumbotron.jumbotronImg {
   opacity: .2;
 }
 
-/*
- *
- * Upcoming events styling
- *
-*/
+/**************************************************************
+*
+* Upcoming events styling
+*
+***************************************************************/
 
 .upcoming-panel {
   padding:1em;
@@ -270,11 +268,12 @@ div.jumbotron.jumbotronImg {
 
 }
 
-/*
- *
- * Front page styling
- *
-*/
+/**************************************************************
+*
+* Front page styling
+*
+***************************************************************/
+
 .upcoming-panel {
   padding: 1em;
   margin:1em;
@@ -326,11 +325,11 @@ section#block-infoforbandsandcallers div.container div.row {
 }
 
 
-/*
+/**************************************************************
 *
 * Layout builder formatting
 *
- */
+***************************************************************/
 
 div.layout-builder {
   background-color:black;
@@ -341,11 +340,11 @@ div.layout-builder section {
 }
 
 
-/*
+/**************************************************************
 *
-* Modal changes for adding content
+* Modal changes when adding content
 *
- */
+***************************************************************/
 
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons {
   max-width:50% !important;
@@ -390,11 +389,13 @@ div.layout-builder section {
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-location] {
   width:100%;
 }
-/*
+
+/**************************************************************
 *
 * Remove unnecessary information when creating events from dialogue
 *
-*/
+***************************************************************/
+
 
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-revenue-summary],
   .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-cashbox],
@@ -407,21 +408,25 @@ div.layout-builder section {
 }
 
 
-  /*
-  *
-  * Add icons to menu items
-  *
-   */
+
+/**************************************************************
+*
+* Add icons to main menu
+*
+***************************************************************/
+
 .toolbar-icon-modal-menu-button-add-band:before, .toolbar-icon-modal-menu-button-add-person:before, .toolbar-icon-modal-menu-button-add-event:before  {
   background-image: url("../images/layout/icons/LogoFullBack.jpg");
 }
 
 
-/*
+
+/**************************************************************
 *
 * Front page off-screen load and header fade in
 *
- */
+***************************************************************/
+
 
 @keyframes slideInFromLeft {
   0% {
@@ -477,4 +482,85 @@ body.path-frontpage header.navbar {
 @-ms-keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+
+
+/**************************************************************
+*
+* SC page links as buttons
+*
+***************************************************************/
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+  div.sc-only-title-btn {
+    border-radius: 25px;
+    border: .5em solid blue;
+    padding: .5em;
+    width: 100%;
+    background-color: whitesmoke;
+    margin-top:.5em;
+  }
+  div.sc-only-title-btn {
+    position:relative;
+  }
+  div.sc-only-row span.field-content {
+    font-size : 1.5em;
+    position:relative;
+    top:50%;
+    margin-top: 0em;
+  }
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  div.sc-only-title-btn {
+    border-radius: 25px;
+    border: .25em solid blue;
+    padding: 10px;
+    width: 100%;
+    background-color: whitesmoke;
+    margin-top:.5em;
+  }
+  div.sc-only-title-btn {
+    position:relative;
+  }
+  div.sc-only-row span.field-content {
+    font-size : 1.5em;
+    position:relative;
+    top:50%;
+    margin-top: 0em;
+  }
+
+}
+
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (min-width : 1200px) {
+  div.sc-only-title-btn {
+    border-radius: 25px;
+    border: .5em solid blue;
+    padding: 20px;
+    width: 100%;
+    background-color: whitesmoke;
+    margin-top:1em;
+  }
+  div.sc-only-title-btn {
+    position:relative;
+  }
+  div.sc-only-row span.field-content {
+    font-size : 3em;
+    position:relative;
+    top:50%;
+    margin-top: 0em;
+  }
+
 }
