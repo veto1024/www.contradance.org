@@ -268,6 +268,78 @@ div.jumbotron.jumbotronImg {
 
 }
 
+
+/**************************************************************
+*
+* Full Calendar events styling
+*
+***************************************************************/
+.full-calendar-panel span {
+  font-size: .75em;
+}
+
+.full-calendar-panel div.field--name-field-band {
+  text-align:center;
+}
+
+.full-calendar-panel div.field--name-field-caller {
+  text-align:center;
+}
+
+.full-calendar-panel div.field--name-field-host {
+  text-align:center;
+}
+
+.full-calendar-panel div.field--name-field-sound {
+  text-align:center;
+}
+
+.full-calendar-panel div.field--name-field-band img {
+  width:75%;
+  max-height:220px;
+  display: inline;
+}
+
+.full-calendar-panel div.field--name-field-caller img {
+  display: inline;
+}
+
+.full-calendar-panel div.field--name-field-sound img {
+  display: inline;
+}
+
+.full-calendar-panel div.field--name-field-host img {
+  display: inline;
+}
+
+.full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-band {
+  width:100%;
+  display:inline-block;
+  margin-top:-4em;
+}
+.full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-caller {
+  width:32%;
+  display:inline-block;
+}
+.full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-host {
+  width:32%;
+  display:inline-block;
+}
+
+.full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-sound {
+  width:32%;
+  display:inline-block;
+}
+
+.full-calendar-panel  {
+  margin-bottom:20px !important;
+  padding-bottom: 1em;
+}
+
+.calendar-events-full {
+  color:black;
+}
+
 /**************************************************************
 *
 * Front page styling
@@ -277,7 +349,73 @@ div.jumbotron.jumbotronImg {
 .upcoming-panel {
   padding: 1em;
   margin:1em;
+  color:black;
 }
+
+/*
+*
+* Upcoming Panel formatting of content
+*
+ */
+
+.upcoming-panel span {
+  font-size: .75em;
+}
+
+.upcoming-panel div.field--name-field-band {
+  text-align:center;
+}
+
+.upcoming-panel div.field--name-field-caller {
+  text-align:center;
+}
+
+.upcoming-panel div.field--name-field-band img {
+  width:75%;
+  max-height:220px;
+  display: inline;
+}
+
+.upcoming-panel div.field--name-field-caller img {
+  display: inline;
+}
+
+
+.upcoming-panel div.layout__region--second section.block-field-blocknodeeventfield-band {
+  width:50%;
+  display:inline-block;
+  margin-top:-4em;
+}
+.upcoming-panel div.layout__region--second section.block-field-blocknodeeventfield-caller {
+  width:50%;
+  display:inline-block;
+}
+
+.upcoming-panel h2 {
+  margin-top:.5em;
+}
+.upcoming-panel  {
+  margin-bottom:1em !important;
+  padding-bottom: .5em;
+}
+
+.upcoming-panel div[class^="field--"] {
+  float:left;
+}
+
+.upcoming-panel div.layout__region--second {
+  float:right;
+  margin-top:-5em;
+
+}
+
+/*
+ *
+* Stuff
+/*
+/*
+
+ */
 body header div#navbar-collapse a {
   color:white;
 }
@@ -563,4 +701,25 @@ body.path-frontpage header.navbar {
     margin-top: 0em;
   }
 
+}
+
+/**************************************************************
+*
+* Event page styling
+*
+***************************************************************/
+
+article.event div.layout__region--second section.block-field-blocknodeeventfield-band {
+  width:32%;
+  display:inline-block;
+}
+
+article.event div.layout__region--second section.block-field-blocknodeeventfield-caller {
+  width:32%;
+  display:inline-block;
+}
+
+article.event div.layout__region--second section.block-field-blocknodeeventfield-host{
+  width:32%;
+  display:inline-block;
 }
