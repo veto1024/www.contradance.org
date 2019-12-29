@@ -51,6 +51,7 @@
  * @see html.html.twig
  */
 #}
+  {{ attach_library('ccd_bs/videoFade') }}
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 {# Navbar #}
 {% if page.navigation or page.navigation_collapsible %}
@@ -97,7 +98,7 @@
   <div role="main" class="main-container {{ container }} js-quickedit-main-content">
     {# Main Jumbotron #}
     <div class="jumbotron">
-      <video id="video-background" playsinline preload muted autoplay loop>
+      <video class="video-background" id="video-background"  playsinline preload muted autoplay loop>
         <source src="sites/default/files/PotentSmall.mp4" type="video/mp4">
       </video>
     </div>

@@ -158,7 +158,7 @@ body {
 
 div.main-container.container {
   border-radius: 10px;
-  background-color:black;
+  background-color:rgba(0,0,0,.6);
   padding:20px;
 //    width: 100%;
 //    height: 100%;
@@ -253,7 +253,7 @@ div.jumbotron.jumbotronImg {
   overflow: hidden;
   z-index: -5;
   width: 100%;
-  opacity: .2;
+  opacity: 0;
 }
 
 /**************************************************************
@@ -265,6 +265,7 @@ div.jumbotron.jumbotronImg {
 .upcoming-panel {
   padding:1em;
 //  box-shadow: 10px 10px 25px grey;
+  border-radius: .5em;
 
 }
 
@@ -335,10 +336,98 @@ div.jumbotron.jumbotronImg {
   margin-bottom:20px !important;
   padding-bottom: 1em;
 }
+.full-calendar-panel  div.layout__region--first div.field--item {
+  float:left;
+}
 
+
+.full-calendar-panel  div.layout__region--second {
+  position:absolute;
+  top:0;
+  right:0;
+  width:60%;
+}
+
+.full-calendar-panel div.layout__region--second span {
+  display:none;
+}
+
+.full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-band {
+  width:66% !important;
+}
+
+.full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-caller {
+  width:33%;
+}
 .calendar-events-full {
   color:black;
 }
+
+/**************************************************************
+*
+* Event page styling
+*
+***************************************************************/
+
+article.event div.layout__region--second section.block-field-blocknodeeventfield-band {
+  width:50%;
+  display:inline-block;
+}
+
+article.event div.layout__region--second section.block-field-blocknodeeventfield-band span {
+  display:none;
+}
+article.event div.layout__region--second section.block-field-blocknodeeventfield-caller span {
+  display:none;
+}
+article.event div.layout__region--second section.block-field-blocknodeeventfield-host  span {
+  display:none;
+}
+
+
+article.event div.layout__region--second section.block-field-blocknodeeventfield-caller {
+  width:24%;
+  display:inline-block;
+}
+
+article.event div.layout__region--second section.block-field-blocknodeeventfield-host{
+  width:24%;
+  display:inline-block;
+}
+
+div.attendance-summary-row span.views-field {
+  display:block;
+}
+
+div.attendance-summary-row span.field-content {
+  float:right;
+  margin-right: 1em;
+}
+
+div.revenue-row span.views-field {
+  display:block;
+}
+
+div.revenue-row span.field-content {
+  float:right;
+  margin-right: 1em;
+}
+
+div.cashbox-row span.views-field {
+  display:block;
+}
+
+div.cashbox-row span.field-content {
+  float:right;
+  margin-right: 1em;
+}
+
+/*section#block-donationsubmission {*/
+/*  max-width: 25%;*/
+/*  text-align: center;*/
+/*}*/
+
+
 
 /**************************************************************
 *
@@ -350,6 +439,7 @@ div.jumbotron.jumbotronImg {
   padding: 1em;
   margin:1em;
   color:black;
+  width:98%;
 }
 
 /*
@@ -360,6 +450,10 @@ div.jumbotron.jumbotronImg {
 
 .upcoming-panel span {
   font-size: .75em;
+}
+
+.upcoming-panel h2 {
+  display:inline;
 }
 
 .upcoming-panel div.field--name-field-band {
@@ -396,7 +490,7 @@ div.jumbotron.jumbotronImg {
 }
 .upcoming-panel  {
   margin-bottom:1em !important;
-  padding-bottom: .5em;
+
 }
 
 .upcoming-panel div[class^="field--"] {
@@ -405,8 +499,23 @@ div.jumbotron.jumbotronImg {
 
 .upcoming-panel div.layout__region--second {
   float:right;
-  margin-top:-5em;
+  position:absolute;
+  top:0;
+  right:0;
+  text-align: right;
+  width:50%;
+}
 
+.upcoming-panel div.layout__region--second span {
+  display:none;
+}
+
+.upcoming-panel div.layout__region--second section.block-field-blocknodeeventfield-band {
+  width:66% !important;
+}
+
+.upcoming-panel div.layout__region--second section.block-field-blocknodeeventfield-caller {
+  width:33%;
 }
 
 /*
@@ -477,6 +586,15 @@ div.layout-builder section {
   background-color:black;
 }
 
+/**************************************************************
+*
+* Modal changes when doing donations
+*
+***************************************************************/
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front {
+  max-width:90%;
+}
 
 /**************************************************************
 *
@@ -700,26 +818,51 @@ body.path-frontpage header.navbar {
     top:50%;
     margin-top: 0em;
   }
+}
 
+.talent-volunteers-rows div.views-field-field-image {
+  margin-top:.5em;
+  display:inline-block;
+}
+.talent-volunteers-rows div.views-field-field-band-image {
+  margin-top:.5em;
+  display:inline-block;
+}
+
+.talent-volunteers-rows {
+  text-align:center;
+  margin-bottom:1em;
+}
+
+.board-member-rows div.views-field-field-image {
+  margin-top:.5em;
+  display:inline-block;
+}
+.board-member-rows div.views-field-field-band-image {
+  margin-top:.5em;
+  display:inline-block;
+}
+
+.board-member-rows {
+  text-align:center;
+  margin-bottom:1em;
 }
 
 /**************************************************************
 *
-* Event page styling
+* Footer Styling
 *
 ***************************************************************/
 
-article.event div.layout__region--second section.block-field-blocknodeeventfield-band {
-  width:32%;
-  display:inline-block;
+.social-links-wrapper{
+  text-align: center;
+}
+.cdss-logo {
+  margin:2em;
+  height:80px
 }
 
-article.event div.layout__region--second section.block-field-blocknodeeventfield-caller {
-  width:32%;
-  display:inline-block;
-}
-
-article.event div.layout__region--second section.block-field-blocknodeeventfield-host{
-  width:32%;
-  display:inline-block;
+.fb-logo {
+  margin:2em;
+  height:80px;
 }

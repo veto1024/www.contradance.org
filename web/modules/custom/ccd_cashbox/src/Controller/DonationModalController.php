@@ -49,8 +49,10 @@ class DonationModalController extends ControllerBase {
    */
   public function openModalForm() {
     $response = new AjaxResponse();
-    // Get the modal form using the form builder.
+    // Get the modal form using the form builder. Attach the nid as a hidden parameter
+    $nid = \Drupal::routeMatch()->getParameter('node')->id();
     $modal_form = $this->formBuilder->getForm('Drupal\ccd_cashbox\Form\ModalDonationForm');
+    $modal_form['nid']['#value'] = $nid;
     // Add an AJAX command to open a modal dialog with the form as the content.
     $response->addCommand(new OpenModalDialogCommand('CCD Donation Form', $modal_form, ['width' => '800']));
     //$response->addCommand(new AppendCommand('#donation_form', $modal_form));

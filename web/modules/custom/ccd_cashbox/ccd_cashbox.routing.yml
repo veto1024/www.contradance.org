@@ -1,5 +1,5 @@
 ccd_cashbox.donation.form:
-  path: '/form/donation_form'
+  path: '/form/donation_form/'
   defaults:
     _form: 'Drupal\ccd_cashbox\Form\DonationForm'
     _title: 'CCD Donation Form'
@@ -7,7 +7,7 @@ ccd_cashbox.donation.form:
     _permission: 'administer site configuration'
 
 ccd_cashbox.donation.open_modal_form:
-  path: '/form/donation_modal_form'
+  path: '/form/donation_modal_form/{node}'
   defaults:
     _title: 'CCD Donation Modal'
     _controller: '\Drupal\ccd_cashbox\Controller\DonationModalController::openModalForm'
@@ -15,3 +15,6 @@ ccd_cashbox.donation.open_modal_form:
     _permission: 'administer site configuration'
   options:
     _admin_route: FALSE
+    parameters:
+      node:
+        type: entity:node

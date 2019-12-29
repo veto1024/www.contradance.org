@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f9e1185388e5915ae40cc34e14438e9",
+    "content-hash": "4a6ee68a4448818d494e15b22ea8af60",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2504,6 +2504,73 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/address_map_link",
                 "issues": "https://www.drupal.org/project/issues/address_map_link"
+            }
+        },
+        {
+            "name": "drupal/addtocalendar",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/addtocalendar.git",
+                "reference": "8.x-3.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/addtocalendar-8.x-3.1.zip",
+                "reference": "8.x-3.1",
+                "shasum": "c384df6017790173908ee7566e2af22ab5234b9d"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.1",
+                    "datestamp": "1511952790",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "anand.toshniwal93",
+                    "homepage": "https://www.drupal.org/user/3345088"
+                },
+                {
+                    "name": "gagarine",
+                    "homepage": "https://www.drupal.org/user/162439"
+                },
+                {
+                    "name": "gg24",
+                    "homepage": "https://www.drupal.org/user/3389212"
+                },
+                {
+                    "name": "guptahemant",
+                    "homepage": "https://www.drupal.org/user/3278073"
+                },
+                {
+                    "name": "purushotam.rai",
+                    "homepage": "https://www.drupal.org/user/3193859"
+                },
+                {
+                    "name": "sonvir249",
+                    "homepage": "https://www.drupal.org/user/3225171"
+                }
+            ],
+            "description": "Add to calendar button to be used for event page.",
+            "homepage": "https://www.drupal.org/project/addtocalendar",
+            "support": {
+                "source": "https://git.drupalcode.org/project/addtocalendar"
             }
         },
         {

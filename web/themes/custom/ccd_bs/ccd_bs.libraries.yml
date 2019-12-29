@@ -4,6 +4,12 @@ global-styling:
       css/style.css: {}
   js:
     js/slide.js: {}
+    js/dateName.js: {}
+    js/videoFade.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/jquery.once
 
 # Uncomment for LESS source JavaScript files.
 #  js:

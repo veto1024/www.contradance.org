@@ -1,6 +1,9 @@
 <?php
 namespace Drupal\ccd_cashbox\Form;
 
+use CommerceGuys\Addressing\Address;
+use Drupal\address\Plugin\Validation\Constraint\AddressFormatConstraint;
+use Drupal\commerce_price\Price;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
@@ -10,6 +13,7 @@ use Drupal\Core\Url;
 use Drupal\paragraphs\Entity\Paragraph;
 use CommerceGuys\Addressing\AddressFormat\AddressField;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Validator\Validation;
 
 /**
  * ModalDonationForm class.
@@ -36,8 +40,8 @@ class ModalDonationForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['#attached']['library'][] = 'core/drupal.dialog.ajax';
-    $form['#attached']['library'][] = 'core/drupal.ajax';
+    //$form['#attached']['library'][] = 'core/drupal.dialog.ajax';
+    //$form['#attached']['library'][] = 'core/drupal.ajax';
 
     $form['#prefix'] = '<div id="donation_form">';
     $form['#suffix'] = '</div>';
@@ -80,9 +84,11 @@ class ModalDonationForm extends FormBase {
       ],
     ];
     $form['donation_cash'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Amount donated in cash'),
+      '#type' => 'number',
+      '#name' => 'donation_cash',
+      '#title' => $this->t('Amount donated in cash: $'),
       '#default_value' => 0.0,
+      '#step' => .01,
       '#attributes' => [
         'name' => 'field_cash_donation',
       ],
@@ -100,11 +106,13 @@ class ModalDonationForm extends FormBase {
       ],
     ];
     $form['donation_check'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Amount donated by check'),
+      '#type' => 'number',
+      '#name' => 'donation_check',
+      '#title' => $this->t('Amount donated by check: $'),
       '#default_value' => 0.0,
+      '#step' => .01,
       '#attributes' => [
-        'name' => 'field_cash_donation',
+        'name' => 'field_check_donation',
       ],
       '#states' => [
         'visible' => [
@@ -121,9 +129,11 @@ class ModalDonationForm extends FormBase {
 
     ];
     $form['donation_venmo'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Amount donated by venmo'),
+      '#type' => 'number',
+      '#name' => 'donation_venmo',
+      '#title' => $this->t('Amount donated by venmo: $'),
       '#default_value' => 0.0,
+      '#step' => .01,
       '#attributes' => [
         'name' => 'field_venmo_donation',
       ],
@@ -155,6 +165,7 @@ class ModalDonationForm extends FormBase {
     $form['donor_address'] = [
       '#markup' => $this->t('Donor address for donation letter to be provided'),
       '#type' => 'address',
+      '#name' => 'address',
       '#default_value' => ['country_code' => 'US'],
       '#used_fields' => [
         AddressField::ADDRESS_LINE1,
@@ -176,8 +187,7 @@ class ModalDonationForm extends FormBase {
         ],
       ],
     ];
-    $form['actions'] = array('#type' => 'actions');
-    $form['actions']['send'] = [
+    $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit donation'),
       '#attributes' => [
@@ -188,25 +198,31 @@ class ModalDonationForm extends FormBase {
         ],
       ],
       '#ajax' => [
-        'callback' => '::submitModalFormAjax',
-        'event' => 'click',
+        'callback' => '::submitAjaxForm',
+        'wrapper' => 'donation_form',
       ],
     ];
 
+    $form['nid'] = array(
+      '#type' => 'hidden',
+      '#title' => $this->t('The nid of the submission'),
+    );
 
     return $form;
   }
 
+  public function rebuildForm(array $form, FormStateInterface $form_state) {
+    return $form;
+  }
   /**
    * AJAX callback handler that displays any errors or a success message.
    * @param array $form
    * @param FormStateInterface $form_state
    * @return AjaxResponse
    */
-  public function submitModalFormAjax(array $form, FormStateInterface $form_state) {
+  public function submitAjaxForm(array $form, FormStateInterface $form_state) {
     $form['#cache'] = ['max-age' => 0];
-    $donor = $form_state->getValue('donor_name');
-    $purpose = $form_state->getValue('donation_purpose');
+    $input =  $form_state->getUserInput();
     $response = new AjaxResponse();
 
     // If there are any form errors, re-display the form.
@@ -224,41 +240,89 @@ class ModalDonationForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+    $form_state->clearErrors();
+    $input = $form_state->getUserInput();
+    if ($input['field_donation_letter']=='letter') {
+      $validator = Validation::createValidator();
+      $address = new Address();
+      $address = $address
+        ->withCountryCode($input['donor_address']['country_code'])
+        ->withLocality($input['donor_address']['locality'])
+        ->withPostalCode('33a')
+        ->withAddressLine1($input['donor_address']['address_line1'])
+        ->withAdministrativeArea($input['donor_address']['administrative_area'])
+        ->withGivenName('DonorFirst')
+        ->withFamilyName('DonorLast');
+      $violations = $validator->validate($address, new AddressFormatConstraint());
+      if ($violations->count()) {
+        $form_state->setErrorByName('donor_address', t('Address not valid. Please recheck.'));
+      }
+    }
+    if (!$input['field_donor_name']) {
+      $form_state->setErrorByName('donor_name', t('Please provide a name!'));
+    }
+    if (!$input['field_donation_purpose']) {
+      $form_state->setErrorByName('donation_purpose', t('Please provide a donation purpose (e.g., General Funds, Sponsor a Dance)'));
+    }
+    if ($input['field_donation_method']=='cash') {
+      if (!$input['field_cash_donation']) {
+        $form_state->setErrorByName('donation_cash', t('Please provide a cash donation amount'));
+      } elseif (!is_numeric($input['field_cash_donation'])) {
+        $form_state->setErrorByName('donation_cash', t('Invalid amount entered'));
+      }
+    }
+    if ($input['field_donation_method']=='check') {
+      if (!$input['field_check_donation']) {
+        $form_state->setErrorByName('donation_check', t('Please provide a check donation amount'));
+      } elseif (!is_numeric($input['field_check_donation'])) {
+        $form_state->setErrorByName('donation_check', t('Invalid amount entered'));
+      }
+    }
+    if ($input['field_donation_method']=='venmo') {
+      if (!$input['field_venmo_donation']) {
+        $form_state->setErrorByName('donation_venmo', t('Please provide a Venmo donation amount'));
+      } elseif (!is_numeric($input['field_check_donation'])) {
+        $form_state->setErrorByName('donation_venmo', t('Invalid amount entered'));
+      }
+    }
+
   }
 
   /**
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node instanceof \Drupal\node\NodeInterface) {
-      // You can get nid and anything else you need from the node object.
-      $nid = $node->id();
-    }
+    $response = new AjaxResponse();
+    $input = $form_state->getUserInput();
+    $nid=$form_state->getvalue('nid');
+    $response->addCommand(new OpenModalDialogCommand("Success!", 'The donation has been submitted! Click anywhere to exit.'));
+
     /* $nid=\Drupal::entityTypeManager()->getStorage('node')->load($nid); */
     $node=\Drupal\node\Entity\Node::load($nid);
 
     // Create single new paragraph
     $paragraph = Paragraph::create([
       'type' => 'donation',
-      'field_donor_name' => $form['donor_name']['#value'],
-      'field_donation_purpose' => $form['donation_purpose']['#value'],
-      'field_donation_letter' => $form['donation_letter']['#value'],
-      'field_cash_donation' => $form['donation_cash']['#value'],
-      'field_check_donation' => $form['donation_check']['#value'],
-      'field_venmo_donation' => $form['donation_venmo']['#value'],
-      'field_donor_address' => $form['donor_address']['#value'],
+      'field_donor_name' => $input['field_donor_name'],
+      'field_donation_purpose' => $input['field_donation_purpose'],
+      'field_donation_letter' => $input['field_donation_letter'],
+      'field_cash_donation' => $input['field_cash_donation'],
+      'field_check_donation' => $input['field_check_donation'],
+      'field_venmo_donation' => $input['field_venmo_donation'],
+      'field_donor_address' => $input['field_donor_address'],
     ]);
     $paragraph->isNew();
     $paragraph->save();
 
-    $current = $node->get('donation')->getValue();
+    $current = $node->get('field_donation_info')->getValue();
     $current[] = array(
       'target_id' => $paragraph->id(),
       'target_revision_id' => $paragraph->getRevisionId(),
     );
-    $node->set('donation', $current);
+    $node->set('field_donation_info', $current);
     $node->save();
+
+    return $response;
   }
 
   /**

@@ -4,8 +4,10 @@
  * Contains \Drupal\ccd_cashbox\Plugin\Block\DonationButtonBlock.
  */
 namespace Drupal\ccd_cashbox\Plugin\Block;
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Url;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Provides an 'donation_button' block.
@@ -17,14 +19,27 @@ use Drupal\Core\Url;
  * )
  */
 class DonationButtonBlock extends BlockBase {
+
   /**
    * {@inheritdoc}
    */
-  public function build() {
-    $url = Url::fromRoute('ccd_cashbox.donation.open_modal_form');
-    return $url->toRenderArray();
-//    return [
-//     '#markup' => $this->t('This is a simple block!'),
-//    ];
+  protected function blockAccess(AccountInterface $account) {
+    return AccessResult::allowedIfHasPermission($account, 'access content');
   }
+
+  public function blockForm($form, FormStateInterface $form_state) {
+    $config = $this->getConfiguration();
+
+    return $form;
+  }
+
+
+  /**
+   * {@inheritdoc}
+   */
+
+  public function build() {
+    return \Drupal::formBuilder()->getForm('Drupal\ccd_cashbox\Form\DonationForm');
+  }
+
 }

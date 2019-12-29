@@ -1,6 +1,7 @@
 <?php
 namespace Drupal\ccd_cashbox\Form;
 
+use Drupal\Component\Serialization\Json;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
@@ -16,18 +17,25 @@ class DonationForm extends FormBase {
    */
 
   public function buildForm(array $form, FormStateInterface $form_state, $options = NULL) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    //$nid = $node->id();
+    $nid = 304;
     $form['create_donation'] = [
       '#type' => 'link',
       '#title' => $this->t('Create Donation'),
-      '#url' => Url::fromRoute('ccd_cashbox.donation.open_modal_form'),
+      '#url' => Url::fromRoute('ccd_cashbox.donation.open_modal_form', ['node' => $nid]),
       '#attributes' => [
         'class' => [
           'use-ajax',
           'button',
           'btn',
           'btn-success',
+          'modal-classy',
         ],
         'data-dialog-type' => 'modal',
+        'data-dialog-options' => Json::encode(array(
+          'width' => 600,
+        )),
       ],
     ];
 
