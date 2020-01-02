@@ -11,6 +11,10 @@ body {
   background-attachment: fixed;
 }
 
+.autocomplete-titles {
+  color:black;
+}
+
 body.path-frontpage {
   background-image: none;
   color:white;
@@ -23,6 +27,9 @@ div iframe.iframe-centered {
 }
 
 span.field-content {
+  color:black;
+}
+div.views-view-grid span.field-content {
   color:white;
 }
 
@@ -170,6 +177,10 @@ div.main-container.container {
 .band-info-container, .caller-info-container {
   background-color: rgba(255,255,255,1) !important;
   color:black
+}
+
+div.ui-helper-hidden-accessible {
+  color:red;
 }
 /**************************************************************
 *
@@ -643,7 +654,9 @@ div.layout-builder section {
   max-width:50% !important;
   width:50% !important;
   top:10% !important;
+  color:black;
 }
+
 
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons  button.tabledrag-toggle-weight {
   display:none;
@@ -665,6 +678,29 @@ div.layout-builder section {
 
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field] {
   width:50%;
+}
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-event-date-wrapper] {
+  width:50%;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-event-date-wrapper] .form-item {
+  width:100%;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-event-date-0] .form-inline {
+  display:inline;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-image] .form-control {
+  padding-bottom:2.3em;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-band-image] .form-control {
+  padding-bottom:2.3em;
+}
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-event-date-wrapper] input {
+  padding-bottom: 2.5em;
 }
 
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-address] {
