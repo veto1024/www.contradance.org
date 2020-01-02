@@ -26,6 +26,9 @@ span.field-content {
   color:white;
 }
 
+textarea.cke_source {
+  color:black;
+}
 body.front span.date-display-single,
 body.front div.field-name-field-cost,
 body.page-calendar span.date-display-single,
@@ -215,7 +218,7 @@ div.jumbotron.jumbotronImg {
   background-repeat: no-repeat;
   opacity:.3;
   margin:-2em 0 0 0;
-  padding:0em;
+  padding:0;
 }
 
 @media only screen and (min-width : 992px) and (max-width:3000px) {
@@ -226,7 +229,7 @@ div.jumbotron.jumbotronImg {
     background-repeat: no-repeat;
     opacity:.1;
     margin:-2em 0 0 0;
-    padding:0em;
+    padding:0;
     background-position: 0;
   }
 }
@@ -266,9 +269,12 @@ div.jumbotron.jumbotronImg {
   padding:1em;
 //  box-shadow: 10px 10px 25px grey;
   border-radius: .5em;
+  margin:1em;
 
 }
-
+div#views-bootstrap-upcoming-events-views-block-1 {
+  margin-right: 1em;
+}
 
 /**************************************************************
 *
@@ -359,15 +365,20 @@ div.jumbotron.jumbotronImg {
 .full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-caller {
   width:33%;
 }
-.calendar-events-full {
+div.full-calendar-panel {
   color:black;
 }
 
-/**************************************************************
-*
-* Event page styling
-*
-***************************************************************/
+div.full-calendar-panel div.contextual button {
+  background-color: yellow;
+}
+
+
+  /**************************************************************
+  *
+  * Event page styling
+  *
+  ***************************************************************/
 
 article.event div.layout__region--second section.block-field-blocknodeeventfield-band {
   width:50%;
@@ -451,6 +462,24 @@ div.cashbox-row span.field-content {
 .upcoming-panel span {
   font-size: .75em;
 }
+@media only screen and (min-width : 320px) {
+  .upcoming-events-views .layout--twocol-section {
+    display: inline;
+  }
+  .upcoming-events-views .layout--twocol-section .layout__region--first {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width : 480) {
+  .upcoming-events-views .layout--twocol-section {
+    display: initial;
+  }
+  .upcoming-events-views .layout--twocol-section .layout__region--first {
+    width: initial;
+  }
+}
+
 
 .upcoming-panel h2 {
   display:inline;
@@ -476,7 +505,7 @@ div.cashbox-row span.field-content {
 
 
 .upcoming-panel div.layout__region--second section.block-field-blocknodeeventfield-band {
-  width:50%;
+  width:66%;
   display:inline-block;
   margin-top:-4em;
 }
@@ -510,9 +539,6 @@ div.cashbox-row span.field-content {
   display:none;
 }
 
-.upcoming-panel div.layout__region--second section.block-field-blocknodeeventfield-band {
-  width:66% !important;
-}
 
 .upcoming-panel div.layout__region--second section.block-field-blocknodeeventfield-caller {
   width:33%;
@@ -527,6 +553,9 @@ div.cashbox-row span.field-content {
  */
 body header div#navbar-collapse a {
   color:white;
+}
+body header .dropdown-menu {
+  background-color:#222222;
 }
 
 div.view-display-id-block_2 {
@@ -558,9 +587,13 @@ a.about-ccd-blocks img {
 }
 
 
-a.band-info-pane, a.caller-info-pane {
+div.band-info-pane, div.caller-info-pane {
+  padding:1em;
 }
 
+div.caller-band-panes {
+  padding:1em;
+}
 section#block-infoforbandsandcallers div.container {
   padding: 0;
   margin:0;
@@ -765,7 +798,7 @@ body.path-frontpage header.navbar {
     font-size : 1.5em;
     position:relative;
     top:50%;
-    margin-top: 0em;
+    margin-top: 0;
   }
 
 }
@@ -792,7 +825,7 @@ body.path-frontpage header.navbar {
     font-size : 1.5em;
     position:relative;
     top:50%;
-    margin-top: 0em;
+    margin-top: 0;
   }
 
 }
@@ -816,7 +849,7 @@ body.path-frontpage header.navbar {
     font-size : 3em;
     position:relative;
     top:50%;
-    margin-top: 0em;
+    margin-top: 0;
   }
 }
 
@@ -865,4 +898,125 @@ body.path-frontpage header.navbar {
 .fb-logo {
   margin:2em;
   height:80px;
+}
+
+div#views-bootstrap-footer-view-block-1 {
+  text-align:center;
+}
+@media only screen and (min-width : 480px) {
+  div#views-bootstrap-footer-view-block-1 div.row div.field-content a img {
+    height: 100px;
+  }
+}
+div#views-bootstrap-footer-view-block-1 p {
+  font-weight:600;
+  text-emphasis: blue;
+  font-style:italic;
+  margin:1em;
+}
+
+@media only screen and (min-width : 320px) {
+  div#views-bootstrap-footer-view-block-1 img {
+    height:50px;
+    width:auto;
+  }
+}
+
+/**************************************************************
+*
+* Sponsor a Dancer styling
+*
+***************************************************************/
+
+
+.checkmark-list {
+  margin-bottom:.5em;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+  p.sponsor-dancer-smaller {
+    font-size:1.25em;
+  }
+  p.sponsor-dancer-main {
+    font-size:1.0em;
+  }
+  div.sponsor-img-happy, div.img-sponsor-heart {
+    width: 100%;
+    display: block;
+    text-align: center;
+    height: 250px;
+  }
+  div.sponsor-img-happy img, div.img-sponsor-heart img {
+    height: 250px;
+    width: auto !important;
+  }
+  div.right-checks-container, div.left-checks-container {
+    width: 100%;
+    display: block;
+    padding: 1em;
+    text-align: center;
+  }
+  div.sponsor-block-1, div.sponsor-block-2 {
+    display: inherit;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+  p.sponsor-dancer-smaller {
+    font-size:1.5em;
+  }
+  p.sponsor-dancer-main {
+    font-size:1.25em;
+  }
+  div.sponsor-img-happy, div.img-sponsor-heart {
+    width: 100%;
+    display: block;
+    text-align: center;
+    height: 250px;
+  }
+  div.sponsor-img-happy img, div.img-sponsor-heart img {
+    height: 250px;
+    width: auto !important;
+  }
+  div.right-checks-container, div.left-checks-container {
+    width: 100%;
+    display: block;
+    padding: 1em;
+  }
+  div.sponsor-block-1, div.sponsor-block-2 {
+    display: inherit;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  p.sponsor-dancer-smaller {
+    font-size:2em;
+  }
+  p.sponsor-dancer-main {
+    font-size:1.75em;
+  }
+  div.sponsor-img-happy, div.img-sponsor-heart {
+    width:49%;
+    display:block;
+   }
+  div.right-checks-container, div.left-checks-container {
+    width:49%;
+    display:block;
+    padding:1em;
+  }
+  div.sponsor-block-1, div.sponsor-block-2 {
+    display:flex;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
 }

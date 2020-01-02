@@ -55,6 +55,29 @@ function agenda_items_contextual_links_view_alter(&$element, $items) {
       'data-dialog-renderer' => 'modal',
     ];
   }
+  if (isset($element['#links']['entitynodeedit-form'])) {
+
+    if (isset($element['$attributes']['style'])) {
+      $element['#attributes']['style'] = ['background-color : green'];
+    } else {
+      $element['#attributes']['style'] = ['background-color : green'];
+    };
+    $element['#links']['entitynodeedit-form']['attributes'] = [
+      'class' => ['use-ajax'],
+      'data-dialog-type' => 'dialog',
+      'data-dialog-renderer' => 'off_canvas',
+      'data-dialog-options' => json_encode(['width' => '50%']),
+    ];
+  }
+
+  // If Contextual link is the Calendar View link, disable the View contextual links
+  if (isset($element['#contextual_links']['entity.view.edit_form'])) {
+    $element['#attributes'][] = [
+      'style' => [
+        'display' => 'none',
+      ]
+    ];
+  }
 
 }
 

@@ -15,3 +15,4 @@ function ccd_bs_page_attachments_alter(&$attachments) {
     $attachments['#attached']['library'][] = 'ccd_bs/slide.js';
   }
 }
+
