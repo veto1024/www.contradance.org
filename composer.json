@@ -57,6 +57,7 @@
         "drupal/flag_search_api": "^1.4",
         "drupal/fullcalendar_view": "^2.4",
         "drupal/google_analytics": "^2.4",
+        "drupal/icon": "1.x-dev",
         "drupal/link_attributes": "^1.9",
         "drupal/mailchimp": "^1.11",
         "drupal/mailchimp_ecommerce": "^1.5",

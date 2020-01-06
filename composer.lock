@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a6ee68a4448818d494e15b22ea8af60",
+    "content-hash": "1434797d2a381e90721183f6e3e1f706",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5858,6 +5858,52 @@
                 "source": "https://git.drupal.org/project/google_analytics.git",
                 "issues": "https://www.drupal.org/project/issues/google_analytics"
             }
+        },
+        {
+            "name": "drupal/icon",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/icon.git",
+                "reference": "2bcdf76fed404c5686e11f9cb720cfbe19dc8a3d"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1495491184",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "markcarver",
+                    "homepage": "https://www.drupal.org/user/501638"
+                },
+                {
+                    "name": "sylus",
+                    "homepage": "https://www.drupal.org/user/339714"
+                }
+            ],
+            "description": "Implements an API for icon providers and an administrative UI for integrating icons through out the site.",
+            "homepage": "https://www.drupal.org/project/icon",
+            "support": {
+                "source": "https://git.drupalcode.org/project/icon"
+            },
+            "time": "2017-05-22T22:08:07+00:00"
         },
         {
             "name": "drupal/inline_entity_form",
@@ -15664,6 +15710,7 @@
         "drupal/courier": 15,
         "drupal/date_pager": 20,
         "drupal/entity_usage": 10,
+        "drupal/icon": 20,
         "drupal/s3fs": 15,
         "drupal/s3fs_cors": 10
     },

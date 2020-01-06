@@ -3,12 +3,37 @@
  * your custom CSS modifications here.
  */
 
+/**************************************************************
+*
+* Global styling
+*
+***************************************************************/
 body {
   background-image: url("/themes/custom/ccd_bs/images/layout/bgimages/wood.jpg");
   background-repeat: repeat;
   z-index: -99;
-  color:white;
   background-attachment: fixed;
+}
+
+h1,h2,h3,h4,h5 {
+    color:white;
+  }
+
+label {
+  color:white;
+}
+
+/**************************************************************
+*
+* Edit tab styling
+*
+***************************************************************/
+
+.tabs-below > .nav-tabs .summary, .tabs-left > .nav-tabs .summary, .tabs-right > .nav-tabs .summary {
+  color:white;
+}
+.white-on-black {
+  color:white;
 }
 
 .autocomplete-titles {
@@ -67,10 +92,35 @@ div.view-id-board_members {
   border-radius: 20px;
   padding:1em;
 }
-/**
- * Make the main page video responsive
- *
- */
+
+/**************************************************************
+*
+* Set styling for large text blocks
+*
+***************************************************************/
+
+@media only screen and (min-width : 320px) {
+  div.text-block {
+    font-size:18px;
+  }
+}
+@media only screen and (min-width : 480px) {
+  div.text-block {
+    font-size:18px;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  div.text-block {
+    font-size:18px;
+  }
+}
+
+/**************************************************************
+*
+* Make the main video responsive
+*
+***************************************************************/
 
 .embedded-video .player {
   position: relative;
@@ -1059,4 +1109,80 @@ div#views-bootstrap-footer-view-block-1 p {
     margin-bottom: 1em;
   }
 
+}
+
+/**************************************************************
+*
+* Override off-canvas CSS until
+*
+***************************************************************/
+
+
+#drupal-off-canvas button, #drupal-off-canvas .button {
+  margin-right: 10px;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight:800;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  fon
+}
+#drupal-off-canvas button.btn-success {
+  background-color:green;
+  color:white;
+}
+
+
+#drupal-off-canvas button.btn-default.form-submit {
+  background-color:#ffc107;
+  color:black;
+}
+
+
+/**************************************************************
+*
+* Set style for Directions page
+*
+***************************************************************/
+span.directions-titles.btn-block.btn.btn-default {
+  font-size:2em;
+}
+.view-directions-view p {
+  margin-top: .5em;
+  font-size:18px;
+}
+
+.view-directions-view   div.directions-block {
+    display: flex;
+    text-align: center;
+  margin-top:.5em;
+  margin-bottom: .5em;
+  }
+
+.view-directions-view   div.left-image-block, div.right-text-block {
+    width: 49%;
+  }
+
+/**************************************************************
+*
+* Uncategorzied
+*
+***************************************************************/
+
+div#drupal-modal label.control-label {
+  color:black;
 }
