@@ -13,6 +13,7 @@ body {
   background-repeat: repeat;
   z-index: -99;
   background-attachment: fixed;
+  color:white;
 }
 
 h1,h2,h3,h4,h5 {
@@ -193,14 +194,7 @@ div.highlighted.jumbotron {
 footer.footer {
   padding-left: inherit;
 }
-/*
- * Make footer text readable
- *
-*/
 
-.footer h2.block-title{
-  color:white;
-}
 
 /*
  * background color
@@ -1185,4 +1179,58 @@ span.directions-titles.btn-block.btn.btn-default {
 
 div#drupal-modal label.control-label {
   color:black;
+}
+
+div#drupal-modal div.help-block {
+  color:black;
+  font-size:1em;
+}
+div.form-group tr label.control-label {
+  color:black;
+}
+
+div.form-group div.form-item thead th {
+  color:white;
+}
+
+form.node-form div[id^="edit-"][id$="-wrapper"] {
+  color:white;
+}
+form.node-form div[id^="edit-"][id$="-wrapper"] div.panel-body label.control-label,  form.node-form div[id^="edit-"][id$="-wrapper"]  .paragraph-type-title {
+  color:black;
+}
+
+div.form-group div.form-item div.panel-body div.help-block.description {
+  font-size:1em;
+  color:black;
+}
+form.node-form div[id^="edit-"][id$="-wrapper"] div.description.help-block {
+  font-size:1em;
+  color:white;
+}
+
+li.vertical-tab-button:not(.active) {
+  border: 2px solid white;
+  border-radius: 5px;
+}
+/**************************************************************
+*
+* Board Meetings
+*
+***************************************************************/
+
+div.public-agenda-items.panel {
+  padding:.5em;
+  color: black;
+  font-size:1em;
+}
+
+div.public-agenda-items.panel div.tab-content {
+  border: 5px solid blue;
+  border-radius: 10px;
+  padding:1em;
+}
+
+div.public-agenda-items.panel ul {
+  margin-bottom:.25em;
 }
