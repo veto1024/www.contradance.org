@@ -1,0 +1,17 @@
+/**
+ * @file
+ * datepager sates css
+ *
+ * @author Kate Heinlein
+ */
+
+.date-pager .active {
+  font-weight: bold;
+  color:white;
+  background-color: purple;
+  border-color: purple;
+}
+
+.date-pager .future {
+ // opacity: 0.5;
+}
