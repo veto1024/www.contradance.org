@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6f8b6e073a311950aa2637b254c3bbd",
+    "content-hash": "c3f265a8ae4f865e6fc7d6096f3977d7",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6389,7 +6389,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.4",
-                    "datestamp": "1571872640",
+                    "datestamp": "1578376087",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -15708,7 +15708,6 @@
         "drupal/commerce_pado": 5,
         "drupal/commerce_webform_order": 20,
         "drupal/courier": 15,
-        "drupal/date_pager": 20,
         "drupal/entity_usage": 10,
         "drupal/icon": 20,
         "drupal/s3fs": 15,

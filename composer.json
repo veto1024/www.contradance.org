@@ -47,7 +47,6 @@
         "drupal/core": "^8.7.0",
         "drupal/core-dev": "^8.8",
         "drupal/courier": "^1.0@alpha",
-        "drupal/date_pager": "1.x-dev",
         "drupal/devel": "^2.1",
         "drupal/entity_browser": "^2.2",
         "drupal/entity_print": "^2.0",
@@ -73,8 +72,8 @@
         "drupal/riddler": "^1.1",
         "drupal/rules": "^3.0",
         "drupal/rules_webform": "^1.4",
-        "drupal/s3fs": "^3.0@alpha",
-        "drupal/s3fs_cors": "^1.0@beta",
+        "drupal/s3fs": "~3.0@alpha",
+        "drupal/s3fs_cors": "~1.0@beta",
         "drupal/search_api_autocomplete": "^1.2",
         "drupal/search_api_db": "^1.15",
         "drupal/sendgrid_integration": "^1.2",
@@ -144,6 +143,11 @@
             "initial": {
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
+            }
+        },
+        "patches": {
+            "drupal/s3f3": {
+                "Public file stream wrapper update": "https://www.drupal.org/files/issues/2019-09-19/entity_usage-htmllink-streamwrapper-2973297-7.patch"
             }
         }
     }
