@@ -45,6 +45,7 @@
         "drupal/conditional_fields": "^1.0",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.7.0",
+        "drupal/core-dev": "^8.8",
         "drupal/courier": "^1.0@alpha",
         "drupal/date_pager": "1.x-dev",
         "drupal/devel": "^2.1",
@@ -97,7 +98,6 @@
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
-        "webflo/drupal-core-require-dev": "^8.7.0"
     },
     "conflict": {
         "drupal/drupal": "*"

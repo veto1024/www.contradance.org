@@ -778,3 +778,4 @@ $settings['entity_update_backup'] = TRUE;
    include $app_root . '/' . $site_path . '/settings.local.php';
  }
 $config_directories['sync'] = $app_root.'/../config/sync';
+
