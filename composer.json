@@ -88,6 +88,7 @@
         "drupal/views_aggregator": "^1.0",
         "drupal/views_bootstrap": "^3.1",
         "drupal/views_data_export": "^1.0",
+        "drupal/views_ical": "^1.0@alpha",
         "drupal/webform_encrypt": "^1.0",
         "drupal/webform_views": "^5.0",
         "drush/drush": "^9.0.0",
