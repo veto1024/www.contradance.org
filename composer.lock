@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3f265a8ae4f865e6fc7d6096f3977d7",
+    "content-hash": "063e7e710b32744548923f59f9694a2a",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5992,6 +5992,9 @@
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Public file stream wrapper update": "https://www.drupal.org/files/issues/2019-09-19/entity_usage-htmllink-streamwrapper-2973297-7.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
