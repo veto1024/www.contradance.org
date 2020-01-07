@@ -50,7 +50,7 @@
         "drupal/devel": "^2.1",
         "drupal/entity_browser": "^2.2",
         "drupal/entity_print": "^2.0",
-        "drupal/entity_usage": "^2.0@beta",
+        "drupal/entity_usage": "2.x-dev",
         "drupal/feeds": "^3.0",
         "drupal/field_group": "^3.0",
         "drupal/flag": "^4.0",

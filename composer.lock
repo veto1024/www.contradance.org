@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "063e7e710b32744548923f59f9694a2a",
+    "content-hash": "a4ce049bfd31ebacca2e90de80069079",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5957,17 +5957,11 @@
         },
         {
             "name": "drupal/entity_usage",
-            "version": "2.0.0-beta1",
+            "version": "dev-2.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_usage.git",
-                "reference": "8.x-2.0-beta1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_usage-8.x-2.0-beta1.zip",
-                "reference": "8.x-2.0-beta1",
-                "shasum": "dc551b4fdb261b9e4058b2ad55ba8c0874198cfd"
+                "reference": "220cf3ab7500fca2df31db4e11854d0315d78f01"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -5986,11 +5980,16 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta1",
-                    "datestamp": "1561364886",
+                    "version": "8.x-2.0-beta1+5-dev",
+                    "datestamp": "1578073683",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
                     }
                 },
                 "patches_applied": {
@@ -6019,7 +6018,8 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/entity_usage",
                 "issues": "http://drupal.org/project/issues/entity_usage"
-            }
+            },
+            "time": "2020-01-07T09:31:21+00:00"
         },
         {
             "name": "drupal/feeds",
@@ -15665,7 +15665,7 @@
         "drupal/commerce_pado": 5,
         "drupal/commerce_webform_order": 20,
         "drupal/courier": 15,
-        "drupal/entity_usage": 10,
+        "drupal/entity_usage": 20,
         "drupal/icon": 20,
         "drupal/s3fs": 15,
         "drupal/s3fs_cors": 10
