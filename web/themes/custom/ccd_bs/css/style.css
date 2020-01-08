@@ -24,6 +24,10 @@ label {
   color:white;
 }
 
+form#node-event-form div.panel label {
+  color:black;
+}
+
 /**************************************************************
 *
 * Edit tab styling
@@ -743,9 +747,9 @@ div.layout-builder section {
   padding-bottom:2.3em;
 }
 
-.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-event-date-wrapper] input {
-  padding-bottom: 2.5em;
-}
+/*.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-event-date-wrapper] input {*/
+/*  padding-bottom: 2.5em;*/
+/*}*/
 
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-address] {
   width:100%;
@@ -1133,7 +1137,6 @@ div#views-bootstrap-footer-view-block-1 p {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  fon
 }
 #drupal-off-canvas button.btn-success {
   background-color:green;

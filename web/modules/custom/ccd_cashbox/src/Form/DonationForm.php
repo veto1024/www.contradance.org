@@ -18,8 +18,7 @@ class DonationForm extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state, $options = NULL) {
     $node = \Drupal::routeMatch()->getParameter('node');
-    //$nid = $node->id();
-    $nid = 304;
+    $nid = $node->id();
     $form['create_donation'] = [
       '#type' => 'link',
       '#title' => $this->t('Create Donation'),

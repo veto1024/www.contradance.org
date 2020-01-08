@@ -40,8 +40,8 @@ class ModalDonationForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    //$form['#attached']['library'][] = 'core/drupal.dialog.ajax';
-    //$form['#attached']['library'][] = 'core/drupal.ajax';
+    $form['#attached']['library'][] = 'core/drupal.dialog.ajax';
+    $form['#attached']['library'][] = 'core/drupal.ajax';
 
     $form['#prefix'] = '<div id="donation_form">';
     $form['#suffix'] = '</div>';
