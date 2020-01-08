@@ -1,0 +1,4 @@
+ignore:
+  - webform.webform*
+  - field.storage.node.field_band_image_new
+  - field.storage.node.field_person_image
