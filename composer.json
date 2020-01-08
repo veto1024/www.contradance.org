@@ -88,7 +88,7 @@
         "drupal/views_aggregator": "^1.0",
         "drupal/views_bootstrap": "^3.1",
         "drupal/views_data_export": "^1.0",
-        "drupal/views_ical": "^1.0@alpha",
+        "drupal/views_ical": "1.x-dev",
         "drupal/webform_encrypt": "^1.0",
         "drupal/webform_views": "^5.0",
         "drush/drush": "^9.0.0",
@@ -149,6 +149,9 @@
         "patches": {
             "drupal/entity_usage": {
                 "Public file stream wrapper update": "https://www.drupal.org/files/issues/2019-09-19/entity_usage-htmllink-streamwrapper-2973297-7.patch"
+            },
+            "drupal/views_ical": {
+                "Handling null data for location and body":  "ical-field-wizard-link-handling.patch"
             }
         }
     }

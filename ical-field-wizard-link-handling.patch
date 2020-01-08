@@ -1,0 +1,37 @@
+Index: web/modules/contrib/views_ical/src/Plugin/views/row/IcalFieldsWizard.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- web/modules/contrib/views_ical/src/Plugin/views/row/IcalFieldsWizard.php	(date 1578443268462)
++++ web/modules/contrib/views_ical/src/Plugin/views/row/IcalFieldsWizard.php	(date 1578443268462)
+@@ -211,7 +211,12 @@
+       }
+       else {
+         $location = $entity->{$field_mapping['location_field']}->first();
+-        $event->setLocation($location->getValue()['value']);
++        if ($location->getFieldDefinition()->getType() == 'link') {
++          $event->setLocation($location->getValue()['title']);
++        }
++        else {
++          $event->setLocation($location->getValue()['value']);
++        }
+       }
+ 
+     }
+@@ -225,8 +230,13 @@
+       }
+       else {
+         /** @var \Drupal\Core\Field\FieldItemInterface $description */
+-        $description = $entity->{$field_mapping['description_field']}->first();
+-        $event->setDescription(\strip_tags($description->getValue()['value']));
++        if ($entity->{$field_mapping['description_field']}->first()) {
++          $description = $entity->{$field_mapping['description_field']}->first();
++          $event->setDescription(\strip_tags($description->getValue()['value']));
++        }
++        else {
++          $event->setDescription(' ');
++        }
+       }
+     }
+ 

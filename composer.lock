@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "851b21b0ee3920f3196a99f594cd32ad",
+    "content-hash": "a2c9a678976ce9bc61ced634d1b2c173",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -177,16 +177,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.131.0",
+            "version": "3.132.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "371ca02855c92c13e36fa5f6d38e68211354c979"
+                "reference": "d1ea3332539a07d122e5cf397c0eb3a1fb75eede"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/371ca02855c92c13e36fa5f6d38e68211354c979",
-                "reference": "371ca02855c92c13e36fa5f6d38e68211354c979",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d1ea3332539a07d122e5cf397c0eb3a1fb75eede",
+                "reference": "d1ea3332539a07d122e5cf397c0eb3a1fb75eede",
                 "shasum": ""
             },
             "require": {
@@ -257,7 +257,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-01-06T19:10:20+00:00"
+            "time": "2020-01-07T19:13:51+00:00"
         },
         {
             "name": "behat/mink",
@@ -8946,17 +8946,11 @@
         },
         {
             "name": "drupal/views_ical",
-            "version": "1.0.0-alpha4",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_ical.git",
-                "reference": "8.x-1.0-alpha4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_ical-8.x-1.0-alpha4.zip",
-                "reference": "8.x-1.0-alpha4",
-                "shasum": "0dc8ab357c196dde2eea5cb970316e1ff882fb17"
+                "reference": "29db6280a1a783c8024dd7d0c94087f5c3597881"
             },
             "require": {
                 "drupal/core": "*",
@@ -8968,8 +8962,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha4",
-                    "datestamp": "1571420284",
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1571419687",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -15772,7 +15766,7 @@
         "drupal/icon": 20,
         "drupal/s3fs": 15,
         "drupal/s3fs_cors": 10,
-        "drupal/views_ical": 15
+        "drupal/views_ical": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
