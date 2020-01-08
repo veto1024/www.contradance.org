@@ -6,6 +6,7 @@ global-styling:
     js/slide.js: {}
     js/dateName.js: {}
     js/videoFade.js: {}
+    js/mainCanvasResponsive.js: {}
 
   dependencies:
     - core/jquery

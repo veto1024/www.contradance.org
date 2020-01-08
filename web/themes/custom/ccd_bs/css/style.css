@@ -16,6 +16,7 @@ body {
   color:white;
 }
 
+
 h1,h2,h3,h4,h5 {
     color:white;
   }
@@ -59,6 +60,14 @@ div iframe.iframe-centered {
 span.field-content {
   color:black;
 }
+body.page-node-type-event span.field-content {
+  color:white;
+}
+
+body.page-node-type-event .field.field--name-field-cost.field--type-string.field--label-hidden.field--item {
+  margin-bottom: .5em;
+}
+
 div.views-view-grid span.field-content {
   color:white;
 }
@@ -106,12 +115,12 @@ div.view-id-board_members {
 
 @media only screen and (min-width : 320px) {
   div.text-block {
-    font-size:18px;
+    font-size:14px;
   }
 }
 @media only screen and (min-width : 480px) {
   div.text-block {
-    font-size:18px;
+    font-size:14px;
   }
 }
 
@@ -320,6 +329,7 @@ div.jumbotron.jumbotronImg {
   z-index: -5;
   width: 100%;
   opacity: 0;
+  padding-top:50px;
 }
 
 /**************************************************************
@@ -344,81 +354,140 @@ div#views-bootstrap-upcoming-events-views-block-1 {
 * Full Calendar events styling
 *
 ***************************************************************/
+
+li.pager__item.pager__item__years {
+  display:flex;
+  margin-top:.5em;
+}
+
+li.pager__item.pager__item__years ul {
+  margin:.5em;
+  padding:.5em;
+}
+@media only screen and (min-width : 768px) {
+  li.pager__item.pager__item__years {
+    display:initial;
+    margin-top:initial;
+  }
+
+  li.pager__item.pager__item__years ul {
+    margin:initial;
+    padding:initial;
+  }
+}
 .full-calendar-panel span {
   font-size: .75em;
 }
 
-.full-calendar-panel div.field--name-field-band {
+.full-calendar-panel {
+  text-align: center;
+  font-size: 14px;
+}
+.full-calendar-panel section[class^="block"] {
   text-align:center;
 }
 
-.full-calendar-panel div.field--name-field-caller {
+.full-calendar-panel section[class^="block"] div {
+  display: inline-flex;
   text-align:center;
 }
 
-.full-calendar-panel div.field--name-field-host {
-  text-align:center;
+.layout--twocol-section.layout--twocol-section--25-75 > .layout__region--first {
+  flex:auto;
+}
+@media only screen and (min-width : 768px) {
+  .full-calendar-panel {
+    text-align: initial;
+    font-size: 14px;
+  }
+  .full-calendar-panel section[class^="block"] {
+    text-align: initial;
+  }
+
+  .full-calendar-panel section[class^="block"] div {
+    display: inline-flex;
+    text-align: left;
+  }
+
+  .full-calendar-panel section.block-field-blocknodeeventfield-event-date {
+    font-size:14px;
+  }
 }
 
-.full-calendar-panel div.field--name-field-sound {
-  text-align:center;
-}
 
-.full-calendar-panel div.field--name-field-band img {
-  width:75%;
-  max-height:220px;
-  display: inline;
-}
-
+.full-calendar-panel div.field--name-field-band img,
 .full-calendar-panel div.field--name-field-caller img {
+  width:auto;
+  max-height:180px;
   display: inline;
 }
 
-.full-calendar-panel div.field--name-field-sound img {
-  display: inline;
-}
-
+.full-calendar-panel div.field--name-field-caller img,
+.full-calendar-panel div.field--name-field-sound img,
 .full-calendar-panel div.field--name-field-host img {
   display: inline;
 }
 
-.full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-band {
-  width:100%;
-  display:inline-block;
-  margin-top:-4em;
-}
-.full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-caller {
-  width:32%;
-  display:inline-block;
-}
-.full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-host {
-  width:32%;
-  display:inline-block;
-}
-
-.full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-sound {
-  width:32%;
-  display:inline-block;
-}
 
 .full-calendar-panel  {
   margin-bottom:20px !important;
   padding-bottom: 1em;
 }
-.full-calendar-panel  div.layout__region--first div.field--item {
-  float:left;
+
+.full-calendar-panel div.layout__region--first .field--label {
+  float: none;
+}
+div.block-field-blocknodeeventfield-event-date {
+  width: 100%;
+  text-align: center;
 }
 
 
-.full-calendar-panel  div.layout__region--second {
-  position:absolute;
-  top:0;
-  right:0;
-  width:60%;
+@media only screen and (min-width : 768px) {
+  .full-calendar-panel div.layout__region--first div.field--item {
+    float: left;
+  }
+  .full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-band {
+    width:100%;
+    display:inline-block;
+    margin-top:-4em;
+  }
+  .full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-caller {
+    width:32%;
+    display:inline-block;
+  }
+  .full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-host {
+    width:32%;
+    display:inline-block;
+  }
+
+  .full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-sound {
+    width:32%;
+    display:inline-block;
+  }
 }
 
-.full-calendar-panel div.layout__region--second span {
+.full-calendar-panel div.layout__region--second {
   display:none;
+}
+@media only screen and (min-width : 768px) {
+  .full-calendar-panel div.layout__region--second {
+    position: absolute;
+    display: initial;
+    right: 0;
+    width: 60%;
+    top:0;
+  }
+}
+@media only screen and (min-width : 1200px) {
+  .full-calendar-panel div.layout__region--second {
+    top: 0;
+  }
+}
+
+.full-calendar-panel div.layout__region--second h2 {
+  display:none;
+  margin:0;
 }
 
 .full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-band {
@@ -444,10 +513,33 @@ div.full-calendar-panel div.contextual button {
   ***************************************************************/
 
 article.event div.layout__region--second section.block-field-blocknodeeventfield-band {
-  width:50%;
+  width: 100%;
+}
+article.event div.layout__region--second section.block-field-blocknodeeventfield-caller {
+  width:49%;
   display:inline-block;
 }
 
+article.event div.layout__region--second section.block-field-blocknodeeventfield-host {
+  width: 49%;
+  display: inline-block;
+}
+
+@media only screen and (min-width : 480px) {
+  article.event div.layout__region--second section.block-field-blocknodeeventfield-band {
+    width: 50%;
+    display: inline-block;
+  }
+  article.event div.layout__region--second section.block-field-blocknodeeventfield-caller {
+    width:24%;
+    display:inline-block;
+  }
+
+  article.event div.layout__region--second section.block-field-blocknodeeventfield-host {
+    width: 24%;
+    display: inline-block;
+  }
+}
 article.event div.layout__region--second section.block-field-blocknodeeventfield-band span {
   display:none;
 }
@@ -459,15 +551,7 @@ article.event div.layout__region--second section.block-field-blocknodeeventfield
 }
 
 
-article.event div.layout__region--second section.block-field-blocknodeeventfield-caller {
-  width:24%;
-  display:inline-block;
-}
 
-article.event div.layout__region--second section.block-field-blocknodeeventfield-host{
-  width:24%;
-  display:inline-block;
-}
 
 div.attendance-summary-row span.views-field {
   display:block;
@@ -525,22 +609,32 @@ div.cashbox-row span.field-content {
 .upcoming-panel span {
   font-size: .75em;
 }
-@media only screen and (min-width : 320px) {
-  .upcoming-events-views .layout--twocol-section {
-    display: inline;
-  }
-  .upcoming-events-views .layout--twocol-section .layout__region--first {
-    width: 50%;
-  }
+
+.upcoming-events-views .layout--twocol-section .layout__region--second {
+  display: none;
+}
+.upcoming-events-views .layout--twocol-section .layout__region--first {
+  width: 100%;
 }
 
-@media only screen and (min-width : 480) {
-  .upcoming-events-views .layout--twocol-section {
-    display: initial;
-  }
+@media only screen and (min-width : 768px) {
   .upcoming-events-views .layout--twocol-section .layout__region--first {
-    width: initial;
+    display: initial;
+    width:49%;
   }
+  .upcoming-events-views .layout--twocol-section .layout__region--second {
+    width: 49%;
+    top:15%;
+    height:100%;
+    display:initial;
+  }
+  div#views-bootstrap-upcoming-events-views-block-1  .upcoming-events-views .layout__region--second .block-field-blocknodeeventfield-band {
+    width:65%;
+  }
+  div#views-bootstrap-upcoming-events-views-block-1 .upcoming-events-views .layout__region--second .block-field-blocknodeeventfield-caller {
+    width:32%;
+  }
+
 }
 
 
@@ -643,10 +737,14 @@ div.ui-dialog div.captcha p strong {
   color:green !important;
 }
 
+.about-ccd-blocks-container.container {
+  text-align: center;
+}
 
 a.about-ccd-blocks img {
   border: 5px dashed #0a83ff;
   border-radius: 10px;
+  margin-bottom: 1em;
 }
 
 
@@ -959,7 +1057,7 @@ body.path-frontpage header.navbar {
   margin-top:.5em;
   display:inline-block;
 }
-.board-member-rows div.views-field-field-band-image {
+.board-member-rows div.views-field-field-person-image {
   margin-top:.5em;
   display:inline-block;
 }
@@ -1156,24 +1254,68 @@ div#views-bootstrap-footer-view-block-1 p {
 *
 ***************************************************************/
 span.directions-titles.btn-block.btn.btn-default {
-  font-size:2em;
+  font-size:1.0em;
+  font-weight: 800;
 }
 .view-directions-view p {
   margin-top: .5em;
-  font-size:18px;
+  font-size:14px;
 }
-
 .view-directions-view   div.directions-block {
-    display: flex;
-    text-align: center;
+  display: inline-block;
+   text-align: center;
   margin-top:.5em;
   margin-bottom: .5em;
   }
 
+.view-directions-view .left-image-block {
+  width:100%;
+  display:inline-block;
+}
+
 .view-directions-view   div.left-image-block, div.right-text-block {
-    width: 49%;
+    width: 100%;
   }
 
+@media only screen and (min-width : 768px) {
+  span.directions-titles.btn-block.btn.btn-default {
+    font-size:2em;
+  }
+  .view-directions-view   div.directions-block {
+    display: inline-flex;
+    text-align: center;
+    margin-top:.5em;
+    margin-bottom: .5em;
+    width:100%;
+  }
+  .view-directions-view p {
+    margin-top: .5em;
+    font-size:18px;
+  }
+  .view-directions-view .left-image-block {
+    width:49%;
+    display:inline-block;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  span.directions-titles.btn-block.btn.btn-default {
+    font-size:2em;
+  }
+  .view-directions-view p {
+    margin-top: .5em;
+    font-size:18px;
+  }
+  .view-directions-view .left-image-block {
+    width:49%;
+    display:inline-flex;
+  }
+  .view-directions-view   div.left-image-block, div.right-text-block {
+    width: 49%;
+    display:inline-block;
+    float:top;
+  }
+}
 /**************************************************************
 *
 * Uncategorzied
@@ -1236,4 +1378,8 @@ div.public-agenda-items.panel div.tab-content {
 
 div.public-agenda-items.panel ul {
   margin-bottom:.25em;
+}
+
+button.edit-submit-email {
+  margin-bottom: .5em;
 }

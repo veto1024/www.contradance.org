@@ -10,6 +10,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\OpenModalDialogCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use CommerceGuys\Addressing\AddressFormat\AddressField;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -294,11 +295,11 @@ class ModalDonationForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
     $input = $form_state->getUserInput();
-    $nid=$form_state->getvalue('nid');
+    $nid= $form_state->getvalue('nid');
     $response->addCommand(new OpenModalDialogCommand("Success!", 'The donation has been submitted! Click anywhere to exit.'));
 
     /* $nid=\Drupal::entityTypeManager()->getStorage('node')->load($nid); */
-    $node=\Drupal\node\Entity\Node::load($nid);
+    $node= Node::load($nid);
 
     // Create single new paragraph
     $paragraph = Paragraph::create([
