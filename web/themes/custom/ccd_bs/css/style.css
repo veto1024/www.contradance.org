@@ -558,7 +558,7 @@ div.revenue-row span.field-content {
   float:right;
   margin-right: 1em;
 }
-div#views-bootstrap-event-views-event-view-donation-summary-view .panel.panel-default div.paragraph--type--donation {
+div#views-bootstrap-event-views-event-view-donation-summary-view .panel.panel-default .field-content {
   color:black;
 }
 
@@ -584,22 +584,21 @@ fieldset#field_num_of_payees {
   margin-bottom: .5em;
 }
 
-section[class^="ccd-cashbox"] {
-  display:inline-flex;
-  margin: .5em;
-}
 
 form#ccd-cashbox-operations-add-student-form .captcha-admin-links,
 form#ccd-cashbox-operations-add-comped-form .captcha-admin-links,
 form#ccd-cashbox-operations-add-student-iou-form .captcha-admin-links,
-form#ccd-cashbox-operations-add-full-iou-form .captcha-admin-links{
+form#ccd-cashbox-operations-add-full-iou-form .captcha-admin-links {
   display:none;
 }
 
-  /*section#block-donationsubmission {*/
-/*  max-width: 25%;*/
-/*  text-align: center;*/
-/*}*/
+section.block-ccd-cashbox {
+  margin-top:1em;
+}
+
+section.block-ccd-cashbox .btn {
+  width:100%;
+}
 
 div.edit-node .panel-body label {
   color:black;

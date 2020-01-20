@@ -28,6 +28,18 @@ function ccd_cashbox_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
+ * Implements hook_theme().
+ */
+
+function ccd_cashbox_theme($existing, $type, $theme, $path) {
+  return [
+    'ccd_cashbox_template' => [
+
+    ]
+  ];
+}
+
+/**
  * Implements hook_form
  */
 
