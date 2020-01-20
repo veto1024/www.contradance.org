@@ -18,3 +18,66 @@ ccd_cashbox.donation.open_modal_form:
     parameters:
       node:
         type: entity:node
+
+ccd_cashbox.operations.predance_form:
+  path: '/form/operations_predance_form/'
+  defaults:
+    _form: 'Drupal\ccd_cashbox\Form\PreDanceCashboxOperationsForm'
+    _title: 'CCD PreDance Cashbox Form'
+  requirements:
+    _permission: 'administer site configuration'
+
+ccd_cashbox.operations.predance_modal:
+  path: '/form/operations_predance_form_modal/{node}'
+  defaults:
+    _title: 'CCD PreDance Cashbox Modal'
+    _controller: '\Drupal\ccd_cashbox\Controller\PreDanceCashboxModalController::openModalForm'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: FALSE
+    parameters:
+      node:
+        type: entity:node
+
+ccd_cashbox.operations.postdance_form:
+  path: '/form/operations_predance_form/'
+  defaults:
+    _form: 'Drupal\ccd_cashbox\Form\CashboxOperationsPostDanceForm'
+    _title: 'CCD PostDance Cashbox Form'
+  requirements:
+    _permission: 'administer site configuration'
+
+ccd_cashbox.operations.postdance_modal:
+  path: '/form/operations_postdance_form_modal/{node}'
+  defaults:
+    _title: 'CCD PostDance Cashbox Modal'
+    _controller: '\Drupal\ccd_cashbox\Controller\CashboxOperationsPostDanceModalController::openModalForm'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: FALSE
+    parameters:
+      node:
+        type: entity:node
+
+ccd_cashbox.operations.payout_form:
+  path: '/form/operations_payout_form/'
+  defaults:
+    _form: 'Drupal\ccd_cashbox\Form\CashboxOperationsPayoutForm'
+    _title: 'CCD Cashbox Payout Form'
+  requirements:
+    _permission: 'administer site configuration'
+
+ccd_cashbox.operations.payout_modal:
+  path: '/form/operations_payout_form_modal/{node}'
+  defaults:
+    _title: 'CCD Cashbox Payout Modal'
+    _controller: '\Drupal\ccd_cashbox\Controller\CashboxOperationsPayoutModalController::openModalForm'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: FALSE
+    parameters:
+      node:
+        type: entity:node

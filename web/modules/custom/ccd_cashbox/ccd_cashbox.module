@@ -67,7 +67,9 @@ function ccd_cashbox_mail(&$message, $params) {
   $message['subject'] = t('Cashbox report sent out for Event: ');
   $message['body'] = t('The main part of the message.');
 
-  $result = \Drupal::service('plugin.manager.mail')->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  $manager = \Drupal::service('plugin.manager.mail');
+  $manager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
   $messenger= \Drupal::messenger();
   if ($result['result'] !== true) {
     $messenger->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
@@ -117,18 +119,18 @@ function ccd_cashbox_mail(&$message, $params) {
  * $entity_field[0]['value'] = $totDep;
  */
 
-function ccd_cashbox_form_submit(array $form, FormStateInterface $form_state) {
-  $node = \Drupal::routeMatch()->getParameter('node');
-  if ($node instanceof \Drupal\node\NodeInterface) {
-    // You can get nid and anything else you need from the node object.
-    $nid = $node->id();
-  }
-  $node= Node::load($nid);
-  $venmoPayments = ccd_cashbox_get_venmo_payments($node, $form);
-  $venmoDonations = ccd_cashbox_get_venmo_donations($node, $form);
+/**
+ * @param Node $node
+ * @param array $form_state
+ */
+
+function ccd_cashbox_node_recalculate(Node &$node) {
+
+  $venmoPayments = ccd_cashbox_get_venmo_payments($node);
+  $venmoDonations = ccd_cashbox_get_venmo_donations($node);
   $venmoAdmission = $venmoPayments - $venmoDonations;
-  $cashDon = ccd_cashbox_get_cash_donations($node, $form);
-  $checkDon = ccd_cashbox_get_check_donations($node, $form);
+  $cashDon = ccd_cashbox_get_cash_donations($node);
+  $checkDon = ccd_cashbox_get_check_donations($node);
   $cashFromATM = $node->field_cash_added_from_atm->value;
   $cashDeposit = $node->field_cash_to_be_deposited->value;
   $cashOut = $node->field_ending_cash->value;
@@ -164,12 +166,23 @@ function ccd_cashbox_form_submit(array $form, FormStateInterface $form_state) {
   $node->set('field_total_full_pay_dancers', $fullDancers);
   $node->set('field_total_no_of_dancers', $numDancers);
   $node->set('field_venmo_admission', $venmoAdmission);
+  $node->set('field_venmo_donation', $venmoDonations);
 
+}
+
+function ccd_cashbox_form_submit(array $form, FormStateInterface $form_state) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    // You can get nid and anything else you need from the node object.
+    $nid = $node->id();
+  }
+  $node = Node::load($nid);
+  ccd_cashbox_node_recalculate($node);
   $node->save();
 
 }
 
-function ccd_cashbox_get_venmo_payments($node, $form) {
+function ccd_cashbox_get_venmo_payments($node) {
   $admissions = 0.0;
   $paragraphs = $node->field_venmo_payment->getValue();
 
@@ -181,7 +194,7 @@ function ccd_cashbox_get_venmo_payments($node, $form) {
 
 }
 
-function ccd_cashbox_get_cash_donations($node, $form) {
+function ccd_cashbox_get_cash_donations($node) {
   $cashDonations = 0.0;
   $paragraphs = $node->field_donation_info->getValue();
 
@@ -193,25 +206,25 @@ function ccd_cashbox_get_cash_donations($node, $form) {
 
 }
 
-function ccd_cashbox_get_check_donations($node, $form) {
+function ccd_cashbox_get_check_donations($node) {
   $checkDonations = 0.0;
   $paragraphs = $node->field_donation_info->getValue();
 
   foreach ($paragraphs as $element) {
     $p = Paragraph::load($element['target_id']);
-    $cashDonations += $p->field_check_donation->value;
+    $checkDonations += $p->field_check_donation->value;
   }
   return $checkDonations;
 
 }
 
-function ccd_cashbox_get_venmo_donations($node, $form) {
+function ccd_cashbox_get_venmo_donations($node) {
   $venmoDonations = 0.0;
   $paragraphs = $node->field_donation_info->getValue();
 
   foreach ($paragraphs as $element) {
     $p = Paragraph::load($element['target_id']);
-    $cashDonations += $p->field_venmo_donation->value;
+    $venmoDonations += $p->field_venmo_donation->value;
   }
   return $venmoDonations;
 

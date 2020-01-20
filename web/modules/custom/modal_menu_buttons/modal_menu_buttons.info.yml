@@ -3,3 +3,4 @@ type: module
 description: 'Module for creating menu links that show up as modals'
 core: 8.x
 package: 'Custom'
+

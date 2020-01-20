@@ -2,9 +2,9 @@ global-styling:
   css:
     theme:
       css/style.css: {}
+
+framework:
   js:
-    js/slide.js: {}
-    js/dateName.js: {}
     js/videoFade.js: {}
     js/mainCanvasResponsive.js: {}
 

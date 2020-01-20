@@ -5,22 +5,20 @@
  */
 namespace Drupal\ccd_cashbox\Plugin\Block;
 use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Annotation\Translation;
-use Drupal\Core\Block\Annotation\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Provides an 'donation_button' block.
+ * Provides an 'cashbox_operations_post_dance_block' block.
  *
  * @Block(
- *   id = "ccd_cashbox_donation_button",
- *   admin_label = @Translation("Donation Submission"),
- *   category = @Translation("Button to pull up donation modal")
+ *   id = "ccd_cashbox_cashbox_operations_post_dance_block",
+ *   admin_label = @Translation("CCD Cashbox Operations PostDance Button"),
+ *   category = @Translation("Dance Night Operations")
  * )
  */
-class DonationButtonBlock extends BlockBase {
+class CashboxOperationsPostDanceBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
@@ -41,8 +39,7 @@ class DonationButtonBlock extends BlockBase {
    */
 
   public function build() {
-    return \Drupal::formBuilder()->getForm('Drupal\ccd_cashbox\Form\DonationForm');
-
+    return \Drupal::formBuilder()->getForm('Drupal\ccd_cashbox\Form\CashboxOperationsPostDanceForm');
   }
 
 }

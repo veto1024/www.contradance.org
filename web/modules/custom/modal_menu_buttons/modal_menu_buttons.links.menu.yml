@@ -14,7 +14,7 @@ modal_menu_button.add.person:
       target: _self
       class:
         - use-ajax
-        -
+        - use-ajax-submit
       data-dialog-type:
         - modal
 
@@ -34,7 +34,7 @@ modal_menu_button.add.band:
       target: _self
       class:
         - use-ajax
-        -
+        - use-ajax-submit
       data-dialog-type:
         - modal
 
@@ -54,6 +54,6 @@ modal_menu_button.add.event:
       target: _self
       class:
         - use-ajax
-        -
+        - use-ajax-submit
       data-dialog-type:
         - modal

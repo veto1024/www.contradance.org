@@ -2,6 +2,7 @@
 
 namespace Drupal\ccd_cashbox\Controller;
 
+
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\OpenModalDialogCommand;
@@ -9,7 +10,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Form\FormBuilder;
 
 /** * ModalFormExampleController class. */
-class DonationModalController extends ControllerBase {
+class CashboxOperationsPostDanceModalController extends ControllerBase {
 
   /**   * The form builder.   *
    * @var FormBuilder
@@ -18,7 +19,7 @@ class DonationModalController extends ControllerBase {
   protected $formBuilder;
 
   /**
-   * The DonationModalController constructor.   *
+   * The CashboxOperationsPostDanceModalController constructor.   *
    *
    * @param FormBuilder $formBuilder
    *   The form builder.
@@ -48,16 +49,13 @@ class DonationModalController extends ControllerBase {
    */
   public function openModalForm() {
     $response = new AjaxResponse();
-
     // Get the modal form using the form builder. Attach the nid as a hidden parameter
-
     $nid = \Drupal::routeMatch()->getParameter('node')->id();
-    $modal_form = $this->formBuilder->getForm('Drupal\ccd_cashbox\Form\ModalDonationForm');
+    $modal_form = $this->formBuilder->getForm('Drupal\ccd_cashbox\Form\CashboxOperationsPostDanceModalForm');
     $modal_form['nid']['#value'] = $nid;
     // Add an AJAX command to open a modal dialog with the form as the content.
-    $response->addCommand(new OpenModalDialogCommand('CCD Donation Form', $modal_form, ['width' => '800']));
+    $response->addCommand(new OpenModalDialogCommand('CCD Cashbox Operations - PostDance', $modal_form, ['width' => '800']));
     return $response;
-
   }
 
 }

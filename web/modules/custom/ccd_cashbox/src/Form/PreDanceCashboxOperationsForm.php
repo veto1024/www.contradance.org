@@ -2,18 +2,15 @@
 namespace Drupal\ccd_cashbox\Form;
 
 use Drupal\Component\Serialization\Json;
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\InvokeCommand;
-use Drupal\Core\Ajax\OpenModalDialogCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * DonationForm class.
+ * PreDanceCashboxOperationsForm class.
  */
 
-class DonationForm extends FormBase {
+class PreDanceCashboxOperationsForm extends FormBase {
 
   /**
    * {@inheritdoc}
@@ -26,17 +23,17 @@ class DonationForm extends FormBase {
     } else {
       $nid = $node->id();
     }
-    $form['create_donation'] = [
+    $form['predance_submit'] = [
       '#type' => 'link',
-      '#title' => $this->t('Create Donation'),
-      '#url' => Url::fromRoute('ccd_cashbox.donation.open_modal_form', ['node' => $nid]),
+      '#title' => $this->t('Start of Night'),
+      '#url' => Url::fromRoute('ccd_cashbox.operations.predance_modal', ['node' => $nid]),
       '#attributes' => [
         'class' => [
           'use-ajax',
           'button',
           'btn',
           'btn-lg',
-          'btn-primary',
+          'btn-success',
           'modal-classy',
         ],
         'data-dialog-type' => 'modal',
@@ -56,18 +53,12 @@ class DonationForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-    public function submitForm(array &$form, FormStateInterface $form_state) {
-      $response = new AjaxResponse();
-      $response->addCommand(new InvokeCommand('.view-display-id-event_view_cashbox_summary_view', 'trigger', ['RefreshView']));
-      $response->addCommand(new InvokeCommand('.view-display-id-event_view_donation_summary_view', 'trigger', ['RefreshView']));
-      $response->addCommand(new OpenModalDialogCommand("Success!", 'The donation has been submitted! Note that you will have to refresh to see new donations. Click anywhere to exit.'));
-      return $response;
-    }
+    public function submitForm(array &$form, FormStateInterface $form_state) {}
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-  return 'ccd_cashbox_donation_form';
+  return 'ccd_cashbox_operations_predance_form';
   }
 
   /**
@@ -78,7 +69,7 @@ class DonationForm extends FormBase {
    *   conjunction with the trait's config() method.
    */
   protected function getEditableConfigNames() {
-  return ['config.ccd_cashbox_donation_form'];
+  return ['config.ccd_cashbox_operations_predance_form'];
   }
 
 }

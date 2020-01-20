@@ -1,0 +1,5 @@
+modal_menu_buttons:
+  js:
+    js/mover.js
+  dependencies:
+    - core/jquery.form

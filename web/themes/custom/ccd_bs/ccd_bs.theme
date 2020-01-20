@@ -12,7 +12,7 @@
  */
 function ccd_bs_page_attachments_alter(&$attachments) {
   if (\Drupal::service('path.matcher')->isFrontPage()) {
-    $attachments['#attached']['library'][] = 'ccd_bs/slide.js';
+    $attachments['#attached']['library'][] = 'ccd_bs/framework';
   }
 }
 

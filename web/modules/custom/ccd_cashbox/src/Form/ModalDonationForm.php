@@ -4,6 +4,7 @@ namespace Drupal\ccd_cashbox\Form;
 use CommerceGuys\Addressing\Address;
 use Drupal\address\Plugin\Validation\Constraint\AddressFormatConstraint;
 use Drupal\commerce_price\Price;
+use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
@@ -296,9 +297,6 @@ class ModalDonationForm extends FormBase {
     $response = new AjaxResponse();
     $input = $form_state->getUserInput();
     $nid= $form_state->getvalue('nid');
-    $response->addCommand(new OpenModalDialogCommand("Success!", 'The donation has been submitted! Click anywhere to exit.'));
-
-    /* $nid=\Drupal::entityTypeManager()->getStorage('node')->load($nid); */
     $node= Node::load($nid);
 
     // Create single new paragraph
@@ -321,8 +319,11 @@ class ModalDonationForm extends FormBase {
       'target_revision_id' => $paragraph->getRevisionId(),
     );
     $node->set('field_donation_info', $current);
+    ccd_cashbox_node_recalculate($node);
     $node->save();
-
+//    $response->addCommand(new InvokeCommand('.view-display-id-event_view_cashbox_summary_view', 'trigger', ['RefreshView']));
+//    $response->addCommand(new InvokeCommand('.view-display-id-event_view_donation_summary_view', 'trigger', ['RefreshView']));
+//    $response->addCommand(new OpenModalDialogCommand("Success!", 'The donation has been submitted! Click anywhere to exit.'));
     return $response;
   }
 

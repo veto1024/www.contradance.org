@@ -255,15 +255,6 @@ header#navbarfront.navbar.container.navbar-default div.jumbotron.jumbotronImg di
   width:100%;
 }
 
-/**************************************************************
-*
-* Move front page content down
-*
-***************************************************************/
-
-div.main-container-front {
-  margin-top:12vh;
-}
 
 /**************************************************************
 *
@@ -550,8 +541,6 @@ article.event div.layout__region--second section.block-field-blocknodeeventfield
 }
 
 
-
-
 div.attendance-summary-row span.views-field {
   display:block;
 }
@@ -569,6 +558,9 @@ div.revenue-row span.field-content {
   float:right;
   margin-right: 1em;
 }
+div#views-bootstrap-event-views-event-view-donation-summary-view .panel.panel-default div.paragraph--type--donation {
+  color:black;
+}
 
 div.cashbox-row span.views-field {
   display:block;
@@ -579,11 +571,48 @@ div.cashbox-row span.field-content {
   margin-right: 1em;
 }
 
-/*section#block-donationsubmission {*/
+div.cashbox-row .views-field-rendered-entity .field-content{
+  float:none;
+}
+
+
+fieldset#field_num_of_payees {
+  margin-bottom: .5em;
+}
+.form-item-num-of-payees {
+  display: inline;
+  margin-bottom: .5em;
+}
+
+section[class^="ccd-cashbox"] {
+  display:inline-flex;
+  margin: .5em;
+}
+
+form#ccd-cashbox-operations-add-student-form .captcha-admin-links,
+form#ccd-cashbox-operations-add-comped-form .captcha-admin-links,
+form#ccd-cashbox-operations-add-student-iou-form .captcha-admin-links,
+form#ccd-cashbox-operations-add-full-iou-form .captcha-admin-links{
+  display:none;
+}
+
+  /*section#block-donationsubmission {*/
 /*  max-width: 25%;*/
 /*  text-align: center;*/
 /*}*/
 
+div.edit-node .panel-body label {
+  color:black;
+}
+
+div.edit-node div.entity-meta.tab-content div.vertical-tabs-pane label {
+  color:white;
+}
+
+button#edit-submit-email {
+  margin-top: 1em;
+  margin-bottom:1em;
+}
 
 
 /**************************************************************
@@ -876,7 +905,6 @@ div.layout-builder section {
   .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-ious],
   .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons table[id|=field-person-paid],
   .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons table[id|=field-people-and-payments-values],
-  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-donation],
   .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-event-pay-boolean]{
   display:none;
 }
@@ -901,6 +929,10 @@ div.layout-builder section {
 *
 ***************************************************************/
 
+body.path-frontpage .main-container,
+body.path-frontpage .footer {
+  display:none;
+}
 
 @keyframes slideInFromLeft {
   0% {
