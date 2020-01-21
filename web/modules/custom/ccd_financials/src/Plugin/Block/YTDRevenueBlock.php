@@ -10,6 +10,7 @@ use Drupal\Core\Block\Annotation\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\feeds\Feeds\Target\DateTime;
 use Drupal\node\Entity\Node;
 
 /**
@@ -42,11 +43,12 @@ class YTDRevenueBlock extends BlockBase {
    */
 
   public function build() {
-
+    $now = new \DateTime('now');
+    $now->getTimestamp();
     $query = \Drupal::entityQuery('node')
       ->condition('type','event')
       ->condition('status',1)
-      ->condition('field_event_date.value', array("2020-01-01T00:00:00", "2021-01-01T00:00:00"), 'BETWEEN');
+      ->condition('field_event_date.value', array("2020-01-01T00:00:00", $now->format('Y-m-d\TH:i:s')), 'BETWEEN');
 
     $results=$query->execute();
     $total_rev = 0.0;
