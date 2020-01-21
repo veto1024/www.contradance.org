@@ -1467,6 +1467,11 @@ button.edit-submit-email {
   display:block;
 }
 
+.view-upcoming-board-meetings .panel.panel-default span.views-field {
+  color:black;
+  display:block;
+}
+
 #block-ytdrevenueblock {
   float:right;
 }
