@@ -56,7 +56,6 @@ class YTDRevenueBlock extends BlockBase {
     foreach ($results as $result) {
       $node = Node::load($result);
       $revenue = $node->get('field_gross_revenue')[0];
-      $total_rev += $revenue->value;
       $expenses = $node->get('field_band_pay')[0]->value +
         $node->get('field_band_travel')[0]->value +
         $node->get('field_caller_pay')[0]->value +
@@ -64,7 +63,10 @@ class YTDRevenueBlock extends BlockBase {
         $node->get('field_rent_cost')[0]->value +
         $node->get('field_sound_pay')[0]->value +
         $node->get('field_other_expenses')[0]->value;
-      $total_exp += $expenses;
+      if (($revenue > 0.0) && ($expenses > 0.0)) {
+        $total_rev += $revenue->value;
+        $total_exp += $expenses;
+      }
     }
     return [
       '#theme' => 'ccd_financials_ytd_revenue',

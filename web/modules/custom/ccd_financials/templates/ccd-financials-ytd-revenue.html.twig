@@ -55,11 +55,13 @@
   {{ title_suffix }}
   {% block content %}
     {{ content }}
+
       <h3>Year To Date Revenue:</h3>
       <p id="ccd-financials-total-exp">${{ total_rev|number_format(2, '.', ',') }}</p>
       <h3>Year To Date Expenses:</h3>
       <p id="ccd-financials-total-rev">${{ total_exp|number_format(2, '.', ',') }}</p>
-      <h3>Net Profit:</h3>
+      <h3>Net Profit*:</h3>
       <p id="ccd-financials-net-profit"{{ attributes.addClass(price_classes).removeClass(block_classes) }}>${{ net_profit|number_format(2, '.', ',') }}</p>
+      <p>*Based on currently available Friday night event info</p>
   {% endblock %}
 </div>
