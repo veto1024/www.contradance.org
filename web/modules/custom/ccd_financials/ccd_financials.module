@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Contains ccd_financials.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ccd_financials_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ccd_financials module.
+    case 'help.page.ccd_financials':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('CCD Financials Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ccd_financials_theme() {
+  return [
+    'ccd_financials' => [
+      'render element' => 'children',
+    ],
+    'ccd_financials_ytd_revenue' => [
+      'variables' => [
+        'total_rev' => Null,
+        'total_exp' => Null,
+        'net_profit' => Null,
+      ],
+    ]
+  ];
+}
+

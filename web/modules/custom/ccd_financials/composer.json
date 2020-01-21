@@ -1,0 +1,13 @@
+{
+    "name": "ccd_financials",
+    "type": "drupal-module",
+    "description": "CCD Financials Module",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/ccd_financials",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/ccd_financials",
+        "source": "http://cgit.drupalcode.org/ccd_financials",
+    },
+}
