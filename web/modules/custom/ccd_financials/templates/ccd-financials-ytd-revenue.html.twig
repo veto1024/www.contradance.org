@@ -1,0 +1,65 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set block_classes = [
+    'ccd-financials-ytd-block',
+    'panel',
+    'panel-default',
+    'col-lg-12',
+  ]
+%}
+{% if net_profit >= 0.0 %}
+{% set price_classes = [
+  'profit-green',
+  'ccd-financials-net-profit',
+]
+%}
+{% else %}
+{% set price_classes = [
+  'profit-red',
+  'ccd-financials-net-profit',
+]
+%}
+{% endif %}
+<div id="ccd-financials-ytd-block" {{ attributes.addClass(block_classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h{{ title_attributes }}>{{ label }}</h>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+      <h3>Year To Date Revenue:</h3>
+      <p id="ccd-financials-total-exp">${{ total_rev|number_format(2, '.', ',') }}</p>
+      <h3>Year To Date Expenses:</h3>
+      <p id="ccd-financials-total-rev">${{ total_exp|number_format(2, '.', ',') }}</p>
+      <h3>Net Profit:</h3>
+      <p id="ccd-financials-net-profit"{{ attributes.addClass(price_classes).removeClass(block_classes) }}>${{ net_profit|number_format(2, '.', ',') }}</p>
+  {% endblock %}
+</div>
