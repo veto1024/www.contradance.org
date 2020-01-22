@@ -386,10 +386,15 @@ li.pager__item.pager__item__years ul {
   text-align:center;
 }
 
+.full-calendar-panel .board-meeting.teaser
+
 .layout--twocol-section.layout--twocol-section--25-75 > .layout__region--first {
   flex:auto;
 }
 @media only screen and (min-width : 768px) {
+  h2 {
+    width:40%;
+  }
   .full-calendar-panel {
     text-align: initial;
     font-size: 14px;
@@ -839,10 +844,6 @@ div.layout-builder section {
   display:none;
 }
 
-.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons  button.field-add-more-submit {
-  display:none;
-}
-
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons  button[name=field_positions_add_more] {
   display:inline-block;
 }
@@ -853,6 +854,9 @@ div.layout-builder section {
   display:block;
 }
 
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons .field-content.autocomplete-titles {
+  color:black;
+}
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field] {
   width:50%;
 }
@@ -1429,6 +1433,9 @@ button.edit-submit-email {
   font-size:1.5em;
 }
 
+.ccd-financials-ytd-block.panel {
+  padding:.5em;
+}
 .panel.ccd-financials-ytd-block  h3,
 .panel.ccd-financials-ytd-block  h4 {
   color: black;
