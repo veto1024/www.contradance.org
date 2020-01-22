@@ -386,11 +386,26 @@ li.pager__item.pager__item__years ul {
   text-align:center;
 }
 
-.full-calendar-panel .board-meeting.teaser
 
 .layout--twocol-section.layout--twocol-section--25-75 > .layout__region--first {
   flex:auto;
 }
+
+.full-calendar-panel .layout__region--second {
+  height:100%;
+}
+
+
+.full-calendar-panel .layout__region--second .block-field-blocknodeeventfield-caller,
+.full-calendar-panel .layout__region--second .block-field-blocknodeeventfield-band {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
 @media only screen and (min-width : 768px) {
   h2 {
     width:40%;
@@ -447,11 +462,14 @@ div.block-field-blocknodeeventfield-event-date {
     float: left;
   }
   .full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-band {
+    text-align: center;
     width:100%;
     display:inline-block;
-    margin-top:-4em;
   }
   .full-calendar-panel div.layout__region--second section.block-field-blocknodeeventfield-caller {
+    position:relative;
+    float:right;
+    margin-right:1em;
     width:32%;
     display:inline-block;
   }
