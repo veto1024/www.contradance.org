@@ -1429,7 +1429,8 @@ button.edit-submit-email {
   font-size:1.5em;
 }
 
-.ccd-financials-ytd-block h3 {
+.panel.ccd-financials-ytd-block  h3,
+.panel.ccd-financials-ytd-block  h4 {
   color: black;
   font-size: 1em;
 }
