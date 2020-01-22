@@ -1451,9 +1451,6 @@ button.edit-submit-email {
   font-size:1.5em;
 }
 
-.ccd-financials-ytd-block.panel {
-  padding:.5em;
-}
 .panel.ccd-financials-ytd-block  h3,
 .panel.ccd-financials-ytd-block  h4 {
   color: black;
@@ -1471,7 +1468,11 @@ button.edit-submit-email {
   text-align: center;
 }
 
-
+#block-views-block-my-hosting-dates-my-hosting-dates .panel.panel-default,
+#block-views-block-upcoming-board-meetings-upcoming-meeting-dates .panel.panel-default,
+#block-ytdrevenueblock .panel.panel-default {
+  padding:.5em;
+}
 @media only screen and (min-width : 320px) {
   .ccd-financials-ytd-block p {
     text-align: center;
