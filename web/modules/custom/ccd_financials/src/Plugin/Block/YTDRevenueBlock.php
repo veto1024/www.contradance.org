@@ -48,6 +48,7 @@ class YTDRevenueBlock extends BlockBase {
     $query = \Drupal::entityQuery('node')
       ->condition('type','event')
       ->condition('status',1)
+      ->condition('field_starting_cash', 0.0,'>')
       ->condition('field_event_date.value', array("2020-01-01T00:00:00", $now->format('Y-m-d\TH:i:s')), 'BETWEEN');
 
     $results=$query->execute();

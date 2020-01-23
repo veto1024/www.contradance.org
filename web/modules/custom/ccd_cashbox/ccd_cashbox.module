@@ -200,7 +200,7 @@ function ccd_cashbox_get_venmo_payments($node) {
 
   foreach ($paragraphs as $element) {
     $p = Paragraph::load($element['target_id']);
-    $admissions += $p->field_amount->getValue();
+    $admissions += $p->field_amount->value;
   }
   return $admissions;
 

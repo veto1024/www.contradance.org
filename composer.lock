@@ -6093,7 +6093,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_usage.git",
-                "reference": "d282083dfbdbcdcd8c55dfa32305629aac109182"
+                "reference": "33590731ad133fc8d0b021dda2ffe6ddee378bd9"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -6101,8 +6101,11 @@
             "require-dev": {
                 "drupal/block_field": "~1.0",
                 "drupal/dynamic_entity_reference": "~1.0",
+                "drupal/entity_browser": "~2.0",
+                "drupal/entity_browser_block": "~1.0",
                 "drupal/entity_embed": "~1.0",
                 "drupal/entity_reference_revisions": "~1.0",
+                "drupal/inline_entity_form": "^1.0@RC",
                 "drupal/paragraphs": "~1.0",
                 "drupal/webform": "~5.0"
             },
@@ -6112,8 +6115,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta1+6-dev",
-                    "datestamp": "1578389587",
+                    "version": "8.x-2.0-beta1+8-dev",
+                    "datestamp": "1579707483",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -6151,7 +6154,7 @@
                 "source": "http://cgit.drupalcode.org/entity_usage",
                 "issues": "http://drupal.org/project/issues/entity_usage"
             },
-            "time": "2020-01-08T13:39:12+00:00"
+            "time": "2020-01-22T15:33:08+00:00"
         },
         {
             "name": "drupal/feeds",
@@ -13008,16 +13011,16 @@
         },
         {
             "name": "sendgrid/smtpapi",
-            "version": "0.6.2",
+            "version": "0.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/smtpapi-php.git",
-                "reference": "e48b6980d8307701228d06646d0b92f804c7bdb5"
+                "reference": "d7797bed7665062b0b5718d0fbc55d93b02b09aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/smtpapi-php/zipball/e48b6980d8307701228d06646d0b92f804c7bdb5",
-                "reference": "e48b6980d8307701228d06646d0b92f804c7bdb5",
+                "url": "https://api.github.com/repos/sendgrid/smtpapi-php/zipball/d7797bed7665062b0b5718d0fbc55d93b02b09aa",
+                "reference": "d7797bed7665062b0b5718d0fbc55d93b02b09aa",
                 "shasum": ""
             },
             "require": {
@@ -13055,7 +13058,7 @@
                 "smtpapi",
                 "xsmtp"
             ],
-            "time": "2020-01-10T21:05:38+00:00"
+            "time": "2020-01-22T20:48:51+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
