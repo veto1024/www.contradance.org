@@ -37,7 +37,9 @@ class YTDRevenueBlock extends BlockBase {
     return $form;
   }
 
-
+  public function getCacheMaxAge() {
+    return 0;
+  }
   /**
    * {@inheritdoc}
    */

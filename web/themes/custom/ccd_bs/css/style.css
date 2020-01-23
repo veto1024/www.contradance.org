@@ -603,12 +603,12 @@ div.cashbox-row .views-field-rendered-entity .field-content{
 }
 
 
-fieldset#field_num_of_payees {
+fieldset[name="field_num_of_payees"] {
   margin-bottom: .5em;
 }
 .form-item-num-of-payees {
   display: inline;
-  margin-bottom: .5em;
+  margin-left: .5em;
 }
 
 
