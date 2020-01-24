@@ -138,7 +138,7 @@ def createPHP(name, amount):
 	  $unixDate = strtotime('next friday'); // If not, apply to following Friday
 	}
   $query = \Drupal::entityQuery('node')
-    ->condition('bundle','event')
+    ->condition('type','event')
     ->condition('status',1)
     ->condition('field_event_type.tid',2,'=')
     ->condition('field_event_date.value', array(date("Y-m-d 00:00:00", $unixDate), date("Y-m-d 23:59:59", $unixDate)),'BETWEEN');
