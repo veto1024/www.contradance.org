@@ -31,7 +31,7 @@ function ccd_cashbox_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_theme().
  */
 
-function ccd_cashbox_theme($existing, $type, $theme, $path) {
+public function ccd_cashbox_theme($existing, $type, $theme, $path) {
   return [
     'ccd_cashbox_template' => [
 
@@ -136,7 +136,7 @@ function ccd_cashbox_mail(&$message, $params) {
  * @param array $form_state
  */
 
-function ccd_cashbox_node_recalculate(Node &$node) {
+public function ccd_cashbox_node_recalculate(Node &$node) {
 
   $venmoPayments = ccd_cashbox_get_venmo_payments($node);
   $venmoDonations = ccd_cashbox_get_venmo_donations($node);
