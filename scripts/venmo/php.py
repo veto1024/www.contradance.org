@@ -130,7 +130,6 @@ def createPHP(name, amount):
 
 use Drupal\\node\Entity\Node;
 use Drupal\paragraphs\entity\Paragraph;
-use Drupal\ccd_cashbox\ccd_cashbox_node_recalculate;
 
 /* Find the node for the next event date */
 $timezone = timezone_open("America/New_York");
@@ -180,7 +179,6 @@ if (isset(array_keys($result)[0])) {
   }
   $node->set('field_venmo_payment', $current);
   $node->save();
-  ccd_cashbox_node_recalculate($node);
 }	""" % (name, amount)
 	return php
 
