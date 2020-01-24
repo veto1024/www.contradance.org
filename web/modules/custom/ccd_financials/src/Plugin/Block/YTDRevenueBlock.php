@@ -10,7 +10,6 @@ use Drupal\Core\Block\Annotation\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\feeds\Feeds\Target\DateTime;
 use Drupal\node\Entity\Node;
 
 /**

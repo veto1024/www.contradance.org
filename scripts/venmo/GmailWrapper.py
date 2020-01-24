@@ -5,9 +5,6 @@ import imaplib2, imaplib, time, ssl, logging, re
 from imapclient import SEEN
 from threading import *
 
-logging.basicConfig(filename="CCDDrushVenmo.log", filemode="w+",
-					format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-					level=logging.INFO)
 SEEN_FLAG = 'SEEN'
 UNSEEN_FLAG = 'UNSEEN'
 HOST_NAME = 'imap.gmail.com'
@@ -16,18 +13,23 @@ PASS = 'fobh ulkf nhgb hvfc'
 
 class GmailWrapper:
 	def __init__(self,push,logger=None):
-		# force the user to pass along username and password to log in as 
+		# force the user to pass along username and password to log in as
 		self.host = HOST_NAME
-		self.userName = USER_NAME	
+		self.userName = USER_NAME
 		self.password = PASS
 		if logger: logging=logger
-		self.pushMethod=push
+		else:
+		    import logging
+		    logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
+		self.pushMethod=push(logger=logging)
+		logging.debug("Beginning IMAP SSL Connection Debug")
+		logging.info("Beginning IMAP SSL Connection")
 		self.login()
 
 	def login(self):
 		M = imaplib2.IMAP4_SSL(host=self.host, port=993)
 		try:
-			logging.info("Logging in as  %s " % {self.userName})
+			logging.info("Logging in as  %s " % self.userName)
 			M.login(self.userName, self.password)
 			logging.info("Login successful")
 		except:
@@ -36,8 +38,8 @@ class GmailWrapper:
 		M.select("INBOX")
 		idler = self.Idler(M, self.getIdsBySubject, self.markAsRead, self.pushMethod, self.parseEmails)
 		try:
+			logging.info("Activating idler")
 			idler.start()
-			logging.debug("Idler activated.")
 		except Exception as e:
 			logging.exception("Could not start idler. Exception occured")
 			raise
@@ -45,7 +47,7 @@ class GmailWrapper:
 		idler.stop()
 		idler.join()
 		M.close()
-		M.logout() 
+		M.logout()
 
 	#   The IMAPClient search returns a list of Id's that match the given criteria.
 	#   An Id in this case identifies a specific email
@@ -54,28 +56,28 @@ class GmailWrapper:
 
 		#   build the search criteria (e.g. unread emails with the given subject)
 		#self.searchCriteria = [UNSEEN_FLAG, 'SUBJECT', subject]
- 
+
 		if(unreadOnly == False):
 			#   force the search to include "read" emails too
 			self.searchCriteria.append(SEEN_FLAG)
- 
+
 		#   conduct the search and return the resulting Ids
 		while True:
 			num=1
 			try:
 				return conn.search("UTF-8", UNSEEN_FLAG, ("SUBJECT"), u'\"%s\"' % subject)[1][0]
 			except Exception as e:
-				if num==5: 
+				if num==5:
 					logging.exception("Attempt %s: Could not perform inbox search after 5 attempts. Stopping" % str(num))
 					raise
 				logging.exception("Attempt %s: Could not perform inbox search. Waiting 60 seconds" % num)
 				time.sleep(60)
 				num+=1
-			
-		
+
+
 	def markAsRead(self, mailIds, server):
 		for num in mailIds.split(" "):
-			if num!=" ": 
+			if num!=" ":
 				try:
 					server.store(num, "+FLAGS", SEEN)
 					logging.debug("Setting mailID %s to read" % str(num))
@@ -86,7 +88,7 @@ class GmailWrapper:
 		subs=[]
 
 		for num in mailIds.split(" "):
-			
+
 			try:
 				typ, data = server.fetch(num, '(RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])')
 			except Exception as e:
@@ -105,9 +107,9 @@ class GmailWrapper:
 
 			subs.append(res)
 		return subs
-		 
 
- 
+
+
 	class Idler(object):
 		def __init__(self, conn, gids, mar, push, pE):
 			self.thread = Thread(target=self.idle)
@@ -118,6 +120,7 @@ class GmailWrapper:
 			self.pe = pE
 			self.event = Event()
 		def start(self):
+      logging.info("Beginning thread")
 			self.thread.start()
 		def stop(self):
 			self.event.set()
@@ -139,9 +142,9 @@ class GmailWrapper:
 					self.dosync()
 		def dosync(self):
 			logging.debug("Event triggered")
-			mailIds=self.gids(self.M, "paid you")		
+			mailIds=self.gids(self.M, "paid you")
 			if (((len(mailIds.split(" ")) > 0) & (mailIds!=" "))):
-				self.mar(mailIds, self.M)		
+				self.mar(mailIds, self.M)
 				for mailId in mailIds.split(" "):
 					logging.debug("Attempting to process mail")
 					if logging: self.push(self.pe(mailId, self.M, "paid you"), logger=logging)
