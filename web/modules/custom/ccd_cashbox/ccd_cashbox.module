@@ -136,7 +136,7 @@ function ccd_cashbox_mail(&$message, $params) {
  * @param array $form_state
  */
 
-public function ccd_cashbox_node_recalculate(Node &$node) {
+function ccd_cashbox_node_recalculate(Node &$node) {
 
   $venmoPayments = ccd_cashbox_get_venmo_payments($node);
   $venmoDonations = ccd_cashbox_get_venmo_donations($node);
