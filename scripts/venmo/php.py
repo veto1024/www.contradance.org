@@ -198,7 +198,7 @@ def drushPush(subs,logger=None):
 			logging.debug("PHP File generated")
 			f.close()
 			try:
-        sub=subprocess.Popen(['/opt/drush/drush --r=/var/app/current','scr','/tmp/venmo.php'])
+        sub=subprocess.Popen(['/opt/drush/drush -r=/var/app/current --script-path=/tmp','scr','venmo.php'])
         ret=sub.communicate()
 			except:
 			  logging.exception("Drush failed to execute")
