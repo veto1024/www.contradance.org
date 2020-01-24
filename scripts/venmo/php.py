@@ -147,7 +147,7 @@ $query = \Drupal::entityQuery('node')
  ->condition('type','event')
  ->condition('status',1)
  ->condition('field_event_type', 2, '=')
- ->condition('field_event_date', array(date("Y-m-d\T00:00:00", $unixDate), date("Y-m-d\T00:00:00", $unixDate + ( 60 * 60 * 24))),'BETWEEN');
+ ->condition('field_event_date', array(date("Y-m-d\T00:00:00", $unixDate), date("Y-m-d\T06:00:00", $unixDate + ( 60 * 60 * 24))),'BETWEEN');
 $result=$query->execute();
 
 if (isset(array_keys($result)[0])) {
@@ -193,17 +193,17 @@ def drushPush(subs,logger=None):
 	for (a,b) in subs:
 		print(createPHP(a,b))
 		try:
-			f=open("venmo.php","w+")
+			f=open("/tmp/venmo.php","w+")
 			f.write(createPHP(a,b))
 			logging.debug("PHP File generated")
 			f.close()
 			try:
-        sub=subprocess.Popen(['drush','scr','venmo.php'])
+        sub=subprocess.Popen(['/opt/drush/drush --r=/var/app/current','scr','/tmp/venmo.php'])
         ret=sub.communicate()
 			except:
 			  logging.exception("Drush failed to execute")
 			try:
-				os.remove('venmo.php')
+				os.remove('/tmp/venmo.php')
 				pass
 			except:
 				logging.warning("Unable to delete venmo.php file")

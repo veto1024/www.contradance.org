@@ -21,7 +21,7 @@ class GmailWrapper:
 		else:
 		    import logging
 		    logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
-		self.pushMethod=push(logger=logging)
+		self.pushMethod=push
 		logging.debug("Beginning IMAP SSL Connection Debug")
 		logging.info("Beginning IMAP SSL Connection")
 		self.login()
