@@ -137,8 +137,8 @@ $timezone_UTC = date_create("now", timezone_open("UTC"));
 $timezone_offset = timezone_offset_get($timezone, $timezone_UTC);
 $unixDate = new DateTime();
 
-if(date('D', time() - $timezone_offset) == 'Fri') {
-  $unixDate = strtotime('today'); // Is today Friday?
+if(date('D', time() + $timezone_offset) == 'Fri') {
+  $unixDate = time() + $timezone_offset; // Is today Friday?
 } else {
   $unixDate = strtotime('this friday'); // If not, apply to following Friday
 }

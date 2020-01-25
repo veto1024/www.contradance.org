@@ -66,9 +66,9 @@ class YTDRevenueBlock extends BlockBase {
         $node->get('field_rent_cost')[0]->value +
         $node->get('field_sound_pay')[0]->value +
         $node->get('field_other_expenses')[0]->value;
-      if (($revenue->value > 0.0) && ($expenses->value > 0.0)) {
-        $total_rev += $revenue->value;
-        $total_exp += $expenses->value;
+      if (($revenue > 0.0) && ($expenses > 0.0)) {
+        $total_rev += $revenue;
+        $total_exp += $expenses;
       }
     }
     return [
