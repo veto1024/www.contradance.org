@@ -13,6 +13,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 
 
+
 /**
  * Provides an 'ytd_revenue_block' block.
  *
@@ -45,13 +46,15 @@ class YTDRevenueBlock extends BlockBase {
    */
 
   public function build() {
-    $now = new \DateTime('now');
-    $now->getTimestamp();
+
+    $tz = new \DateTimeZone("UTC");
+    $now = new \DateTime('now', $tz);
+
     $query = \Drupal::entityQuery('node')
       ->condition('type','event')
       ->condition('status',1)
       ->condition('field_starting_cash', 0.0,'>')
-      ->condition('field_event_date.value', array("2020-01-01T00:00:00", $now->format('Y-m-d\TH:i:s')), 'BETWEEN');
+      ->condition('field_event_date.value', array("2020-01-01T05:00:00", $now->format('Y-m-d\TH:i:s')), 'BETWEEN');
 
     $results=$query->execute();
     $total_rev = 0.0;
