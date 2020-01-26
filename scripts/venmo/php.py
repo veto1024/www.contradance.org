@@ -180,7 +180,7 @@ if (isset(array_keys($result)[0])) {
 	return php
 
 def drushPush(subs,logger=None):
-  logging=logger
+	logging=logger
 	if not subs:
 		try:
 			logging.info("Received blank submission. Skipping Drush push")
@@ -195,10 +195,10 @@ def drushPush(subs,logger=None):
 			logging.debug("PHP File generated")
 			f.close()
 			try:
-        sub=subprocess.Popen("runuser -l ec2-user -c 'drush -r=/var/app/current --script-path=/tmp scr venmo.php'", shell=True)
-        ret=sub.communicate()
+				sub=subprocess.Popen("runuser -l ec2-user -c 'drush -r=/var/app/current --script-path=/tmp scr venmo.php'", shell=True)
+				ret=sub.communicate()
 			except:
-			  logging.exception("Drush failed to execute")
+				logging.exception("Drush failed to execute")
 			try:
 				os.remove('/tmp/venmo.php')
 				pass

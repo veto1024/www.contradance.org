@@ -15,9 +15,9 @@ LOG_FILENAME = "/var/log/CCDDrushVenmo.log"
 
 
 if __name__=="__main__":
-  logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG,filemode="w")
-  logging.info("Venmo script beginning at %s"  % datetime.now().strftime("%D %H:%M:%S"))
-  while True:
+	logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG,filemode="w")
+	logging.info("Venmo script beginning at %s"  % datetime.now().strftime("%D %H:%M:%S"))
+	while True:
 		GmailWrapper(drushPush,logger=logging)
 		logging.info("Going on a short break. Be back in a sec!")
 		time.sleep(5)

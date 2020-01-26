@@ -120,7 +120,7 @@ class GmailWrapper:
 			self.pe = pE
 			self.event = Event()
 		def start(self):
-      logging.info("Beginning thread")
+			logging.info("Beginning thread")
 			self.thread.start()
 		def stop(self):
 			self.event.set()
