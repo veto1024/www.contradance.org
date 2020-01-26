@@ -79,8 +79,12 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
 
   $params['gross_rev'] = $node->field_gross_revenue->value;
   $params['expenses'] = $node->field_gross_revenue->value - $node->field_net_income->value;
-  $params['net'] = $node->field_net_income->value;
-
+  if ($node->field_net_income->value < 0.0) {
+    $params['net'] = "-$" . $node->field_net_income->value;
+  } else {
+    $params['net'] = "$" . $node->field_net_income->value;
+  }
+  $params['dancers'] = $node->field_total_no_of_dancers->value;
 
   $input = $form_state->getUserInput();
   $newMail = \Drupal::service('plugin.manager.mail');
@@ -93,6 +97,14 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
   $params['venmoAdmission'] = $input['field_venmo_admission'][0]['value'];
   $params['reporter'] = $input['field_dance_reporter_name'][0]['value'];
   $params['compete'] = $input['field_competing_events'][0]['value'];
+  $params['notes'] = $input['field_additional_information'][0]['value'];
+  $params['bandPay'] = $input['field_band_pay'][0]['value'];
+  $params['bandTravel'] = $input['field_band_travel'][0]['value'];
+  $params['callerPay'] = $input['field_caller_pay'][0]['value'];
+  $params['callerTravel'] = $input['field_caller_travel'][0]['value'];
+  $params['soundPay'] = $input['field_sound_pay'][0]['value'];
+  $params['rent'] = $input['field_rent_cost'][0]['value'];
+  $params['other'] = $input['field_other_expenses'][0]['value'];
   $params['notes'] = $input['field_additional_information'][0]['value'];
   $newMail->mail('ccd_cashbox', 'cashboxReport', $to, 'en', $params, $reply = NULL, $send = TRUE);
   drupal_set_message('Mail has been sent.', 'status');
@@ -111,24 +123,24 @@ Reporter: ". $params['reporter'] . "
 Event: . " . $params['title'] . "
 Revenue: $" . $params['gross_rev'] . "
 Expenses: $" . $params['expenses'] . "
-Net Income: $" . $params['net'] . "
-No. of Dancers:"  . $params['net'] . "
+Net Income: " . $params['net'] . "
+No. of Dancers:"  . $params['dancers'] . "
 
 Cashbox Summary:
 
-Cash in:" . $params['net'] . "
-Cash out:" . $params['net'] . "
+Cash in:" . $params['cashIn'] . "
+Cash out:" . $params['cashOut'] . "
 Venmo admissions:" . $params['net'] . "
 
 Expenses:
 
-Band Pay: $" . $params['net'] . "
-Band Travel: $" . $params['net'] . "
-Caller Pay: $" . $params['net'] . "
-Caller Travel: $" . $params['net'] . "
-Sound tech: $" . $params['net'] . "
-Rent: $" . $params['net'] . "
-Other Expenses: $" . $params['net'] . "
+Band Pay: $" . $params['bandPay'] . "
+Band Travel: $" . $params['bandTravel'] . "
+Caller Pay: $" . $params['callerPay'] . "
+Caller Travel: $" . $params['callerTravel'] . "
+Sound tech: $" . $params['soundPay'] . "
+Rent: $" . $params['rent'] . "
+Other Expenses: $" . $params['other'] . "
 
 Notes:
 " . $params['notes'] ."
