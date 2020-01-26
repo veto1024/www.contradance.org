@@ -117,20 +117,20 @@ function ccd_cashbox_mail($key, &$message, $params) {
 
   // E-mail formatting will be exactly as below, so do not use indenting!
   $body =
-    "This is your CCD Friday Night Dance Report for" . $params['date'] . "
+    "This is your CCD Friday Night Dance Report for " . $params['date'] . "
 
 Reporter: ". $params['reporter'] . "
-Event: . " . $params['title'] . "
+Event: " . $params['title'] . "
 Revenue: $" . $params['gross_rev'] . "
 Expenses: $" . $params['expenses'] . "
 Net Income: " . $params['net'] . "
-No. of Dancers:"  . $params['dancers'] . "
+No. of Dancers: "  . $params['dancers'] . "
 
 Cashbox Summary:
 
-Cash in:" . $params['cashIn'] . "
-Cash out:" . $params['cashOut'] . "
-Venmo admissions:" . $params['net'] . "
+Cash in: $" . $params['cashIn'] . "
+Cash out: $" . $params['cashOut'] . "
+Venmo admissions: $" . $params['venmoAdmission'] . "
 
 Expenses:
 
