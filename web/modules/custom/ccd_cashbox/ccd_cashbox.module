@@ -80,7 +80,7 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
   $params['gross_rev'] = $node->field_gross_revenue->value;
   $params['expenses'] = $node->field_gross_revenue->value - $node->field_net_income->value;
   if ($node->field_net_income->value < 0.0) {
-    $params['net'] = "-$" . $node->field_net_income->value;
+    $params['net'] = "-$" . substr($node->field_net_income->value,1);
   } else {
     $params['net'] = "$" . $node->field_net_income->value;
   }
@@ -88,7 +88,7 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
 
   $input = $form_state->getUserInput();
   $newMail = \Drupal::service('plugin.manager.mail');
-  $to = 'veto1024@gmail.com';
+  $to = 'steering@contradance.org';
   $date = DateTime::createFromFormat('Y-m-d', $input['field_event_date'][0]['value']['date']);
   $params['title'] = $input['title'][0]['value'];
   $params['date'] = $date->format('l, F dS');
@@ -106,6 +106,7 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
   $params['rent'] = $input['field_rent_cost'][0]['value'];
   $params['other'] = $input['field_other_expenses'][0]['value'];
   $params['notes'] = $input['field_additional_information'][0]['value'];
+  $params['link'] = "https://new.contradance.org" . \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
   $newMail->mail('ccd_cashbox', 'cashboxReport', $to, 'en', $params, $reply = NULL, $send = TRUE);
   drupal_set_message('Mail has been sent.', 'status');
 }
@@ -146,7 +147,14 @@ Notes:
 " . $params['notes'] ."
 
 Competing Events: " . $params['compete'] . "
-See ya!";
+
+Link to event: " . $params['link'] . "
+
+Please note that any 'No. of dancers' that has a .5 indicates a likely miscount in the number of students who attended.
+Any other odd fractions of a dancer indicate that someone did not pay properly or there was a miscount at the cashbox (if
+someone accidentally paid $9, our calculations will produce a strange number, like 70.9 dancers).
+
+Bye!";
 
   $message['subject'] = "CCD Cashbox Report for " . $params['title'] ;
   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);

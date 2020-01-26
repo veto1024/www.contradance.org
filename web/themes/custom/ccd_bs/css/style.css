@@ -407,7 +407,7 @@ li.pager__item.pager__item__years ul {
 
 
 @media only screen and (min-width : 768px) {
-  h2 {
+  article.upcoming-events-views h2 {
     width:40%;
   }
   .full-calendar-panel {
@@ -555,6 +555,10 @@ article.event div.layout__region--second section.block-field-blocknodeeventfield
   article.event div.layout__region--second section.block-field-blocknodeeventfield-host {
     width: 24%;
     display: inline-block;
+  }
+
+  article.event div.layout--twocol-section section.block-views-blockevent-views-event-view-donation-summary-view {
+    margin-right:.5em;
   }
 }
 article.event div.layout__region--second section.block-field-blocknodeeventfield-band span {

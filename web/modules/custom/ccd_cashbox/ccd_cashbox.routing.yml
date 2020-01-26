@@ -81,3 +81,24 @@ ccd_cashbox.operations.payout_modal:
     parameters:
       node:
         type: entity:node
+
+ccd_cashbox.operations.memo_form:
+  path: '/form/operations_memo_form/'
+  defaults:
+    _form: 'Drupal\ccd_cashbox\Form\CashboxOperationsMemoForm'
+    _title: 'CCD Cashbox Memo Form'
+  requirements:
+    _permission: 'administer site configuration'
+
+ccd_cashbox.operations.memo_modal:
+  path: '/form/operations_memo_form_modal/{node}'
+  defaults:
+    _title: 'CCD Cashbox Memo Modal'
+    _controller: '\Drupal\ccd_cashbox\Controller\CashboxOperationsMemoModalController::openModalForm'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: FALSE
+    parameters:
+      node:
+        type: entity:node
