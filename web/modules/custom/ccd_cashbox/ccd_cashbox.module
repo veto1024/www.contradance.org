@@ -88,7 +88,7 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
 
   $input = $form_state->getUserInput();
   $newMail = \Drupal::service('plugin.manager.mail');
-  $to = 'steering@contradance.org';
+  $to = 'steering@contradance.org, kbs.hagen@emory.edu';
   $date = DateTime::createFromFormat('Y-m-d', $input['field_event_date'][0]['value']['date']);
   $params['title'] = $input['title'][0]['value'];
   $params['date'] = $date->format('l, F dS');
@@ -150,9 +150,7 @@ Competing Events: " . $params['compete'] . "
 
 Link to event: " . $params['link'] . "
 
-Please note that any 'No. of dancers' that has a .5 indicates a likely miscount in the number of students who attended.
-Any other odd fractions of a dancer indicate that someone did not pay properly or there was a miscount at the cashbox (if
-someone accidentally paid $9, our calculations will produce a strange number, like 70.9 dancers).
+Please note that any 'No. of dancers' that has a .5 indicates a likely miscount in the number of students who attended. Any other odd fractions of a dancer indicate that someone did not pay properly or there was a miscount at the cashbox (if someone accidentally paid $9, our calculations will produce a strange number, like 70.9 dancers).
 
 Bye!";
 

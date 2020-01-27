@@ -52,7 +52,7 @@ class CashboxOperationsPayoutModalForm extends FormBase {
 
     $form['num_of_payees'] = [
       '#type' => 'radios',
-      '#title' => $this->t('How many people are being paid tonight?'),
+      '#title' => $this->t('How many people are being paid tonight? Please select the number of people before entering data.'),
       '#options' => [
         1 => '1',
         2 => '2',
@@ -74,6 +74,7 @@ class CashboxOperationsPayoutModalForm extends FormBase {
         'event' => 'change',
         'wrapper' => 'person-row-wrapper',
       ],
+      '#prefix' => "<p>Please use this form to enter who will be paid today. The \"Person Paid\" field autocompletes, so please try to use an autocompleted entry. This helps us behind the scenes facilitate our bookkeeping!</p>"
     ];
 
 

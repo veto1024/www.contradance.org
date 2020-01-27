@@ -1423,23 +1423,30 @@ li.vertical-tab-button:not(.active) {
 *
 ***************************************************************/
 
-div.public-agenda-items.panel {
+div.public-agenda-items.panel,
+div.private-agenda-items.panel{
   padding:.5em;
   color: black;
   font-size:1em;
 }
 
-div.public-agenda-items.panel div.tab-content {
+div.public-agenda-items.panel div.tab-content,
+div.private-agenda-items.panel div.tab-content{
   border: 5px solid blue;
   border-radius: 10px;
   padding:1em;
 }
 
-div.public-agenda-items.panel ul {
+div.public-agenda-items.panel ul,
+div.private-agenda-items.panel ul {
   margin-bottom:.25em;
 }
 
 button.edit-submit-email {
+  margin-bottom: .5em;
+}
+
+.agenda-items-agenda-form button {
   margin-bottom: .5em;
 }
 

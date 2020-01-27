@@ -52,6 +52,19 @@ class CashboxOperationsMemoModalForm extends FormBase {
     $form['#tree'] = TRUE;
     $nid = \Drupal::routeMatch()->getParameter('node')->id();
     $node = Node::load($nid);
+
+    $form['reporter'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Name of person reporting this information).'),
+      '#attributes' => [
+        'name' => 'field_reporter',
+      ],
+    ];
+
+    if ((isset($node->field_dance_reporter_name->value))) {
+      $form['compete']['#default_value'] = $node->field_dance_reporter_name->value;
+    }
+
     $form['memo'] = [
       '#type' => 'textarea',
       '#rows' => 4,
@@ -78,6 +91,8 @@ class CashboxOperationsMemoModalForm extends FormBase {
     if ((isset($node->field_competing_events->value))) {
       $form['compete']['#default_value'] = $node->field_competing_events->value;
     }
+
+
 
 
     $form['actions']['#type'] = 'actions';
@@ -145,6 +160,7 @@ class CashboxOperationsMemoModalForm extends FormBase {
     $node = Node::load($nid);
     $node->set('field_competing_events', $input['field_compete']);
     $node->set('field_additional_information', $input['field_memo']);
+    $node->set('field_dance_reporter_name', $input['field_reporter']);
     $node->save();
     $response->addCommand(new OpenModalDialogCommand("Success!", 'Memo data recorded.'));
 
