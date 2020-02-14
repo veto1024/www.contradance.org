@@ -5,16 +5,15 @@
  */
 
 namespace Drupal\agenda_items\Form;
-use CommerceGuys\Addressing\Address;
-use Drupal\address\Plugin\Validation\Constraint\AddressFormatConstraint;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\Core\Ajax\OpenModalDialogCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
-use Symfony\Component\Validator\Validation;
 
 /**
  * Agenda form.
@@ -57,10 +56,11 @@ class AgendaForm extends FormBase
     $form['short_description'] = [
       '#type' => 'textfield',
       '#title' => t('Short Description'),
-      '#description' => t('Please provide a short description to act as the agenda item title'),
+      '#description' => t('Please provide a short (50 character max) description to act as the agenda item title'),
       '#required' => TRUE,
       '#name' => 'field_short_description',
-    ];
+      '#maxlength' => 50,
+     ];
 
     $form['description'] = [
       '#type' => 'textarea',
@@ -135,12 +135,11 @@ class AgendaForm extends FormBase
   {
     $input = $form_state->getUserInput();
     $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node instanceof \Drupal\node\NodeInterface) {
+    if ($node instanceof NodeInterface) {
       // You can get nid and anything else you need from the node object.
       $nid = $node->id();
     }
-    /* $nid=\Drupal::entityTypeManager()->getStorage('node')->load($nid); */
-    $node=\Drupal\node\Entity\Node::load($nid);
+    $node= Node::load($nid);
 
     // Create single new paragraph
     $paragraph = Paragraph::create([

@@ -280,7 +280,7 @@ header#navbar.navbar.container.navbar-default {
 
 div.jumbotron.jumbotronImg {
   background-attachment: fixed;
-  background:contain;
+  background-size: contain;
   background-position: top;
   background-repeat: no-repeat;
   opacity:.3;
@@ -291,7 +291,6 @@ div.jumbotron.jumbotronImg {
 @media only screen and (min-width : 992px) and (max-width:3000px) {
   div.jumbotron.jumbotronImg {
     background-attachment: fixed;
-    background:contain;
     background-size:cover;
     background-repeat: no-repeat;
     opacity:.1;
@@ -523,6 +522,63 @@ div.full-calendar-panel div.contextual button {
 }
 
 
+/**************************************************************
+*
+* Fullclaendar_View main calendar CSS (replaces above)
+*
+***************************************************************/
+
+.fc-event-container a,
+a.fc-day-number {
+  color:white;
+  font-weight: 400;
+}
+
+.fc-event-container .fc-content,
+.fc-day-number{
+  font-size:1.33em
+}
+.fc-day-grid-event .fc-content {
+  white-space: inherit;
+}
+.fc-view.fc-listYear-view.fc-list-view.fc-widget-content {
+  background-color: white;
+  color:black;
+}
+.fc-ltr.fc-basic-view.fc-day-top.fc-day-number {
+  color:white;
+}
+
+.fc-button-group,
+.fc-list-item-marker {
+  display:none;
+}
+
+.fc-list-table td {
+  padding: 4px 6px;
+}
+.fc-view .fc-scroller {
+  height:auto !important;
+}
+
+@media only screen and (min-width : 480px) {
+  .fc-list-table td {
+    padding: 8px 14px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .fc-button-group {
+    display: initial;
+  }
+
+  .fc-view .fc-scroller {
+    height: initial;
+  }
+}
+
+.tooltip-inner {
+  max-width: 100% !important;
+}
   /**************************************************************
   *
   * Event page styling
@@ -846,6 +902,17 @@ div.layout-builder section {
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front {
   max-width:90%;
 }
+
+/**************************************************************
+*
+* Modal changes for event popups
+*
+***************************************************************/
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front {
+  max-width:90%;
+}
+
 
 /**************************************************************
 *

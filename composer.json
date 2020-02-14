@@ -56,7 +56,7 @@
         "drupal/field_group": "^3.0",
         "drupal/flag": "^4.0",
         "drupal/flag_search_api": "^1.4",
-        "drupal/fullcalendar_view": "^2.4",
+        "drupal/fullcalendar_view": "^2.6",
         "drupal/google_analytics": "^2.4",
         "drupal/icon": "1.x-dev",
         "drupal/link_attributes": "^1.9",
@@ -148,9 +148,6 @@
             }
         },
         "patches": {
-            "drupal/entity_usage": {
-                "Public file stream wrapper update": "https://www.drupal.org/files/issues/2019-09-19/entity_usage-htmllink-streamwrapper-2973297-7.patch"
-            },
             "drupal/views_ical": {
                 "Handling null data for location and body":  "ical-field-wizard-link-handling.patch"
             }
