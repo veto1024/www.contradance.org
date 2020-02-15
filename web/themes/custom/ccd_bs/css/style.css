@@ -740,6 +740,8 @@ button#edit-submit-email {
     top:5%;
     height:100%;
     display:initial;
+    margin-top:3em;
+    margin-right:1em;
   }
   div#views-bootstrap-upcoming-events-views-block-1  .upcoming-events-views .layout__region--second .block-field-blocknodeeventfield-band {
     width:65%;
@@ -747,9 +749,13 @@ button#edit-submit-email {
   div#views-bootstrap-upcoming-events-views-block-1 .upcoming-events-views .layout__region--second .block-field-blocknodeeventfield-caller {
     width:32%;
   }
-
 }
 
+  @media only screen and (min-width : 992px) {
+    .upcoming-events-views .layout--twocol-section .layout__region--second {
+      margin-top:1.5em;
+    }
+  }
 
 .upcoming-panel h2 {
   display:inline;
