@@ -3,8 +3,8 @@ IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
---- web/modules/contrib/views_ical/src/Plugin/views/row/IcalFieldsWizard.php	(date 1578443268462)
-+++ web/modules/contrib/views_ical/src/Plugin/views/row/IcalFieldsWizard.php	(date 1578443268462)
+--- src/Plugin/views/row/IcalFieldsWizard.php	(date 1578443268462)
++++ src/Plugin/views/row/IcalFieldsWizard.php	(date 1578443268462)
 @@ -211,7 +211,12 @@
        }
        else {
@@ -17,7 +17,7 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 +          $event->setLocation($location->getValue()['value']);
 +        }
        }
- 
+
      }
 @@ -225,8 +230,13 @@
        }
@@ -34,4 +34,4 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 +        }
        }
      }
- 
+

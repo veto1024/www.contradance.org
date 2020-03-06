@@ -137,11 +137,6 @@
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
-        },
-        "patches": {
-            "drupal/core": {
-                "Can not access configuration synchronization page. Ignore setting causes an error": "https://www.drupal.org/files/issues/2020-01-08/3100712-8-wsod-on-config-page.patch"
-            }
         }
     }
 }
