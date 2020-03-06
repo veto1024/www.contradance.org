@@ -47,15 +47,19 @@ function ccd_cashbox_form_node_event_edit_form_alter(&$form, FormStateInterface 
   foreach (array_keys($form['actions']) as $action) {
     if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
       $form['actions'][$action]['#submit'][] = 'ccd_cashbox_form_submit';
-      $form['submit_email'] = array(
-        '#type' => 'submit',
-        '#value' => t('Save & Email to SC'),
-        '#weight' => 99,
-        '#validate' => array('node_form_validate'),
-        // Use default and an additional submit handler.
-        '#submit' => array('ccd_cashbox_form_submit', 'ccd_cashbox_mail_submit'),
-      );
     }
+    $form['actions']['submit2'] = array(
+      '#type' => 'submit',
+      '#value' => t('Email to SC'),
+      '#attributes' => [
+        'class' => [
+          'btn-success',
+        ],
+      ],
+      '#weight' => 999,
+      // Use default and an additional submit handler.
+      '#submit' => array('::submitForm','::save','ccd_cashbox_form_submit', 'ccd_cashbox_mail_submit'),
+    );
   }
 }
 
@@ -69,6 +73,9 @@ function ccd_cashbox_form_node_event_edit_form_alter(&$form, FormStateInterface 
 
 function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
 
+  $newMail = \Drupal::service('plugin.manager.mail');
+  //$to = 'steering@contradance.org, kbs.hagen@emory.edu';
+  $to = 'veto1024@gmail.com';
   // We need to grab a few things from the node itself
   $node = \Drupal::routeMatch()->getParameter('node');
   if ($node instanceof \Drupal\node\NodeInterface) {
@@ -85,28 +92,46 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
     $params['net'] = "$" . $node->field_net_income->value;
   }
   $params['dancers'] = $node->field_total_no_of_dancers->value;
-
-  $input = $form_state->getUserInput();
-  $newMail = \Drupal::service('plugin.manager.mail');
-  $to = 'steering@contradance.org, kbs.hagen@emory.edu';
-  $date = DateTime::createFromFormat('Y-m-d', $input['field_event_date'][0]['value']['date']);
-  $params['title'] = $input['title'][0]['value'];
+  $date = DateTime::createFromFormat('Y-m-d\T00:00:00', $node->get('field_event_date')[0]->value);
+  $params['title'] = $node->getTitle();
   $params['date'] = $date->format('l, F dS');
-  $params['cashIn'] = $input['field_starting_cash'][0]['value'];
-  $params['cashOut'] = $input['field_ending_cash'][0]['value'];
-  $params['venmoAdmission'] = $input['field_venmo_admission'][0]['value'];
-  $params['reporter'] = $input['field_dance_reporter_name'][0]['value'];
-  $params['compete'] = $input['field_competing_events'][0]['value'];
-  $params['notes'] = $input['field_additional_information'][0]['value'];
-  $params['bandPay'] = $input['field_band_pay'][0]['value'];
-  $params['bandTravel'] = $input['field_band_travel'][0]['value'];
-  $params['callerPay'] = $input['field_caller_pay'][0]['value'];
-  $params['callerTravel'] = $input['field_caller_travel'][0]['value'];
-  $params['soundPay'] = $input['field_sound_pay'][0]['value'];
-  $params['rent'] = $input['field_rent_cost'][0]['value'];
-  $params['other'] = $input['field_other_expenses'][0]['value'];
-  $params['notes'] = $input['field_additional_information'][0]['value'];
-  $params['link'] = "https://new.contradance.org" . \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+  $params['cashIn'] = $node->field_starting_cash->value;
+  $params['cashOut'] = $node->field_ending_cash->value;
+  $params['venmoAdmission'] = $node->field_venmo_admission->value;
+  $params['reporter'] = $node->field_dance_reporter_name->value;
+  $params['compete'] = $node->field_competing_events->value;
+  $params['bandPay'] = $node->field_band_pay->value;
+  $params['bandTravel'] = $node->field_band_travel->value;
+  $params['callerPay'] = $node->field_caller_pay->value;
+  $params['callerTravel'] = $node->field_caller_travel->value;
+  $params['soundPay'] = $node->field_sound_pay->value;
+  $params['rent'] = $node->field_rent_cost->value;
+  $params['other'] = $node->field_other_expenses->value;
+  $params['discrepancyBoolean'] = $node->field_payout_discrepancy_->value;
+  $params['discrepancyNote'] = $node->field_payout_discrepancy_note->value;
+  $params['notes'] = $node->field_additional_information->value;
+
+//  $input = $form_state->getUserInput();
+//  $date = DateTime::createFromFormat('Y-m-d', $input['field_event_date'][0]['value']['date']);
+
+//  $params['title'] = $input['title'][0]['value'];
+//  $params['date'] = $date->format('l, F dS');
+//  $params['cashIn'] = $input['field_starting_cash'][0]['value'];
+//  $params['cashOut'] = $input['field_ending_cash'][0]['value'];
+//  $params['venmoAdmission'] = $input['field_venmo_admission'][0]['value'];
+//  $params['reporter'] = $input['field_dance_reporter_name'][0]['value'];
+//  $params['compete'] = $input['field_competing_events'][0]['value'];
+//  $params['bandPay'] = $input['field_band_pay'][0]['value'];
+//  $params['bandTravel'] = $input['field_band_travel'][0]['value'];
+//  $params['callerPay'] = $input['field_caller_pay'][0]['value'];
+//  $params['callerTravel'] = $input['field_caller_travel'][0]['value'];
+//  $params['soundPay'] = $input['field_sound_pay'][0]['value'];
+//  $params['rent'] = $input['field_rent_cost'][0]['value'];
+//  $params['other'] = $input['field_other_expenses'][0]['value'];
+//  $params['discrepancyBoolean'] = $input['field_payout_discrepancy_']['value'];
+//  $params['discrepancyNote'] = $input['field_payout_discrepancy_note'][0]['value'];
+//  $params['notes'] = $input['field_additional_information'][0]['value'];
+//  $params['link'] = "https://www.contradance.org" . \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
   $newMail->mail('ccd_cashbox', 'cashboxReport', $to, 'en', $params, $reply = NULL, $send = TRUE);
   drupal_set_message('Mail has been sent.', 'status');
 }
@@ -117,6 +142,16 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
 function ccd_cashbox_mail($key, &$message, $params) {
 
   // E-mail formatting will be exactly as below, so do not use indenting!
+
+  if ($params['discrepancyBoolean']=="1") {
+    $discrepancyText = '
+Payout Discrepancy:
+' . $params['discrepancyNote'];
+  }
+  else {
+    $discrepancyText = '';
+  }
+
   $body =
     "This is your CCD Friday Night Dance Report for " . $params['date'] . "
 
@@ -124,8 +159,8 @@ Reporter: ". $params['reporter'] . "
 Event: " . $params['title'] . "
 Revenue: $" . $params['gross_rev'] . "
 Expenses: $" . $params['expenses'] . "
-Net Income: " . $params['net'] . "
 No. of Dancers: "  . $params['dancers'] . "
+Net Income: " . $params['net'] . "
 
 Cashbox Summary:
 
@@ -144,17 +179,20 @@ Rent: $" . $params['rent'] . "
 Other Expenses: $" . $params['other'] . "
 
 Notes:
-" . $params['notes'] ."
+" . $params['notes'] . "
+" .
+$discrepancyText
+. "
 
 Competing Events: " . $params['compete'] . "
 
 Link to event: " . $params['link'] . "
 
-Please note that any 'No. of dancers' that has a .5 indicates a likely miscount in the number of students who attended. Any other odd fractions of a dancer indicate that someone did not pay properly or there was a miscount at the cashbox (if someone accidentally paid $9, our calculations will produce a strange number, like 70.9 dancers).
+Please note that any &lsquo;No. of dancers&lsquo; that has a .5 indicates a likely miscount in the number of students who attended. Any other odd fractions of a dancer indicate that someone did not pay properly or there was a miscount at the cashbox (if someone accidentally paid &dollar9, our calculations will produce a strange number, like 70.9 dancers).
 
 Bye!";
 
-  $message['subject'] = "CCD Cashbox Report for " . $params['title'] ;
+  $message['subject'] = "CCD Cashbox Report for " . $params['title'];
   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);
 }
 

@@ -49,45 +49,79 @@ class CashboxOperationsPayoutModalForm extends FormBase {
       '#weight' => -10,
     ];
     $form['#tree'] = TRUE;
-    $node = \Drupal::routeMatch()->getParameter('node');
-    $nid = $node->id();
-    $form['nid'] = array(
-      '#type' => 'hidden',
-      '#title' => $this->t('The nid of the submission'),
-    );
 
-    $form['my_embedded_view'] = [
-      '#title' => "Tonight's Payout Summary",
-      '#type' => 'view',
-      '#name' => 'today_payout',
-      '#display_id' => 'payout_view',
-      '#arguments' => [
-        'nid' => $nid,
+    $form['num_of_payees'] = [
+      '#type' => 'select',
+      '#title' => $this->t('How many people are being paid tonight? Please select the number of people before entering data.'),
+      '#options' => [
+        1 => '1',
+        2 => '2',
+        3 => '3',
+        4 => '4',
+        5 => '5',
+        6 => '6',
+        7 => '7',
+        8 => '8',
+        9 => '9',
+        10 => '10',
       ],
-    ];
-    $form['discrepancy'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t("Payout Discrepancy"),
-      '#description' => $this->t('There was a discrepancy tonight'),
+      '#default_value' => 1,
       '#attributes' => [
-        'name' => 'field_discrepancy_boolean',
+        'name' => 'field_num_of_payees',
       ],
+      '#ajax' => [
+        'callback' => '::addFormCallback',
+        'event' => 'change',
+        'wrapper' => 'person-row-wrapper',
+      ],
+      '#prefix' => "<p>Please use this form to enter who will be paid today. The \"Person Paid\" field autocompletes, so please try to use an autocompleted entry. This helps us behind the scenes facilitate our bookkeeping!</p>"
     ];
-    $form['discrepancy_note'] = [
-      '#type' => 'textarea',
-      '#rows' => 2,
-      '#title' => $this->t("Discrepancy Note"),
+
+
+    $form['person_fieldset'] = [
+      '#type' => 'details',
+      '#prefix' => '<div id="person-row-wrapper">',
+      '#suffix' => '</div>',
       '#attributes' => [
-        'name' => 'field_discrepancy_memo',
-      ],
-      '#placeholder' => $this->t("If there was a discrepancy, please provide details, including
-1) what the discrepancy was and 2) how it was ultimately addressed"),
-      '#states' => [
-        'visible' => [
-          ':input[name="field_discrepancy_boolean"]' => ['checked' => TRUE],
+        'class' => [
+          'container-inline',
         ],
       ],
+      '#open' => TRUE,
     ];
+
+    for ($i = 0; $i < $form_state->getUserInput()['field_num_of_payees']; $i++) {
+
+      $form['person_fieldset'][$i] = [
+        '#type' => 'fieldset',
+      ];
+
+      $form['person_fieldset'][$i]['name'] = [
+        '#type' => 'entity_autocomplete',
+        '#title' => $this->t('Person paid'),
+        '#target_type' => 'node',
+        '#selection_settings' => [
+          'target_bundles' => [
+            'person',
+          ],
+        ],
+        '#tags' => TRUE,
+        '#required' => TRUE,
+        '#attributes' => [
+          'name' => 'field_person_fieldset_name_' . $i,
+        ],
+      ];
+
+      $form['person_fieldset'][$i]['amount_paid'] = [
+        '#type' => 'number',
+        '#step' => .01,
+        '#default_value' => 0,
+        '#title' => $this->t('Amount paid $'),
+        '#attributes' => [
+          'name' => 'field_person_fieldset_amount_paid_' . $i,
+        ],
+      ];
+    }
 
     $form['actions']['#type'] = 'actions';
 
@@ -106,6 +140,11 @@ class CashboxOperationsPayoutModalForm extends FormBase {
         'wrapper' => 'cashbox_operations_payout_modal_form',
       ],
     ];
+
+    $form['nid'] = array(
+      '#type' => 'hidden',
+      '#title' => $this->t('The nid of the submission'),
+    );
 
     return $form;
   }
@@ -159,9 +198,28 @@ class CashboxOperationsPayoutModalForm extends FormBase {
     $input = $form_state->getUserInput();
     $nid = $form_state->getvalue('nid');
     $node = Node::load($nid);
-    if ($input['field_discrepancy_boolean']) {
-      $node->set('field_payout_discrepancy_', '1');
-      $node->set('field_payout_discrepancy_note', $input['field_discrepancy_memo']);
+    $num = $form_state->getUserInput()['field_num_of_payees'];
+    $i = 0;
+    for ($i = 0; $i < $num; $i++) {
+      // Create a new paragraph
+      $name = $form_state->getUserInput()['field_person_fieldset_name_' . $i];
+      $id = Element\EntityAutocomplete::extractEntityIdFromAutocompleteInput($name);
+      $amount = $form_state->getUserInput()['field_person_fieldset_amount_paid_' . $i];
+      $paragraph = Paragraph::create([
+        'type' => 'people_and_payments',
+        'field_amount_paid' => $amount,
+        'field_person_paid' => $id,
+      ]);
+      $paragraph->isNew();
+      $paragraph->save();
+
+      $current = $node->get('field_person_paid')->getValue();
+      $current[] = array(
+        'target_id' => $paragraph->id(),
+        'target_revision_id' => $paragraph->getRevisionId(),
+      );
+      $node->set('field_person_paid', $current);
+      $node->save();
     }
     $node->save();
     $response->addCommand(new OpenModalDialogCommand("Success!", 'Payout data recorded.'));

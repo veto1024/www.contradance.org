@@ -81,7 +81,7 @@ class CashboxOperationsAddFullIOU extends FormBase {
     $response = new AjaxResponse();
     $response->addCommand(new InvokeCommand('.view-display-id-event_view_attendance_summary', 'trigger', ['RefreshView']));
     $response->addCommand(new InvokeCommand('.view-display-id-event_view_revenue_summary_view', 'trigger', ['RefreshView']));
-    $response->addCommand(new OpenModalDialogCommand("$5 IOU Added", 'New $5 IOU added.'));
+    $response->addCommand(new OpenModalDialogCommand("$10 IOU Added", 'New $1- IOU added.'));
 
     return $response;
   }

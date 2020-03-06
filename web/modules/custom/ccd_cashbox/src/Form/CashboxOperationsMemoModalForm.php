@@ -53,31 +53,44 @@ class CashboxOperationsMemoModalForm extends FormBase {
     $nid = \Drupal::routeMatch()->getParameter('node')->id();
     $node = Node::load($nid);
 
+    if (!empty($node->get('field_dance_reporter_name'))) {
+      $previousReporter = $node->get('field_dance_reporter_name')->getValue()[0];
+    }
+    else {
+      $previousReporter = "";
+    }
     $form['reporter'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Name of person reporting this information).'),
       '#attributes' => [
         'name' => 'field_reporter',
       ],
+      '#default_value' => $previousReporter,
     ];
-
-    if ((isset($node->field_dance_reporter_name->value))) {
-      $form['compete']['#default_value'] = $node->field_dance_reporter_name->value;
+    if (!empty($node->get('field_additional_information'))) {
+      $previousMemo = $node->get('field_additional_information')->getValue()[0];
+    }
+    else {
+      $previousMemo = "";
     }
 
     $form['memo'] = [
       '#type' => 'textarea',
       '#rows' => 4,
       '#resizable' => 'vertical',
-      '#title' => $this->t('Please include additional information about tonight\'s dance (e.g., # of lines at the start/end, any pertinent weather conditions, nearby events, or issues at the dance.'),
+      '#title' => $this->t("Please include additional information about tonight's dance (e.g., # of lines at
+        the start/end, any pertinent weather conditions, nearby events, or issues at the dance."),
       '#attributes' => [
         'name' => 'field_memo',
       ],
-      '#default_value' => "None",
+      '#default_value' => $previousMemo['value'],
     ];
 
-    if ((isset($node->field_additional_information->value))) {
-      $form['memo']['#default_value'] = $node->field_additional_information->value;
+    if (!empty($node->get('field_competing_events'))) {
+      $previousCompete = $node->get('field_competing_events')->getValue()[0];
+    }
+    else {
+      $previousCompete = "";
     }
 
     $form['compete'] = [
@@ -86,14 +99,8 @@ class CashboxOperationsMemoModalForm extends FormBase {
       '#attributes' => [
         'name' => 'field_compete',
       ],
+      '#default_value' => $previousCompete,
     ];
-
-    if ((isset($node->field_competing_events->value))) {
-      $form['compete']['#default_value'] = $node->field_competing_events->value;
-    }
-
-
-
 
     $form['actions']['#type'] = 'actions';
 

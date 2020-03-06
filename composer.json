@@ -23,7 +23,6 @@
         "aws/aws-sdk-php": "^3.112",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
-        "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/address_map_link": "^1.0",
         "drupal/addtocalendar": "^3.1",
         "drupal/admin_toolbar": "^2.0",
@@ -139,15 +138,9 @@
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
         },
-        "drupal-scaffold": {
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
-            }
-        },
         "patches": {
-            "drupal/entity_usage": {
-                "Public file stream wrapper update": "https://www.drupal.org/files/issues/2019-09-19/entity_usage-htmllink-streamwrapper-2973297-7.patch"
+            "drupal/core": {
+                "Can not access configuration synchronization page. Ignore setting causes an error": "https://www.drupal.org/files/issues/2020-01-08/3100712-8-wsod-on-config-page.patch"
             },
             "drupal/views_ical": {
                 "Handling null data for location and body":  "ical-field-wizard-link-handling.patch"

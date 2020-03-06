@@ -49,13 +49,20 @@ class PreDanceCashboxOperationsModalForm extends FormBase {
 
     // The status messages that will contain any form errors.
     $form['status_messages'] = [
-    '#type' => 'status_messages',
+      '#type' => 'status_messages',
       '#weight' => -10,
     ];
-
+    $nid = \Drupal::routeMatch()->getParameter('node')->id();
+    $node = Node::load($nid);
+    if (!empty($node->get('field_starting_cash'))) {
+      $previousIn = $node->get('field_starting_cash')->getValue()[0];
+    }
+    else {
+      $previousIn = 0;
+    }
     $form['cashbox_in'] = [
       '#type' => 'number',
-      '#default_value' => 0,
+      '#default_value' => $previousIn,
       '#title' => $this->t('How much cash is in the cashbox before any addition from the ATM?'),
       '#step' => .01,
       '#required' => TRUE,
@@ -64,10 +71,15 @@ class PreDanceCashboxOperationsModalForm extends FormBase {
       ],
       '#description' => $this->t('The amount in the cashbox does not include money set aside for deposit or money from the ATM.'),
     ];
-
+    if (!empty($node->get('field_cash_added_from_atm'))) {
+      $previousATM = $node->get('field_cash_added_from_atm')->getValue()[0];
+    }
+    else {
+      $previousATM = 0;
+    }
     $form['atm_to_cashbox'] = [
       '#type' => 'number',
-      '#default_value' => 0,
+      '#default_value' => $previousATM,
       '#title' => $this->t('How much cash was added from the ATM before the dance?'),
       '#step' => .01,
       '#required' => TRUE,
@@ -155,6 +167,7 @@ class PreDanceCashboxOperationsModalForm extends FormBase {
     $node = Node::load($nid);
     $node->set('field_starting_cash', $input['field_cashbox_in']);
     $node->set('field_cash_added_from_atm', $input['field_atm_in']);
+    ccd_cashbox_node_recalculate($node);
     $node->save();
     $response->addCommand(new OpenModalDialogCommand("Success!", 'Cashbox sheet updated.'));
 

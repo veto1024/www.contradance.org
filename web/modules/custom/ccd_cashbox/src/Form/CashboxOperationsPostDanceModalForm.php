@@ -53,20 +53,53 @@ class CashboxOperationsPostDanceModalForm extends FormBase {
       '#weight' => -10,
     ];
 
+    $nid = \Drupal::routeMatch()->getParameter('node')->id();
+    $node = Node::load($nid);
+    if (!empty($node->get('field_cash_to_be_deposited'))) {
+      $previousATMOut = $node->get('field_cash_to_be_deposited')->getValue()[0];
+    }
+    else {
+      $previousATMOut = 300.;
+    }
+    $form['cash_ATM'] = [
+      '#type' => 'number',
+      '#default_value' => $previousATMOut,
+      '#title' => $this->t('How much cash is being removed for deposit? DO NOT include checks.'),
+      '#description' => $this->t('Note: If the deposit will not be physically separated from the rest of the money for deposit later (i.e., if the treasurer
+         or another SC member is not taking the money away from the cashbox tonight, it is not considered "removed for deposit").
+         If you are unsure, set this as 0 and leave all of the money in the cashbox'),
+      '#step' => .01,
+      '#required' => TRUE,
+      '#attributes' => [
+        'name' => 'field_cash_to_ATM',
+      ],
+    ];
+    if (!empty($node->get('field_ending_cash'))) {
+      $previousEndingCash = $node->get('field_ending_cash')->getValue()[0];
+    }
+    else {
+      $previousEndingCash = 300.;
+    }
     $form['cashbox_out'] = [
       '#type' => 'number',
-      '#default_value' => 300,
-      '#title' => $this->t('How much cash (not checks) will be left in the cashbox for use next week? We try to keep this as $300 and deposit the rest. If the deposit will not be physically separated from the rest of the money for deposit later, include it in this amount.'),
+      '#default_value' => $previousEndingCash,
+      '#title' => $this->t('How much cash (not checks) will be left in the cashbox for use next week? We try to
+        keep $300 in the cashbox for next week and deposit the rest.'),
       '#step' => .01,
       '#required' => TRUE,
       '#attributes' => [
         'name' => 'field_cash_out',
       ],
     ];
+    if(!empty($node->get('field_checks_for_dance_admission'))) {
+      $previousEndingCheck = $node->get('field_checks_for_dance_admission')->getValue()[0];
+    } else {
+      $previousEndingCheck = 0.;
+    }
 
     $form['checks_admission'] = [
       '#type' => 'number',
-      '#default_value' => 0,
+      '#default_value' => $previousEndingCheck,
       '#title' => $this->t('How much money was collected for dance admissions as checks (in $)?'),
       '#step' => .01,
       '#required' => TRUE,
@@ -119,8 +152,10 @@ class CashboxOperationsPostDanceModalForm extends FormBase {
     if (!is_numeric($input['field_checks_admission'])) {
       $form_state->setErrorByName('checks_admission', t('Please provide a numeric value!'));
     }
+    if (!is_numeric($input['field_cash_to_ATM'])) {
+      $form_state->setErrorByName('cash_ATM', t('Please provide a numeric value!'));
+    }
   }
-
 
   /**
    * AJAX callback handler that displays any errors or a success message.
@@ -153,6 +188,8 @@ class CashboxOperationsPostDanceModalForm extends FormBase {
     $node = Node::load($nid);
     $node->set('field_ending_cash', $input['field_cash_out']);
     $node->set('field_checks_for_dance_admission', $input['field_checks_admission']);
+    $node->set('field_cash_to_be_deposited', $input['field_cash_to_ATM']);
+    ccd_cashbox_node_recalculate($node);
     $node->save();
     $response->addCommand(new OpenModalDialogCommand("Success!", 'Cashbox sheet updated.'));
 
