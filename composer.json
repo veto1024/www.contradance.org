@@ -141,9 +141,6 @@
         "patches": {
             "drupal/core": {
                 "Can not access configuration synchronization page. Ignore setting causes an error": "https://www.drupal.org/files/issues/2020-01-08/3100712-8-wsod-on-config-page.patch"
-            },
-            "drupal/views_ical": {
-                "Handling null data for location and body":  "ical-field-wizard-link-handling.patch"
             }
         }
     }
