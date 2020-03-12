@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains ccd_booking.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ccd_booking_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ccd_booking module.
+    case 'help.page.ccd_booking':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('CCD Booking Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ccd_booking_theme() {
+  return [
+    'ccd_booking' => [
+      'render element' => 'children',
+    ],
+  ];
+}

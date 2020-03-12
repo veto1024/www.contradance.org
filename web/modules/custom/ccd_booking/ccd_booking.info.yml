@@ -1,0 +1,6 @@
+name: 'CCD Booking'
+type: module
+description: 'CCD Booking Module'
+core: 8.x
+package: 'Custom'
+version: 1.0

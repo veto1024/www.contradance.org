@@ -1,0 +1,13 @@
+{
+    "name": "ccd_booking",
+    "type": "drupal-module",
+    "description": "CCD Booking Module",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/ccd_booking",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/ccd_booking",
+        "source": "http://cgit.drupalcode.org/ccd_booking",
+    },
+}

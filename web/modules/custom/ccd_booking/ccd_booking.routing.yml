@@ -1,0 +1,14 @@
+ccd_booking.booking:
+  path: '/booking'
+  defaults:
+    _controller: '\Drupal\ccd_booking\Controller\BookingPage::booking'
+  requirements:
+    _permission: 'administer booking page'
+
+ccd_booking.node_create:
+  path: '/booking/form/node_create'
+  defaults:
+    _form: '\Drupal\ccd_booking\Form\NodeCreate'
+    _title: 'NodeCreate'
+  requirements:
+    _access: 'TRUE'

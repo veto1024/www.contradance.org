@@ -92,9 +92,11 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
     $params['net'] = "$" . $node->field_net_income->value;
   }
   $params['dancers'] = $node->field_total_no_of_dancers->value;
-  $date = DateTime::createFromFormat('Y-m-d\T00:00:00', $node->get('field_event_date')[0]->value);
+  $date = DateTime::createFromFormat('Y-m-d\TH:i:s', $node->get('field_event_date')[0]->value);
+  $offset = DateInterval::createFromDateString('5 hours');
+  $date->sub($offset);
   $params['title'] = $node->getTitle();
-  $params['date'] = $date->format('l, F dS');
+  $params['date'] = $date->format('l, F jS');
   $params['cashIn'] = $node->field_starting_cash->value;
   $params['cashOut'] = $node->field_ending_cash->value;
   $params['venmoAdmission'] = $node->field_venmo_admission->value;
@@ -131,7 +133,8 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
 //  $params['discrepancyBoolean'] = $input['field_payout_discrepancy_']['value'];
 //  $params['discrepancyNote'] = $input['field_payout_discrepancy_note'][0]['value'];
 //  $params['notes'] = $input['field_additional_information'][0]['value'];
-//  $params['link'] = "https://www.contradance.org" . \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+
+  $params['link'] = "https://www.contradance.org" . \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
   $newMail->mail('ccd_cashbox', 'cashboxReport', $to, 'en', $params, $reply = NULL, $send = TRUE);
   drupal_set_message('Mail has been sent.', 'status');
 }
@@ -188,7 +191,7 @@ Competing Events: " . $params['compete'] . "
 
 Link to event: " . $params['link'] . "
 
-Please note that any &lsquo;No. of dancers&lsquo; that has a .5 indicates a likely miscount in the number of students who attended. Any other odd fractions of a dancer indicate that someone did not pay properly or there was a miscount at the cashbox (if someone accidentally paid &dollar9, our calculations will produce a strange number, like 70.9 dancers).
+Please note that any &lsquo;No. of dancers&lsquo; that has a .5 indicates a likely miscount in the number of students who attended. Any other odd fractions of a dancer indicate that someone did not pay properly or there was a miscount at the cashbox (if someone accidentally paid &dollar;9, our calculations will produce a strange number, like 70.9 dancers).
 
 Bye!";
 

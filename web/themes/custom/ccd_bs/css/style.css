@@ -1707,3 +1707,57 @@ div#band-contract h3 {
 .report-module address {
   text-align: center;
 }
+
+
+/***********************************
+*
+* Booking CSS
+*
+***********************************/
+
+.node-create button {
+  margin-left: .5em;
+  margin-right: .5em;
+}
+
+.node-create p {
+  color:black;
+}
+.node-create .well {
+  padding: 5px;
+  margin-right:.5em;
+  margin-left: .5em;
+  margin-top: 0;
+  margin-bottom: .25em;
+}
+.node-create .well .panel-body {
+  padding:10px;
+}
+.node-create .modal {
+  max-height: 80%;
+  overflow-y: scroll;
+  overflow-scrolling: auto;
+}
+.node-create button[id^='payment-modal-submit-'] {
+  margin-top: 10px;
+}
+div.js-filter-wrapper[id*='description-format'] {
+  display:none;
+}
+
+#event-type-node-create-fieldset-wrapper {
+  margin-bottom: .5em;
+}
+
+.modal-width-800 {
+  width:800px;
+}
+
+.z-900 {
+  z-index: 900;
+}
+
+.top-100 {
+  top:100px;
+}
+

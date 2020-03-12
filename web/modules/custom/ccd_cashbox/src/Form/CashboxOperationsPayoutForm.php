@@ -18,26 +18,28 @@ class CashboxOperationsPayoutForm extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state, $options = NULL) {
     $node = \Drupal::routeMatch()->getParameter('node');
-    $nid = $node->id();
-    $form['payout_submit'] = [
-      '#type' => 'link',
-      '#title' => $this->t('Payout Step'),
-      '#url' => Url::fromRoute('ccd_cashbox.operations.payout_modal', ['node' => $nid]),
-      '#attributes' => [
-        'class' => [
-          'use-ajax',
-          'button',
-          'btn',
-          'btn-lg',
-          'btn-success',
-          'modal-classy',
+    if (!is_null($node)) {
+      $nid = $node->id();
+      $form['payout_submit'] = [
+        '#type' => 'link',
+        '#title' => $this->t('Payout Step'),
+        '#url' => Url::fromRoute('ccd_cashbox.operations.payout_modal', ['node' => $nid]),
+        '#attributes' => [
+          'class' => [
+            'use-ajax',
+            'button',
+            'btn',
+            'btn-lg',
+            'btn-success',
+            'modal-classy',
+          ],
+          'data-dialog-type' => 'modal',
+          'data-dialog-options' => Json::encode(array(
+            'width' => 600,
+          )),
         ],
-        'data-dialog-type' => 'modal',
-        'data-dialog-options' => Json::encode(array(
-          'width' => 600,
-        )),
-      ],
-    ];
+      ];
+    }
 
   // Attach the library for pop-up dialogs/modals.
     $form['#attached']['library'][] = 'core/drupal.dialog.ajax';

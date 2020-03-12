@@ -18,7 +18,11 @@ class CashboxOperationsPostDanceForm extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state, $options = NULL) {
     $node = \Drupal::routeMatch()->getParameter('node');
-    $nid = $node->id();
+    if (!$node) {
+      $nid = 1;
+    } else {
+      $nid = $node->id();
+    }
     $form['postdance_submit'] = [
       '#type' => 'link',
       '#title' => $this->t('End of Night'),
