@@ -1,0 +1,5 @@
+name: 'CCD Checkout'
+type: module
+description: 'CCD Checkout Module'
+core: 8.x
+package: 'Custom'

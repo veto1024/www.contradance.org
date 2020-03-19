@@ -12,6 +12,17 @@ framework:
     - core/jquery
     - core/jquery.once
 
+donation:
+  js:
+    js/donation.js: {}
+  dependencies:
+    - core/jquery
+
+redirect:
+  js:
+    js/redirect.js: {}
+  dependencies:
+      - core/jquery
 # Uncomment for LESS source JavaScript files.
 #  js:
 #    bootstrap/js/affix.js: {}

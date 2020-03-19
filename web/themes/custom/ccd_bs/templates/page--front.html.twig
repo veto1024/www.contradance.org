@@ -51,6 +51,7 @@
  * @see html.html.twig
  */
 #}
+{{  attach_library('ccd_bs/donation') }}
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 {# Navbar #}
 {% if page.navigation or page.navigation_collapsible %}

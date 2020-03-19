@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Contains ccd_checkout.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ccd_checkout_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ccd_checkout module.
+    case 'help.page.ccd_checkout':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('CCD Checkout Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function ccd_checkout_mail_alter(array &$message) {
+  // Order receipt.
+  if ($message['id'] === 'commerce_order_receipt') {
+    /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+    $order = $message['params']['order'];
+
+    // Change the email subject.
+    // @todo Remove this if/when it becomes configurable.
+    //   https://www.drupal.org/project/commerce/issues/2924159
+    $message['subject'] = t('Your Receipt for your CCD Donation!');
+    $messsage['from'] = "Chattahoochee Contra Dancers";
+    $message['reply-to'] = "no-reply@contradance.org";
+  }
+}

@@ -16,3 +16,13 @@ function ccd_bs_page_attachments_alter(&$attachments) {
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ccd_bs_preprocess_webform_confirmation(array &$variables) {
+  $webform = $variables['webform'];
+  $confirmation_attributes = $webform->getSetting('confirmation_attributes');
+  if (($confirmation_attributes['redirect']) && ($confirmation_attributes['redirectURL'])) {
+    $variables['#attached']['drupalSettings']['redirect'] = $confirmation_attributes['redirectURL'];
+  }
+}
