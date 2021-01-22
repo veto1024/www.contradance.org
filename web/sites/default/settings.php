@@ -88,16 +88,16 @@
  * ];
  * @endcode
  */
-$databases['default']['default'] = [
-   'database' => $_SERVER['DB_DATABASE'],
-   'username' => $_SERVER['DB_USER'],
-   'password' => $_SERVER['DB_PASS'],
-   'host' => $_SERVER['DB_HOST'],
-   'port' => $_SERVER['DB_HOST'],
-   'driver' => 'mysql',
-   'prefix' => '',
-   'collation' => 'utf8mb4_general_ci',
-];
+//$databases['default']['default'] = [
+//   'database' => $_SERVER['DB_DATABASE'],
+//   'username' => $_SERVER['DB_USER'],
+//   'password' => $_SERVER['DB_PASS'],
+//   'host' => $_SERVER['DB_HOST'],
+//   'port' => $_SERVER['DB_HOST'],
+//   'driver' => 'mysql',
+//   'prefix' => '',
+//   'collation' => 'utf8mb4_general_ci',
+//];
 
 /**
  * Customizing database settings.
@@ -741,6 +741,8 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 $settings['trusted_host_patterns'] = [
    '^contradance\.org$',
    '^.+\.contradance\.org$',
+   '^lndo\.site$',
+   '^.+\.lndo\.site$',
 ];
 
 /**
@@ -793,3 +795,17 @@ $settings['entity_update_backup'] = TRUE;
  }
 $config_directories['sync'] = $app_root.'/../config/sync';
 
+/**
+ * Prepare a LANDO_INFO constant.
+ *
+ * Contains info which you can see using the "lando info" command. Use the
+ * values in this constant to connect to the right Lando services.
+ */
+if (!defined('LANDO_INFO') && isset($_ENV['LANDO_INFO'])) {
+  define('LANDO_INFO', json_decode($_ENV['LANDO_INFO'], TRUE));
+}
+
+// Include settings for Lando services.
+if (file_exists($app_root . '/' . $site_path . '/settings.lando.php')) {
+  include $app_root . '/' . $site_path . '/settings.lando.php';
+}
