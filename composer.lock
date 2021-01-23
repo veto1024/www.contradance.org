@@ -4371,9 +4371,6 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "support": {
-                "source": "https://github.com/drupal/core/tree/8.9.13"
-            },
             "time": "2021-01-19T23:11:00+00:00"
         },
         {

@@ -1,0 +1,5 @@
+name: 'Dance Rhapsody Fundraiser'
+type: module
+description: 'Fundraising module for dance rhapsody events'
+core_version_requirement: ^8.8 || ^9
+package: 'Custom'

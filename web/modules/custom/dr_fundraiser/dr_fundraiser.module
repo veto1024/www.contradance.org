@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains dr_fundraiser.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dr_fundraiser_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dr_fundraiser module.
+    case 'help.page.dr_fundraiser':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Fundraising module for dance rhapsody events') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function dr_fundraiser_theme() {
+  return [
+    'drfundraiser_block' => [
+      'variables' => [
+        'total_donated' => NULL
+      ],
+      'render element' => 'children',
+    ],
+  ];
+}

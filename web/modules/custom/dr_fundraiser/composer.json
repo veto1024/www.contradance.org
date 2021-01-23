@@ -1,0 +1,13 @@
+{
+    "name": "dr_fundraiser",
+    "type": "drupal-module",
+    "description": "Fundraising module for dance rhapsody events",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/dr_fundraiser",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/dr_fundraiser",
+        "source": "http://cgit.drupalcode.org/dr_fundraiser",
+    },
+}

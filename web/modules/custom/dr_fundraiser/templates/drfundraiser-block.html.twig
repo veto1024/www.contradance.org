@@ -1,0 +1,79 @@
+{#
+/**
+* @file
+* Default theme implementation to display a block.
+*
+* @see template_preprocess_block()
+*
+* @ingroup themeable
+*/
+#}
+{% set block_classes = [
+  'dr-donation-block',
+  'row',
+  'm-3'
+]
+%}
+<div id="dr-fundraiser-block" {{ attributes.addClass(block_classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h{{ title_attributes }}>{{ label }}</h>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    <div class="col-xs-12 col-md-8">
+      <h2>Dance Rhapsody Game Night Fundraiser</h2>
+      <h4>Support your favorite charities while having fun playing games online!</h4>
+      <p>This Saturday from 6:00pm EST to 9:00pm EST, Dance Rhapsody will be hosting a game night fundraiser. </p>
+      <h2>Find more information at the event on
+        <a href="https://www.facebook.com/events/195141298988485/">Facebook</a></h2>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <h2>Total Donated</h2>
+      <h3 class="donated-number">{{ total_donated }}</h3>
+    </div>
+
+    <div class="col-xs-12 dr-pay-block">
+      <a class="col-xs-12 col-md-3 webform-dialog webform-dialog-normal btn btn-success btn-lg mg-3" data-dialog-type="modal"
+         style="margin-top: 1em" data-drupal-link-system-path="form/dr_fundraiser_form" href="/form/dr-fundraiser-form">Donate By PayPal</a>
+      <button class="col-xs-12 col-md-3 col-md-offset-1 btn btn-lg btn-success" data-_extension-text-contrast="" data-target="#drvenmoModal"
+              style="margin-top: 1em" data-toggle="modal" type="button">Donate by Venmo</button>
+      <button class="col-xs-12 col-md-3 col-md-offset-1 btn btn-lg btn-success" data-_extension-text-contrast="" data-target="#drCheckModal"
+              style="margin-top: 1em" data-toggle="modal"  type="button">Donate by Check</button>
+      {# Venmo MOdal #}
+      <div class="modal fade" id="drvenmoModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body" style="color:black ">
+              <div class="col-lg-12">
+                <p>Donate via Venmo by scanning below using your Venmo app or search for us at
+                  <a href="https://venmo.com/ChattahoocheeContraDancers">@ChattahoocheeContraDancers</a>. Proceeds will
+                be provided to the Dance Rhapsody fundraiser!</p>
+              </div>
+              <img class="img-responsive" src="/external/images/CCDVenmo.png"></div>
+          </div>
+        </div>
+      </div>
+      {#  End Venmo Modal #}
+      {# Check Modal #}
+      <div class="modal fade" id="drCheckModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body" style="color:black ">
+              <div class="col-lg-12">
+                <p>Looking to pay by check? Use the address below!</p>
+                <address>
+                  Dance Rhapsody Fundraiser<br>
+                  PO Box 684492<br>
+                  Marietta, GA 30068
+                </address>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {#  End Check Modal #}
+    </div>
+  {% endblock %}
+</div>
+
