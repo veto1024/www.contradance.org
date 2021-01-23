@@ -3,7 +3,7 @@
 namespace Drupal\date_pager;
 
 use Drupal\Core\Link;
-use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Component\Render\FormattableMarkup;
 
 /**
  * Extends the DateTime PHP-Class.
@@ -152,7 +152,7 @@ class PagerDate extends \DateTime {
     // Link text and class only the last part of the format.
     $linkFormat = substr($this->granularity, -1, 1);
 
-    $text = SafeMarkup::format(
+    $text = new FormattableMarkup(
             '<time datetime="@datetime">@linktext</time>', [
           '@datetime' => date($this->granularity, $time),
           '@linktext' => date($linkFormat, $time),

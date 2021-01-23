@@ -9,6 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\Messenger\MessengerInterface;
 
 
 /**
@@ -136,7 +137,8 @@ function ccd_cashbox_mail_submit(array &$form, FormStateInterface $form_state) {
 
   $params['link'] = "https://www.contradance.org" . \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
   $newMail->mail('ccd_cashbox', 'cashboxReport', $to, 'en', $params, $reply = NULL, $send = TRUE);
-  drupal_set_message('Mail has been sent.', 'status');
+  $messenger = \Drupal::messenger();
+  $messenger->addMessage('Mail has been sent.', MessengerInterface::TYPE_STATUS);
 }
 /**
  * Implements hook_mail

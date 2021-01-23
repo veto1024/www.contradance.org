@@ -8,6 +8,6 @@
     "minimum-stability": "dev",
     "support": {
         "issues": "https://www.drupal.org/project/issues/ccd_booking",
-        "source": "http://cgit.drupalcode.org/ccd_booking",
-    },
+        "source": "http://cgit.drupalcode.org/ccd_booking"
+    }
 }
