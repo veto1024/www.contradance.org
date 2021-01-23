@@ -18,8 +18,8 @@ body {
 
 
 h1,h2,h3,h4,h5 {
-    color:white;
-  }
+  color:white;
+}
 
 label {
   color:white;
@@ -579,11 +579,11 @@ a.fc-day-number {
 .tooltip-inner {
   max-width: 100% !important;
 }
-  /**************************************************************
-  *
-  * Event page styling
-  *
-  ***************************************************************/
+/**************************************************************
+*
+* Event page styling
+*
+***************************************************************/
 
 article.event div.layout__region--second section.block-field-blocknodeeventfield-band {
   width: 100%;
@@ -756,11 +756,11 @@ button#edit-submit-email {
   }
 }
 
-  @media only screen and (min-width : 992px) {
-    .upcoming-events-views .layout--twocol-section .layout__region--second {
-      margin-top:1.5em;
-    }
+@media only screen and (min-width : 992px) {
+  .upcoming-events-views .layout--twocol-section .layout__region--second {
+    margin-top:1.5em;
   }
+}
 
 .upcoming-panel h2 {
   display:inline;
@@ -912,6 +912,7 @@ div.layout-builder section {
 
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front {
   max-width:90%;
+  border-radius:8px;
 }
 
 /**************************************************************
@@ -932,10 +933,18 @@ div.layout-builder section {
 ***************************************************************/
 
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons {
-  max-width:50% !important;
-  width:50% !important;
-  top:10% !important;
-  color:black;
+  max-width:90%;
+  width:90%;
+  top:10%;
+  color:green;
+}
+@media only screen and (min-width : 768px) {
+  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons {
+    max-width: 50% !important;
+    width: 50% !important;
+    top: 10% !important;
+    color: green;
+  }
 }
 
 
@@ -1007,11 +1016,11 @@ div.layout-builder section {
 
 
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-revenue-summary],
-  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-cashbox],
-  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-ious],
-  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons table[id|=field-person-paid],
-  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons table[id|=field-people-and-payments-values],
-  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-event-pay-boolean]{
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-cashbox],
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-group-ious],
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons table[id|=field-person-paid],
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons table[id|=field-people-and-payments-values],
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons div[id|=edit-field-event-pay-boolean]{
   display:none;
 }
 
@@ -1066,11 +1075,11 @@ body.path-frontpage header.navbar {
   -o-animation: fadein 6s; /* Opera < 12.1 */
   animation: ease-in fadein 6s;
 
-/*  -webkit-animation-delay: 3s;
-  -moz-animation-delay:3s;
-  -o-animation-delay:3s;
-  animation-delay: 3s
-*/
+  /*  -webkit-animation-delay: 3s;
+    -moz-animation-delay:3s;
+    -o-animation-delay:3s;
+    animation-delay: 3s
+  */
 }
 
 @keyframes fadein {
@@ -1330,7 +1339,7 @@ div#views-bootstrap-footer-view-block-1 p {
   div.sponsor-img-happy, div.img-sponsor-heart {
     width:49%;
     display:block;
-   }
+  }
   div.right-checks-container, div.left-checks-container {
     width:49%;
     display:block;
@@ -1400,10 +1409,10 @@ span.directions-titles.btn-block.btn.btn-default {
 }
 .view-directions-view   div.directions-block {
   display: inline-block;
-   text-align: center;
+  text-align: center;
   margin-top:.5em;
   margin-bottom: .5em;
-  }
+}
 
 .view-directions-view .left-image-block {
   width:100%;
@@ -1411,8 +1420,8 @@ span.directions-titles.btn-block.btn.btn-default {
 }
 
 .view-directions-view   div.left-image-block, div.right-text-block {
-    width: 100%;
-  }
+  width: 100%;
+}
 
 @media only screen and (min-width : 768px) {
   span.directions-titles.btn-block.btn.btn-default {
@@ -1773,6 +1782,10 @@ div.js-filter-wrapper[id*='description-format'] {
   padding-right: 1rem !important;
 }
 
+.pt-3 {
+  padding-top: 1rem !important;
+}
+
 .pb-3,
 .py-3 {
   padding-bottom: 1rem !important;
@@ -1828,6 +1841,42 @@ div.js-filter-wrapper[id*='description-format'] {
   border-radius: 4px;
 }
 
-form[id^='views-form-commerce-cart-form'] button[id^='edit'] {
+form[id^='views-form-commerce-cart-form'] div#edit-actions button[id^='edit'] {
   display:none;
+}
+
+
+/* Box shadow popouts */
+
+.shadow-box {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.shadow-box::after {
+  content: '';
+  position: absolute;
+  z-index:-1;
+  width:100%;
+  height:100%;
+  box-shadow: 0 5px 15px rgba(0,0,0,.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.shadow-box:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.shadow-box:hover::after {
+  opacity: 1;
+}
+
+div#dr-fundraiser-block{
+  background-image: url("../images/dr_back_op.jpeg");
+  background-size: cover;
+  box-shadow: 0 0 0 10px rebeccapurple;
+  border-radius: 1em;
+  padding: 2em;
+  background-position-y: 100%;
 }

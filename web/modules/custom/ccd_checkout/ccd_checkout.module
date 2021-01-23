@@ -28,12 +28,19 @@ function ccd_checkout_mail_alter(array &$message) {
   if ($message['id'] === 'commerce_order_receipt') {
     /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
     $order = $message['params']['order'];
-
+    $orderType = $order->get('type')[0]->target_id;
     // Change the email subject.
     // @todo Remove this if/when it becomes configurable.
     //   https://www.drupal.org/project/commerce/issues/2924159
-    $message['subject'] = t('Your Receipt for your CCD Donation!');
+    if ($orderType === 'donation') {
+      $message['subject'] = t('Your Receipt for your CCD Donation!');
+    }
+    if ($orderType === 'dr_donation') {
+      $message['subject'] = t('Your Receipt for your Dance Rhapsody Donation');
+    }
+
     $messsage['from'] = "Chattahoochee Contra Dancers";
     $message['reply-to'] = "no-reply@contradance.org";
+    $message['headers']['From'] = "Chattahoochee Contra Dancers <webmaster@contradance.org>";
   }
 }

@@ -37,3 +37,8 @@ if (defined('LANDO_INFO')) {
     'collation' => 'utf8mb4_general_ci',
   ];
 }
+// Swiftmailer MailHog settings override
+$config['swiftmailer.transport']['transport'] = 'smtp';
+$config['swiftmailer.transport']['smtp_host'] = 'mailhog';
+$config['swiftmailer.transport']['smtp_port'] = '1025';
+$config['swiftmailer.transport']['smtp_encryption'] = '0';

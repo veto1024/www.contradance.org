@@ -11,13 +11,12 @@
       var width = $(window).width();
       var videoHeight = (9 / 16) * width;
 
-      if (width > 767) {
-        $('.main-container', context).css('margin-top', 383 - $('.navbar-collapse').height());
-      }
-      else {
-        $('.main-container', context).css('margin-top', videoHeight - 40);
-        console.log($('#navbar-collapse').height());
-      }
+//      if (width > 767) {
+//        $('.main-container', context).css('margin-top', 383 - $('.navbar-collapse').height());
+//      }
+//      else {
+//        $('.main-container', context).css('margin-top', videoHeight - 40);
+//      }
     }
   }
 }(jQuery, Drupal));
