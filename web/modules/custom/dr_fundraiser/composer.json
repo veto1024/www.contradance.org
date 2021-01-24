@@ -8,6 +8,6 @@
     "minimum-stability": "dev",
     "support": {
         "issues": "https://www.drupal.org/project/issues/dr_fundraiser",
-        "source": "http://cgit.drupalcode.org/dr_fundraiser",
-    },
+        "source": "http://cgit.drupalcode.org/dr_fundraiser"
+    }
 }

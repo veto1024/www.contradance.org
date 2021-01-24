@@ -1880,3 +1880,7 @@ div#dr-fundraiser-block{
   padding: 2em;
   background-position-y: 100%;
 }
+
+div#dr-fundraiser-block .dr-fundraiser-total {
+  text-align: center;
+}
