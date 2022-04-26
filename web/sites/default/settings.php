@@ -88,16 +88,16 @@
  * ];
  * @endcode
  */
-//$databases['default']['default'] = [
-//   'database' => $_SERVER['DB_DATABASE'],
-//   'username' => $_SERVER['DB_USER'],
-//   'password' => $_SERVER['DB_PASS'],
-//   'host' => $_SERVER['DB_HOST'],
-//   'port' => $_SERVER['DB_HOST'],
-//   'driver' => 'mysql',
-//   'prefix' => '',
-//   'collation' => 'utf8mb4_general_ci',
-//];
+$databases['default']['default'] = [
+   'database' => $_SERVER['DB_DATABASE'],
+   'username' => $_SERVER['DB_USER'],
+   'password' => $_SERVER['DB_PASS'],
+   'host' => $_SERVER['DB_HOST'],
+   'port' => $_SERVER['DB_HOST'],
+   'driver' => 'mysql',
+   'prefix' => '',
+   'collation' => 'utf8mb4_general_ci',
+];
 
 /**
  * Customizing database settings.
@@ -289,7 +289,7 @@ $config_directories = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'GJWcUDlP_-y1l5sCQh6SxWQEJRfKFB0Z5R1W7DE38MvnltalkR2IlIlATAy-RN8c_I6srKU7cw';
+$settings['hash_salt'] = $_SERVER['hash_salt'];
 
 /**
  * Deployment identifier.
@@ -794,6 +794,17 @@ $settings['entity_update_backup'] = TRUE;
    include $app_root . '/' . $site_path . '/settings.local.php';
  }
 $settings['config_sync_directory'] = $app_root.'/../config/sync';
+
+/** Amazon S3 settings
+ *
+*/
+
+$config['s3fs.settings']['bucket'] = $_SERVER['S3FS_BUCKET'];
+$settings['s3fs.access_key'] = $_SERVER['S3FS_ACCESS_KEY'];
+$settings['s3fs.secret_key'] = $_SERVER['S3FS_SECRET_KEY'];
+$settings['s3fs.use_s3_for_public'] = TRUE;
+$settings['s3fs.use_s3_for_private'] = TRUE;
+
 
 /**
  * Prepare a LANDO_INFO constant.

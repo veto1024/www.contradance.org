@@ -7,9 +7,10 @@
 /web/profiles/contrib/
 /web/libraries/
 
-# Ignore sensitive information
-/web/sites/*/settings.php
+# Ignore sensitive development info information
 /web/sites/*/settings.local.php
+/web/sites/*/settings.lando.php
+/web/sites/default/settings.lando.php
 
 # Ignore Drupal's file directory
 /web/sites/*/files/
@@ -38,3 +39,6 @@
 /robots.txt
 /update.php
 /web.config
+/.env.production
+/.lando.yml
+/config-ccd-04242022-.zip
