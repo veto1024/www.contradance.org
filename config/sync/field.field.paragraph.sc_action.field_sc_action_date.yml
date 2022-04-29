@@ -1,0 +1,21 @@
+uuid: 57aa4e68-3531-4d9c-bfa1-c49eea9d29c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sc_action_date
+    - paragraphs.paragraphs_type.sc_action
+  module:
+    - datetime
+id: paragraph.sc_action.field_sc_action_date
+field_name: field_sc_action_date
+entity_type: paragraph
+bundle: sc_action
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

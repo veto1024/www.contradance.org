@@ -1,0 +1,25 @@
+uuid: cba3dd19-59f0-427c-a7a6-56ab7d4ce695
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - ccd_bs
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: ccd_bs_branding
+theme: ccd_bs
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

@@ -1,0 +1,58 @@
+uuid: 76444988-8041-4a5e-8f75-cec429cea2ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.person.body
+    - field.field.node.person.feeds_item
+    - field.field.node.person.field_address
+    - field.field.node.person.field_current_
+    - field.field.node.person.field_email
+    - field.field.node.person.field_local_
+    - field.field.node.person.field_person_image
+    - field.field.node.person.field_phone_number
+    - field.field.node.person.field_positions
+    - field.field.node.person.field_role_at_ccd
+    - field.field.node.person.field_show_email
+    - field.field.node.person.field_show_number
+    - field.field.node.person.field_term_ends
+    - field.field.node.person.field_username
+    - image.style.200x
+    - node.type.person
+  module:
+    - image
+    - user
+id: node.person.teaser
+targetEntityType: node
+bundle: person
+mode: teaser
+content:
+  field_person_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: 200x
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  feeds_item: true
+  field_address: true
+  field_current_: true
+  field_email: true
+  field_local_: true
+  field_phone_number: true
+  field_positions: true
+  field_role_at_ccd: true
+  field_show_email: true
+  field_show_number: true
+  field_term_ends: true
+  field_username: true
+  links: true
+  search_api_excerpt: true

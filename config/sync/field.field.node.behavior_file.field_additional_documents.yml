@@ -1,0 +1,27 @@
+uuid: 2b52d334-7063-47d0-b6d9-541f75fc7ea6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_additional_documents
+    - node.type.behavior_file
+  module:
+    - file
+id: node.behavior_file.field_additional_documents
+field_name: field_additional_documents
+entity_type: node
+bundle: behavior_file
+label: 'Additional documents'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf gif jpeg jpg bmp'
+  max_filesize: '20 MB'
+  description_field: true
+field_type: file

@@ -1,0 +1,27 @@
+uuid: c664e7a2-8f91-4973-b258-95ad11a7ca5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phone_number
+    - node.type.person
+  module:
+    - telephone
+    - telephone_validation
+third_party_settings:
+  telephone_validation:
+    format: 0
+    country:
+      US: US
+id: node.person.field_phone_number
+field_name: field_phone_number
+entity_type: node
+bundle: person
+label: 'Phone number'
+description: 'Person''s phone number'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

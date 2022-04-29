@@ -1,0 +1,19 @@
+uuid: 9c7f93c0-fcef-48a5-9dd7-b42c363ff6a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_submitted_by
+    - paragraphs.paragraphs_type.agenda_item
+id: paragraph.agenda_item.field_submitted_by
+field_name: field_submitted_by
+entity_type: paragraph
+bundle: agenda_item
+label: 'Submitted by'
+description: 'Who is submitting this agenda item and will lead the discussion?'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

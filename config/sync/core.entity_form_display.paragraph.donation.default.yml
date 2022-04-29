@@ -1,0 +1,73 @@
+uuid: 83267693-6aef-44c0-8385-24a192497da7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.donation.field_cash_donation
+    - field.field.paragraph.donation.field_check_donation
+    - field.field.paragraph.donation.field_donation_letter
+    - field.field.paragraph.donation.field_donation_purpose
+    - field.field.paragraph.donation.field_donor_address
+    - field.field.paragraph.donation.field_donor_name
+    - field.field.paragraph.donation.field_venmo_donation
+    - paragraphs.paragraphs_type.donation
+  module:
+    - address
+id: paragraph.donation.default
+targetEntityType: paragraph
+bundle: donation
+mode: default
+content:
+  field_cash_donation:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_check_donation:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_donation_letter:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_donation_purpose:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_donor_address:
+    type: address_default
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_donor_name:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_venmo_donation:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

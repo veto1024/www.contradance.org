@@ -1,0 +1,46 @@
+uuid: 51709017-4558-413f-bef5-3651714f990f
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.dance_rhapsody_donation
+    - field.field.commerce_product.dance_rhapsody_donation.body
+  module:
+    - commerce_product
+    - text
+id: commerce_product.dance_rhapsody_donation.default
+targetEntityType: commerce_product
+bundle: dance_rhapsody_donation
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+  variations:
+    type: commerce_add_to_cart
+    label: above
+    settings:
+      combine: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true
+  stores: true
+  uid: true

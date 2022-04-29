@@ -1,0 +1,21 @@
+uuid: f3123acb-72ed-4a77-bb4e-c21fd52bb3a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cost
+    - node.type.event
+id: node.event.field_cost
+field_name: field_cost
+entity_type: node
+bundle: event
+label: Cost
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '$10 for adults, $5 for students/younger than 16'
+default_value_callback: ''
+settings: {  }
+field_type: string

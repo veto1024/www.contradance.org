@@ -1,0 +1,49 @@
+uuid: f5568be7-09ad-4125-8481-32d2d5916a2e
+langcode: en
+status: true
+dependencies:
+  module:
+    - agenda_items
+    - block_visibility_groups
+    - node
+    - system
+    - user
+  theme:
+    - ccd_bs
+id: agendaitemsubmission
+theme: ccd_bs
+region: content
+weight: -19
+provider: null
+plugin: agenda_items_block
+settings:
+  id: agenda_items_block
+  label: 'Agenda Item Submission'
+  label_display: visible
+  provider: agenda_items
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      board_member: board_member
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: "/node/add/board_meeting\r\n/node/*/edit"
+  node_type:
+    id: node_type
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      board_meeting: board_meeting

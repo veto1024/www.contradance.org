@@ -1,0 +1,25 @@
+uuid: feb666a9-e2e5-4476-baf8-4ba5bb9fb51d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_deposited
+    - node.type.event
+id: node.event.field_deposited
+field_name: field_deposited
+entity_type: node
+bundle: event
+label: Deposited
+description: 'Amount (cash and checks) removed from cashbox for deposit. Note: If no one is physically removing the money from the cashbox tonight or the money is not being physically separated from the rest of the cashbox money (e.g., placing it in a separate zip-lock bag), do not enter it as deposited. Checks are assumed to be deposited, as they cannot be used in later events as cash.'
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 1000000
+  prefix: $
+  suffix: ''
+field_type: float

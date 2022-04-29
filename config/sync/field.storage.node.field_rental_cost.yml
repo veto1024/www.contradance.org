@@ -1,0 +1,21 @@
+uuid: 5f2accb0-064c-446d-b2b2-b41862838782
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_rental_cost
+field_name: field_rental_cost
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

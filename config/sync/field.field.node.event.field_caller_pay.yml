@@ -1,0 +1,25 @@
+uuid: 40db670f-c943-4099-bff8-84a2bbccb7b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_caller_pay
+    - node.type.event
+id: node.event.field_caller_pay
+field_name: field_caller_pay
+entity_type: node
+bundle: event
+label: 'Caller pay'
+description: 'How much is the caller being paid (generally, $100).'
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 100
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 1000000
+  prefix: $
+  suffix: ''
+field_type: float

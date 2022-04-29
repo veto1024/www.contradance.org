@@ -1,0 +1,41 @@
+uuid: 4405f6f4-df8f-4405-b506-ae932963f010
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_visibility_groups
+    - ccd_financials
+    - system
+    - user
+  theme:
+    - ccd_bs
+id: ytdrevenueblock
+theme: ccd_bs
+region: content
+weight: 3
+provider: null
+plugin: ccd_financials_ytd_revenue_block
+settings:
+  id: ccd_financials_ytd_revenue_block
+  label: 'YTD Revenue Block'
+  label_display: '0'
+  provider: ccd_financials
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '/user/*'
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      board_member: board_member

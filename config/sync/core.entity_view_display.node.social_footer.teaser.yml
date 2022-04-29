@@ -1,0 +1,40 @@
+uuid: ea5fd9b1-d53e-4280-b7e7-2add4f9583b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.social_footer.body
+    - field.field.node.social_footer.field_b
+    - field.field.node.social_footer.field_icon_image
+    - field.field.node.social_footer.field_website_link
+    - node.type.social_footer
+  module:
+    - text
+    - user
+id: node.social_footer.teaser
+targetEntityType: node
+bundle: social_footer
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_b: true
+  field_icon_image: true
+  field_website_link: true
+  search_api_excerpt: true

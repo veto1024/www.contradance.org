@@ -1,0 +1,21 @@
+uuid: 0dd3ca3e-1efc-408e-a948-f2f074dd89b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_timestamp
+    - paragraphs.paragraphs_type.venmo_payment
+id: paragraph.venmo_payment.field_timestamp
+field_name: field_timestamp
+entity_type: paragraph
+bundle: venmo_payment
+label: Timestamp
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1575514347
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

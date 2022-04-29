@@ -1,0 +1,19 @@
+uuid: a8259a50-9980-4721-ae30-26a7ca092089
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rental_cost
+    - node.type.venue
+id: node.venue.field_rental_cost
+field_name: field_rental_cost
+entity_type: node
+bundle: venue
+label: 'Rental Cost'
+description: 'Summary of rental cost'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

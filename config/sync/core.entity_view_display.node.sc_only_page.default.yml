@@ -1,0 +1,32 @@
+uuid: 90fe191d-8db4-481f-94ae-749c03f8752c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.sc_only_page.body
+    - node.type.sc_only_page
+  module:
+    - text
+    - user
+id: node.sc_only_page.default
+targetEntityType: node
+bundle: sc_only_page
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

@@ -1,0 +1,25 @@
+uuid: 406d8491-ebda-402d-a311-87ccb21f83a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_student_dancers
+    - node.type.event
+id: node.event.field_student_dancers
+field_name: field_student_dancers
+entity_type: node
+bundle: event
+label: 'Num. of student dancers'
+description: 'How many student dancers ($5 dancers) were at this dance?'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: ''
+field_type: integer

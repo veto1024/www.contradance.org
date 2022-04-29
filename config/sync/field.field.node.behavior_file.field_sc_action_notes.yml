@@ -1,0 +1,21 @@
+uuid: 6d91ca76-4cd9-4342-8f64-c8b68cbb5e85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sc_action_notes
+    - node.type.behavior_file
+  module:
+    - text
+id: node.behavior_file.field_sc_action_notes
+field_name: field_sc_action_notes
+entity_type: node
+bundle: behavior_file
+label: Notes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

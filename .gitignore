@@ -41,4 +41,6 @@
 /web.config
 /.env.production
 /.lando.yml
-/config-ccd-04242022-.zip
+
+# Ignore server initialization scripts
+/init/

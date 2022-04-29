@@ -1,0 +1,19 @@
+uuid: c57018aa-4136-4ab1-9ec8-575a2e3994f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_name
+    - paragraphs.paragraphs_type.external_contact
+id: paragraph.external_contact.field_name
+field_name: field_name
+entity_type: paragraph
+bundle: external_contact
+label: Name
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

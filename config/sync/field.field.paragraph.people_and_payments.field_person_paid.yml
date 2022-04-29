@@ -1,0 +1,28 @@
+uuid: c177d4d6-f78a-418d-8ee1-04ee4aa64218
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_person_paid
+    - node.type.person
+    - paragraphs.paragraphs_type.people_and_payments
+id: paragraph.people_and_payments.field_person_paid
+field_name: field_person_paid
+entity_type: paragraph
+bundle: people_and_payments
+label: 'Person who was paid'
+description: 'Person paid at this event'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

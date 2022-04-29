@@ -1,0 +1,25 @@
+uuid: 0eb4c0c9-fbf1-406a-b05a-1a4b91e40469
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_starting_cash
+    - node.type.event
+id: node.event.field_starting_cash
+field_name: field_starting_cash
+entity_type: node
+bundle: event
+label: 'Starting Cash'
+description: 'Starting cash available at the beginning of the night (excluding checks). This is cash in the 4 slots of the cashbox. Checks or money separated from these 4 slots are not to be counted.'
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: !!float -1000
+  max: !!float 1000000
+  prefix: $
+  suffix: ''
+field_type: float

@@ -1,0 +1,9 @@
+uuid: 217c1332-ee6e-4bd2-9d2d-55207068d5cb
+langcode: en
+status: true
+dependencies: {  }
+id: board_meetings
+label: 'Board Meetings'
+logic: and
+conditions: {  }
+allow_other_conditions: true

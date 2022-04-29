@@ -1,0 +1,23 @@
+uuid: e17b73bf-c79a-4486-a4ea-d4f3e81e66fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_did_not_pay
+    - paragraphs.paragraphs_type.complaint_type
+id: paragraph.complaint_type.field_did_not_pay
+field_name: field_did_not_pay
+entity_type: paragraph
+bundle: complaint_type
+label: 'Did not pay'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

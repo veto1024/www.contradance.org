@@ -1,0 +1,19 @@
+uuid: b96186e9-b540-4607-b04a-33d9560b2d2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_short_description
+    - paragraphs.paragraphs_type.agenda_item
+id: paragraph.agenda_item.field_short_description
+field_name: field_short_description
+entity_type: paragraph
+bundle: agenda_item
+label: 'Short Description'
+description: 'Please provide a few-word description of your agenda item to act as the title for the item.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

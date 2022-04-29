@@ -1,0 +1,23 @@
+uuid: e87f90b8-8b2b-4172-af12-ce0a5b1a9458
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.band
+  module:
+    - text
+id: node.band.body
+field_name: body
+entity_type: node
+bundle: band
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

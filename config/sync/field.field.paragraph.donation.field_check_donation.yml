@@ -1,0 +1,25 @@
+uuid: 644881a2-5118-498c-a4b3-e6da1ba6037e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_check_donation
+    - paragraphs.paragraphs_type.donation
+id: paragraph.donation.field_check_donation
+field_name: field_check_donation
+entity_type: paragraph
+bundle: donation
+label: 'Check Donation Amount'
+description: 'Amount donated by check'
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: $
+  suffix: ''
+field_type: float

@@ -1,0 +1,9 @@
+_core:
+  default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
+ignored_config_entities:
+  - 'webform.webform*'
+  - field.storage.node.field_band_image_new
+  - field.storage.node.field_person_image
+  - field.field.node.band.field_band_image_new
+  - field.field.node.person.field_person_image
+  - system.file

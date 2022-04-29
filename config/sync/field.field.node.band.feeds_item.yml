@@ -1,0 +1,30 @@
+uuid: ea6f6830-f52d-4ada-b78a-970ad546e7c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.content_band_feed
+    - field.storage.node.feeds_item
+    - node.type.band
+  module:
+    - feeds
+id: node.band.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: band
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings:
+    target_bundles:
+      content_band_feed: content_band_feed
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: feeds_item

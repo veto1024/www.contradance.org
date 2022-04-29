@@ -1,0 +1,121 @@
+uuid: 8af6ca15-c60d-4316-b326-97beee7166bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meeting_status
+    - node.type.board_meeting
+    - taxonomy.vocabulary.minutes_status
+  content:
+    - 'taxonomy_term:minutes_status:e521232e-b0ec-416b-83da-966aa02600b3'
+  module:
+    - dynamic_entity_reference
+id: node.board_meeting.field_meeting_status
+field_name: field_meeting_status
+entity_type: node
+bundle: board_meeting
+label: 'Meeting Status'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: e521232e-b0ec-416b-83da-966aa02600b3
+    target_type: taxonomy_term
+default_value_callback: ''
+settings:
+  taxonomy_term:
+    handler: 'default:taxonomy_term'
+    handler_settings:
+      target_bundles:
+        minutes_status: minutes_status
+      sort:
+        field: name
+        direction: asc
+      auto_create: false
+      auto_create_bundle: ''
+  comment:
+    handler: 'default:comment'
+    handler_settings: {  }
+  contact_message:
+    handler: 'default:contact_message'
+    handler_settings: {  }
+  node:
+    handler: 'default:node'
+    handler_settings: {  }
+  block_content:
+    handler: 'default:block_content'
+    handler_settings: {  }
+  menu_link_content:
+    handler: 'default:menu_link_content'
+    handler_settings: {  }
+  courier_email:
+    handler: 'default:courier_email'
+    handler_settings: {  }
+  file:
+    handler: 'default:file'
+    handler_settings: {  }
+  flagging:
+    handler: 'default:flagging'
+    handler_settings: {  }
+  courier_template_collection:
+    handler: 'default:courier_template_collection'
+    handler_settings: {  }
+  courier_message_queue_item:
+    handler: 'default:courier_message_queue_item'
+    handler_settings: {  }
+  paragraph:
+    handler: 'default:paragraph'
+    handler_settings: {  }
+  paragraphs_library_item:
+    handler: 'default:paragraphs_library_item'
+    handler_settings: {  }
+  search_api_task:
+    handler: 'default:search_api_task'
+    handler_settings: {  }
+  shortcut:
+    handler: 'default:shortcut'
+    handler_settings: {  }
+  user:
+    handler: 'default:user'
+    handler_settings: {  }
+  webform_submission:
+    handler: 'default:webform_submission'
+    handler_settings: {  }
+  feeds_feed:
+    handler: 'default:feeds_feed'
+    handler_settings: {  }
+  commerce_order:
+    handler: 'default:commerce_order'
+    handler_settings: {  }
+  commerce_order_item:
+    handler: 'default:commerce_order_item'
+    handler_settings: {  }
+  commerce_payment:
+    handler: 'default:commerce_payment'
+    handler_settings: {  }
+  commerce_payment_method:
+    handler: 'default:commerce_payment_method'
+    handler_settings: {  }
+  commerce_product:
+    handler: 'default:commerce_product'
+    handler_settings: {  }
+  commerce_product_attribute_value:
+    handler: 'default:commerce_product_attribute_value'
+    handler_settings: {  }
+  commerce_product_variation:
+    handler: 'default:commerce_product_variation'
+    handler_settings: {  }
+  profile:
+    handler: 'default:profile'
+    handler_settings: {  }
+  commerce_store:
+    handler: 'default:commerce_store'
+    handler_settings: {  }
+  feeds_subscription:
+    handler: 'default:feeds_subscription'
+    handler_settings: {  }
+  path_alias:
+    handler: 'default:path_alias'
+    handler_settings: {  }
+field_type: dynamic_entity_reference

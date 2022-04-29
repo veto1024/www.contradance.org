@@ -1,0 +1,9 @@
+uuid: 6741652a-162b-457a-bd9e-d2d9a9ecb232
+langcode: en
+status: true
+dependencies: {  }
+id: people_and_payments
+label: 'People and Payments'
+icon_uuid: null
+description: 'Paragraphs used for payments'
+behavior_plugins: {  }

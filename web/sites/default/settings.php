@@ -89,11 +89,11 @@
  * @endcode
  */
 $databases['default']['default'] = [
-   'database' => $_SERVER['DB_DATABASE'],
-   'username' => $_SERVER['DB_USER'],
-   'password' => $_SERVER['DB_PASS'],
-   'host' => $_SERVER['DB_HOST'],
-   'port' => $_SERVER['DB_HOST'],
+   'database' => getenv('DB_DATABASE'),
+   'username' => getenv('DB_USER'),
+   'password' => getenv('DB_PASS'),
+   'host' => getenv('DB_HOST'),
+   'port' => getenv('DB_HOST'),
    'driver' => 'mysql',
    'prefix' => '',
    'collation' => 'utf8mb4_general_ci',
@@ -289,7 +289,7 @@ $config_directories = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = $_SERVER['hash_salt'];
+$settings['hash_salt'] = getenv('DB_HASH');
 
 /**
  * Deployment identifier.
@@ -799,9 +799,9 @@ $settings['config_sync_directory'] = $app_root.'/../config/sync';
  *
 */
 
-$config['s3fs.settings']['bucket'] = $_SERVER['S3FS_BUCKET'];
-$settings['s3fs.access_key'] = $_SERVER['S3FS_ACCESS_KEY'];
-$settings['s3fs.secret_key'] = $_SERVER['S3FS_SECRET_KEY'];
+$config['s3fs.settings']['bucket'] = getenv('S3FS_BUCKET');
+$settings['s3fs.access_key'] = getenv('S3FS_ACCESS_KEY');
+$settings['s3fs.secret_key'] = getenv('S3FS_SECRET_KEY');
 $settings['s3fs.use_s3_for_public'] = TRUE;
 $settings['s3fs.use_s3_for_private'] = TRUE;
 

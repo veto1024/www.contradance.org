@@ -1,0 +1,50 @@
+uuid: 2c074a05-9913-473e-b915-518e1973d098
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_visibility_groups
+    - ccd_cashbox
+    - node
+    - system
+    - user
+  theme:
+    - ccd_bs
+id: ccdcashboxoperationsmemobutton
+theme: ccd_bs
+region: content
+weight: 11
+provider: null
+plugin: ccd_cashbox_cashbox_operations_memo_block
+settings:
+  id: ccd_cashbox_cashbox_operations_memo_block
+  label: 'CCD Cashbox Operations Memo Button'
+  label_display: '0'
+  provider: ccd_cashbox
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: '/node/*/edit'
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      cashbox: cashbox
+      board_member: board_member
+  node_type:
+    id: node_type
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      event: event

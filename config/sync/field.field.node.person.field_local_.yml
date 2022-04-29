@@ -1,0 +1,23 @@
+uuid: d1739897-ffd0-4a25-a7d2-99001038b871
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_local_
+    - node.type.person
+id: node.person.field_local_
+field_name: field_local_
+entity_type: node
+bundle: person
+label: 'Local?'
+description: 'Are they local talent?'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Local Talent'
+  off_label: 'Out of Town'
+field_type: boolean

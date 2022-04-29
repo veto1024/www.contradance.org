@@ -1,0 +1,27 @@
+uuid: 1c6379c6-f265-494f-9bc7-8d069b67b742
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_number
+    - paragraphs.paragraphs_type.external_contact
+  module:
+    - telephone
+    - telephone_validation
+third_party_settings:
+  telephone_validation:
+    format: 2
+    country:
+      - US
+id: paragraph.external_contact.field_contact_number
+field_name: field_contact_number
+entity_type: paragraph
+bundle: external_contact
+label: 'Telephone Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

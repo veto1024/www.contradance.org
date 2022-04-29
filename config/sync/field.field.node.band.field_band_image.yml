@@ -1,0 +1,38 @@
+uuid: f83b967d-6ea5-4b54-a757-8e3d848b9019
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_band_image
+    - node.type.band
+  module:
+    - image
+id: node.band.field_band_image
+field_name: field_band_image
+entity_type: node
+bundle: band
+label: 'Band Image'
+description: 'Please provide an image! Note that a 2:1 (W:H) aspect ratio is preferred, as our website automatically crops and resizes images to these dimensions.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: band-images
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: 1200x1200
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: 'Default band picture'
+    title: ''
+    width: 1853
+    height: 1227
+field_type: image

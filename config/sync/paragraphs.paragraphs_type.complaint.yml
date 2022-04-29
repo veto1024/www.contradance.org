@@ -1,0 +1,9 @@
+uuid: 90063f42-c40b-4eea-a64e-40c1066a84c6
+langcode: en
+status: true
+dependencies: {  }
+id: complaint
+label: Complaint
+icon_uuid: null
+description: 'Paragraph for behavioral complaints'
+behavior_plugins: {  }

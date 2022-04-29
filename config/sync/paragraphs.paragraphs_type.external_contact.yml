@@ -1,0 +1,9 @@
+uuid: cd3fdad7-595d-4458-bc94-297c68050725
+langcode: en
+status: true
+dependencies: {  }
+id: external_contact
+label: 'External contact'
+icon_uuid: null
+description: 'People who we have contact with outside of CCD (e.g., venue contacts).'
+behavior_plugins: {  }

@@ -1,0 +1,14 @@
+uuid: d12d5969-8c77-46c3-9dba-87dcd4e1c3de
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs_library
+third_party_settings:
+  paragraphs_library:
+    allow_library_conversion: true
+id: agenda_item
+label: 'Agenda Item'
+icon_uuid: null
+description: 'Agenda item paragraph entity'
+behavior_plugins: {  }

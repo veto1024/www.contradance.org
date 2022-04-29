@@ -1,0 +1,17 @@
+uuid: efaa3caf-20e8-4860-9f2c-15e65b309178
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Person
+type: person
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

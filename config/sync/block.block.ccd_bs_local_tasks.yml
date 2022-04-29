@@ -1,0 +1,22 @@
+uuid: 1db7754b-c11f-4704-b73f-d7c7dc781c36
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ccd_bs
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: ccd_bs_local_tasks
+theme: ccd_bs
+region: content
+weight: -24
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,122 @@
+uuid: 915ebf3d-1bec-4344-ae26-876e9ce596fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.board_meeting.body
+    - field.field.node.board_meeting.field_add_to_calendar
+    - field.field.node.board_meeting.field_agenda_items
+    - field.field.node.board_meeting.field_approved_minutes
+    - field.field.node.board_meeting.field_date_minutes_approved
+    - field.field.node.board_meeting.field_event_date
+    - field.field.node.board_meeting.field_event_dte
+    - field.field.node.board_meeting.field_general_notes
+    - field.field.node.board_meeting.field_location
+    - field.field.node.board_meeting.field_meeting_files
+    - field.field.node.board_meeting.field_meeting_status
+    - node.type.board_meeting
+  module:
+    - addtocalendar
+    - datetime_range
+    - dynamic_entity_reference
+    - file
+    - link
+    - text
+    - user
+id: node.board_meeting.default
+targetEntityType: node
+bundle: board_meeting
+mode: default
+content:
+  field_event_date:
+    type: daterange_custom
+    label: above
+    settings:
+      timezone_override: America/New_York
+      date_format: 'g:iA l j, Y'
+      separator: '-'
+    third_party_settings:
+      addtocalendar:
+        addtocalendar_settings:
+          style: blue
+          display_text: 'Add to Calendar'
+          atc_title:
+            field: token
+            tokenized: Title
+          atc_description:
+            field: token
+            tokenized: Description
+          atc_location:
+            field: token
+            tokenized: Location
+          atc_organizer:
+            field: token
+            tokenized: 'Contra Dance in Atlanta'
+          atc_organizer_email:
+            field: token
+            tokenized: jonathan.roveto@gmail.com
+          atc_date_end:
+            field: token
+            tokenized: ''
+          atc_privacy: public
+          data_secure: auto
+          data_calendars:
+            iCalendar: 0
+            'Google Calendar': 0
+            Outlook: 0
+            'Outlook Online': 0
+            'Yahoo! Calendar': 0
+        addtocalendar_show: 0
+    weight: 1
+    region: content
+  field_general_notes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_location:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_meeting_files:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_meeting_status:
+    type: dynamic_entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_add_to_calendar: true
+  field_agenda_items: true
+  field_approved_minutes: true
+  field_date_minutes_approved: true
+  field_event_dte: true
+  search_api_excerpt: true

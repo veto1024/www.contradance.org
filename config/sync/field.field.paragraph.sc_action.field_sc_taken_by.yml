@@ -1,0 +1,19 @@
+uuid: f188782a-2b69-46a3-a21b-54ac3efbaeb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sc_taken_by
+    - paragraphs.paragraphs_type.sc_action
+id: paragraph.sc_action.field_sc_taken_by
+field_name: field_sc_taken_by
+entity_type: paragraph
+bundle: sc_action
+label: 'Taken By'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,46 @@
+uuid: 75d0f0d8-1185-49c5-b146-42e10800e400
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.band.body
+    - field.field.node.band.feeds_item
+    - field.field.node.band.field_band_image
+    - field.field.node.band.field_band_image_new
+    - field.field.node.band.field_band_members
+    - field.field.node.band.field_current_
+    - field.field.node.band.field_local_
+    - field.field.node.band.field_website
+    - image.style.220x480_horizontal_crop
+    - node.type.band
+  module:
+    - image
+    - user
+id: node.band.teaser
+targetEntityType: node
+bundle: band
+mode: teaser
+content:
+  field_band_image_new:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: 220x480_horizontal_crop
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  feeds_item: true
+  field_band_image: true
+  field_band_members: true
+  field_current_: true
+  field_local_: true
+  field_website: true
+  links: true
+  search_api_excerpt: true

@@ -1,0 +1,18 @@
+uuid: e8dd739b-f5f7-4176-a470-cd3daf9e52bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_cash_to_be_deposited
+field_name: field_cash_to_be_deposited
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

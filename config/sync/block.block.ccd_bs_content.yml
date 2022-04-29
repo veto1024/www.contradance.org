@@ -1,0 +1,22 @@
+uuid: e7d81445-e83a-4348-ae36-1587318e0d81
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ccd_bs
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: ccd_bs_content
+theme: ccd_bs
+region: content
+weight: -22
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

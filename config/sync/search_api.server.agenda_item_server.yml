@@ -1,0 +1,17 @@
+uuid: 19f6ac52-b6e2-4dc2-9ec4-d84dcbdfa1a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: agenda_item_server
+name: 'Agenda Item Server'
+description: 'Server for agenda item sarch'
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 3
+  matching: partial
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

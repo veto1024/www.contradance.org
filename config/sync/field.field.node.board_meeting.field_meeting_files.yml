@@ -1,0 +1,27 @@
+uuid: 31ff7c24-18f9-4549-9e5a-aecbe1de7921
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meeting_files
+    - node.type.board_meeting
+  module:
+    - file
+id: node.board_meeting.field_meeting_files
+field_name: field_meeting_files
+entity_type: node
+bundle: board_meeting
+label: 'Meeting Files'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: 'meeting_files/[current-date:html_year]'
+  file_extensions: 'doc docx pdf jpg jpeg png'
+  max_filesize: '20 MB'
+  description_field: true
+field_type: file

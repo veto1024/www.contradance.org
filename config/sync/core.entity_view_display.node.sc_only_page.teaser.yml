@@ -1,0 +1,34 @@
+uuid: 00766cc4-a6c2-4df3-a375-adb2522bc56d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.sc_only_page.body
+    - node.type.sc_only_page
+  module:
+    - text
+    - user
+id: node.sc_only_page.teaser
+targetEntityType: node
+bundle: sc_only_page
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

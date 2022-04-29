@@ -1,0 +1,25 @@
+uuid: 0e367c56-d422-4881-a912-384c00f20477
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_iou_dancers_full
+    - node.type.event
+id: node.event.field_iou_dancers_full
+field_name: field_iou_dancers_full
+entity_type: node
+bundle: event
+label: 'IOU Dancers (full)'
+description: 'How many IOU dancers were there tonight (actual #, not $ amount)?'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: ''
+field_type: integer

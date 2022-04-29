@@ -1,0 +1,28 @@
+uuid: 637523ce-7ee6-488f-a822-d85bc15f8e55
+langcode: en
+status: false
+dependencies:
+  module:
+    - block_visibility_groups
+  theme:
+    - ccd_bs
+id: footerblocks
+theme: ccd_bs
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:952b5a9f-847f-4009-b606-12658252368f'
+settings:
+  id: 'block_content:952b5a9f-847f-4009-b606-12658252368f'
+  label: 'Footer Blocks'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''

@@ -1,0 +1,19 @@
+uuid: f83395af-b19f-4eda-9bb2-f0282d00cd73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_note
+    - paragraphs.paragraphs_type.venmo_payment
+id: paragraph.venmo_payment.field_note
+field_name: field_note
+entity_type: paragraph
+bundle: venmo_payment
+label: Note
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

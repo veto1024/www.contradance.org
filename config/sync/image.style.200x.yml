@@ -1,0 +1,23 @@
+uuid: fe0df09e-6223-4889-9a6b-0c65cc0f8dce
+langcode: en
+status: true
+dependencies: {  }
+name: 200x
+label: '200x200 Horizontal Crop'
+effects:
+  a03bf884-db2a-4e40-8bb0-ecc1213c4821:
+    uuid: a03bf884-db2a-4e40-8bb0-ecc1213c4821
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 200
+      upscale: true
+  2408e01d-120b-4188-9800-100191a0145d:
+    uuid: 2408e01d-120b-4188-9800-100191a0145d
+    id: image_crop
+    weight: 2
+    data:
+      width: 200
+      height: 200
+      anchor: center-center

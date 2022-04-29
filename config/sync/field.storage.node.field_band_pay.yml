@@ -1,0 +1,18 @@
+uuid: 09f129f0-5c8b-4e49-803c-16b106e5c44c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_band_pay
+field_name: field_band_pay
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

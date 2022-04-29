@@ -1,0 +1,27 @@
+uuid: 7a8da0dc-954e-4ae3-abe7-6b9cd2c07010
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_approved_minutes
+    - node.type.board_meeting
+  module:
+    - file
+id: node.board_meeting.field_approved_minutes
+field_name: field_approved_minutes
+entity_type: node
+bundle: board_meeting
+label: 'Approved Minutes'
+description: 'Upload of PDF of approved minutes'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: 'Board-Minutes-[date:custom:Y]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+field_type: file

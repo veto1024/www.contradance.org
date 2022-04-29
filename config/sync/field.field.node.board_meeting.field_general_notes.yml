@@ -1,0 +1,21 @@
+uuid: f6af21db-8682-4c65-8f10-c69c02ec6d29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_general_notes
+    - node.type.board_meeting
+  module:
+    - text
+id: node.board_meeting.field_general_notes
+field_name: field_general_notes
+entity_type: node
+bundle: board_meeting
+label: 'General Notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

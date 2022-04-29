@@ -1,0 +1,24 @@
+uuid: 7eaad7e3-178b-49b6-a061-167e00f33f17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_updated
+    - node.type.venue
+  module:
+    - datetime
+id: node.venue.field_last_updated
+field_name: field_last_updated
+entity_type: node
+bundle: venue
+label: 'Last updated'
+description: 'When was this information last updated/checked?'
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

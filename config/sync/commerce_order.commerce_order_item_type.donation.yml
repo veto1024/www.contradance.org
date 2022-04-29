@@ -1,0 +1,10 @@
+uuid: ca7ee279-2e9e-49a6-9fda-fe651549d78d
+langcode: en
+status: true
+dependencies: {  }
+id: donation
+label: Donation
+traits: {  }
+locked: false
+purchasableEntityType: commerce_product_variation
+orderType: donation

@@ -1,0 +1,10 @@
+uuid: 6ccfcccd-8a21-46de-8439-6b6205ee21da
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.band_full
+label: 'Band Full'
+targetEntityType: node
+cache: true

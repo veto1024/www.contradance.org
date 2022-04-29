@@ -1,0 +1,23 @@
+uuid: fee36ea4-3de3-4918-8eef-e9ee928ae3f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.board_meeting
+  module:
+    - text
+id: node.board_meeting.body
+field_name: body
+entity_type: node
+bundle: board_meeting
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

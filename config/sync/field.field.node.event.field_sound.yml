@@ -1,0 +1,29 @@
+uuid: 40870b8a-299f-4c70-92f9-56e24f0f2887
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sound
+    - node.type.event
+  content:
+    - 'node:person:c243946f-8b2d-4c69-8a12-6dd2ade15f2d'
+id: node.event.field_sound
+field_name: field_sound
+entity_type: node
+bundle: event
+label: Sound
+description: 'Who is on sound tonight?'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: c243946f-8b2d-4c69-8a12-6dd2ade15f2d
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: lists_of_ccd_people
+      display_name: entity_reference_3
+      arguments: {  }
+field_type: entity_reference

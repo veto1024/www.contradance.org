@@ -1,0 +1,19 @@
+uuid: 45350c6d-986d-4ecc-8fbe-986c58ced540
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_managing_organization
+    - node.type.venue
+id: node.venue.field_managing_organization
+field_name: field_managing_organization
+entity_type: node
+bundle: venue
+label: 'Managing organization'
+description: 'Managing organization'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

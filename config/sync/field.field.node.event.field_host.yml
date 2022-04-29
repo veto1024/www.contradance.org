@@ -1,0 +1,32 @@
+uuid: db04ccb8-6248-4116-abde-d9824bb1048f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_host
+    - node.type.event
+    - node.type.person
+  content:
+    - 'node:person:8038032b-2d58-46ba-929b-d63f2e489bd3'
+id: node.event.field_host
+field_name: field_host
+entity_type: node
+bundle: event
+label: Host
+description: 'The host for this evening'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 8038032b-2d58-46ba-929b-d63f2e489bd3
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

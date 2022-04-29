@@ -1,0 +1,21 @@
+uuid: add4eaeb-6dd3-426d-b859-8bf7067027f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_competing_events
+    - node.type.event
+id: node.event.field_competing_events
+field_name: field_competing_events
+entity_type: node
+bundle: event
+label: 'Competing Events'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: None
+default_value_callback: ''
+settings: {  }
+field_type: string

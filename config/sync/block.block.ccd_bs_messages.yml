@@ -1,0 +1,22 @@
+uuid: f32ce635-8a5d-4406-85ba-629330f3018c
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - ccd_bs
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: ccd_bs_messages
+theme: ccd_bs
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

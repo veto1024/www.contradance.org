@@ -1,0 +1,9 @@
+uuid: 2cf6b5e1-e263-456c-87bb-118211039c7a
+langcode: en
+status: true
+dependencies: {  }
+id: complaint_type
+label: 'Complaint type'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

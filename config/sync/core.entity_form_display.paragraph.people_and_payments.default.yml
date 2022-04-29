@@ -1,0 +1,33 @@
+uuid: e8cbdcd5-e8f8-45db-b7c7-fbe589ee6507
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.people_and_payments.field_amount_paid
+    - field.field.paragraph.people_and_payments.field_person_paid
+    - paragraphs.paragraphs_type.people_and_payments
+id: paragraph.people_and_payments.default
+targetEntityType: paragraph
+bundle: people_and_payments
+mode: default
+content:
+  field_amount_paid:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_person_paid:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

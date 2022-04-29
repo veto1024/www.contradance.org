@@ -1,0 +1,45 @@
+uuid: 8afac9a8-77d0-4495-9874-94eb543b889d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.agenda_item_search_new
+  module:
+    - block_visibility_groups
+    - system
+    - user
+    - views
+  theme:
+    - ccd_bs
+id: views_block__agenda_item_search_new_block_1
+theme: ccd_bs
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:agenda_item_search_new-block_1'
+settings:
+  id: 'views_block:agenda_item_search_new-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /internal/agenda-item-search
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      board_member: board_member

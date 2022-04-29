@@ -1,0 +1,25 @@
+uuid: 339ce143-d887-48b6-be75-c0c1f9220532
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_band_travel
+    - node.type.event
+id: node.event.field_band_travel
+field_name: field_band_travel
+entity_type: node
+bundle: event
+label: 'Band Travel'
+description: 'For out of town bands, how much is being paid for travel?'
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 1000000
+  prefix: $
+  suffix: ''
+field_type: float

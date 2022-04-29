@@ -1,0 +1,25 @@
+uuid: 989a230c-5f43-4410-bf98-746ffd11852a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_amount_paid
+    - paragraphs.paragraphs_type.people_and_payments
+id: paragraph.people_and_payments.field_amount_paid
+field_name: field_amount_paid
+entity_type: paragraph
+bundle: people_and_payments
+label: 'Amount paid'
+description: 'How much were they paid?'
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: $
+  suffix: ''
+field_type: float

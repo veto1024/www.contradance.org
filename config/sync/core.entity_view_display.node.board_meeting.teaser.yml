@@ -1,0 +1,114 @@
+uuid: 14787520-7156-4c59-bdd2-b838161a544f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.board_meeting.body
+    - field.field.node.board_meeting.field_add_to_calendar
+    - field.field.node.board_meeting.field_agenda_items
+    - field.field.node.board_meeting.field_approved_minutes
+    - field.field.node.board_meeting.field_date_minutes_approved
+    - field.field.node.board_meeting.field_event_date
+    - field.field.node.board_meeting.field_event_dte
+    - field.field.node.board_meeting.field_general_notes
+    - field.field.node.board_meeting.field_location
+    - field.field.node.board_meeting.field_meeting_files
+    - field.field.node.board_meeting.field_meeting_status
+    - node.type.board_meeting
+  module:
+    - addtocalendar
+    - datetime_range
+    - layout_builder
+    - link
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.board_meeting.teaser
+targetEntityType: node
+bundle: board_meeting
+mode: teaser
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_add_to_calendar:
+    type: add_to_calendar
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_event_date:
+    type: daterange_custom
+    label: hidden
+    settings:
+      timezone_override: America/New_York
+      date_format: 'D M j, g:i A'
+      separator: '-'
+    third_party_settings:
+      addtocalendar:
+        addtocalendar_settings:
+          style: glow_orange
+          display_text: 'Add to Calendar'
+          atc_title:
+            field: token
+            tokenized: 'CCD Board Meeting'
+          atc_description:
+            field: body
+            tokenized: Description
+          atc_location:
+            field: field_location
+            tokenized: Location
+          atc_organizer:
+            field: token
+            tokenized: 'Chattahoochee Contra Dancers'
+          atc_organizer_email:
+            field: token
+            tokenized: steering@contradance.org
+          atc_date_end:
+            field: field_event_date
+            tokenized: ''
+          atc_privacy: public
+          data_secure: auto
+          data_calendars:
+            iCalendar: iCalendar
+            'Google Calendar': 'Google Calendar'
+            Outlook: Outlook
+            'Yahoo! Calendar': 'Yahoo! Calendar'
+            'Outlook Online': 0
+        addtocalendar_show: 0
+    weight: 0
+    region: content
+  field_location:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_agenda_items: true
+  field_approved_minutes: true
+  field_date_minutes_approved: true
+  field_event_dte: true
+  field_general_notes: true
+  field_meeting_files: true
+  field_meeting_status: true
+  links: true
+  search_api_excerpt: true

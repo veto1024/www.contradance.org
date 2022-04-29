@@ -1,0 +1,10 @@
+uuid: 38ce06d5-e095-42b8-b7f7-500e5beb3a00
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.agenda_items_private
+label: 'Agenda Items - Private'
+targetEntityType: paragraph
+cache: true

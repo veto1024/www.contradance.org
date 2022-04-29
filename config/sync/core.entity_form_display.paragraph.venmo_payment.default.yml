@@ -1,0 +1,47 @@
+uuid: 68ed2956-d4fc-4ce2-a6a6-2e546c161b93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.venmo_payment.field_amount
+    - field.field.paragraph.venmo_payment.field_dancer_name
+    - field.field.paragraph.venmo_payment.field_note
+    - field.field.paragraph.venmo_payment.field_timestamp
+    - paragraphs.paragraphs_type.venmo_payment
+id: paragraph.venmo_payment.default
+targetEntityType: paragraph
+bundle: venmo_payment
+mode: default
+content:
+  field_amount:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dancer_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_note:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_timestamp:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

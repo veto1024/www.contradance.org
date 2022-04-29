@@ -1,0 +1,393 @@
+uuid: 3d9007d5-79b9-4b70-a739-921842cf304b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.event.promote
+    - core.base_field_override.node.event.title
+    - field.field.node.event.field_band
+    - field.field.node.event.field_band_pay
+    - field.field.node.event.field_band_travel
+    - field.field.node.event.field_caller
+    - field.field.node.event.field_caller_pay
+    - field.field.node.event.field_caller_travel
+    - field.field.node.event.field_cash_added_from_atm
+    - field.field.node.event.field_checks_for_dance_admission
+    - field.field.node.event.field_cost
+    - field.field.node.event.field_ending_cash
+    - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_host
+    - field.field.node.event.field_iou_dancers_full
+    - field.field.node.event.field_iou_dancers_student
+    - field.field.node.event.field_num_of_comped_dancers
+    - field.field.node.event.field_other_expenses
+    - field.field.node.event.field_rent_cost
+    - field.field.node.event.field_sound
+    - field.field.node.event.field_sound_pay
+    - field.field.node.event.field_starting_cash
+    - field.field.node.event.field_student_dancers
+    - node.type.event
+  module:
+    - node
+label: 'Event Feed'
+id: event_feed
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: event
+  langcode: en
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  band:
+    value: band
+    label: band
+    machine_name: band
+  band_pay:
+    value: band_pay
+    label: band_pay
+    machine_name: band_pay
+  band_travel:
+    value: band_travel
+    label: band_travel
+    machine_name: band_travel
+  caller:
+    value: caller
+    label: caller
+    machine_name: caller
+  caller_pay:
+    value: caller_pay
+    label: caller_pay
+    machine_name: caller_pay
+  caller_travel:
+    value: caller_travel
+    label: caller_travel
+    machine_name: caller_travel
+  cash_from_atm:
+    value: cash_from_atm
+    label: cash_from_atm
+    machine_name: cash_from_atm
+  cash_deposited:
+    value: cash_deposited
+    label: cash_deposited
+    machine_name: cash_deposited
+  checks_admission:
+    value: checks_admission
+    label: checks_admission
+    machine_name: checks_admission
+  cost:
+    value: cost
+    label: cost
+    machine_name: cost
+  ending_cash:
+    value: ending_cash
+    label: ending_cash
+    machine_name: ending_cash
+  start_date:
+    value: start_date
+    label: start_date
+    machine_name: start_date
+  end_date:
+    value: end_date
+    label: end_date
+    machine_name: end_date
+  title:
+    value: title
+    label: title
+    machine_name: title
+  event_type:
+    value: event_type
+    label: event_type
+    machine_name: event_type
+  host:
+    value: host
+    label: host
+    machine_name: host
+  iou_dancers_full:
+    value: iou_dancers_full
+    label: iou_dancers_full
+    machine_name: iou_dancers_full
+  iou_dancers_student:
+    value: iou_dancers_student
+    label: iou_dancers_student
+    machine_name: iou_dancers_student
+  comped_dancers:
+    value: comped_dancers
+    label: comped_dancers
+    machine_name: comped_dancers
+  student_dancers:
+    value: student_dancers
+    label: student_dancers
+    machine_name: student_dancers
+  other_expenses:
+    value: other_expenses
+    label: other_expenses
+    machine_name: other_expenses
+  promote:
+    value: promote
+    label: promote
+    machine_name: promote
+  rent_cost:
+    value: rent_cost
+    label: rent_cost
+    machine_name: rent_cost
+  sound:
+    value: sound
+    label: sound
+    machine_name: sound
+  sound_pay:
+    value: sound_pay
+    label: sound_pay
+    machine_name: sound_pay
+  starting_cash:
+    value: starting_cash
+    label: starting_cash
+    machine_name: starting_cash
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+  feed_band:
+    value: band
+    label: band
+    machine_name: feed_band
+  feed_band_pay:
+    value: band_pay
+    label: band_pay
+    machine_name: feed_band_pay
+  feed_band_travel:
+    value: band_travel
+    label: band_travel
+    machine_name: feed_band_travel
+  feed_caller:
+    value: caller
+    label: caller
+    machine_name: feed_caller
+  feed_caller_pay:
+    value: caller_pay
+    label: caller_pay
+    machine_name: feed_caller_pay
+  feed_caller_travel:
+    value: caller_travel
+    label: caller_travel
+    machine_name: feed_caller_travel
+  feed_cash_from_atm:
+    value: cash_from_atm
+    label: cash_from_atm
+    machine_name: feed_cash_from_atm
+  feed_cash_deposited:
+    value: cash_deposited
+    label: cash_deposited
+    machine_name: feed_cash_deposited
+  feed_checks_admission:
+    value: checks_admission
+    label: checks_admission
+    machine_name: feed_checks_admission
+  feed_cost:
+    value: cost
+    label: cost
+    machine_name: feed_cost
+  feed_ending_cash:
+    value: ending_cash
+    label: ending_cash
+    machine_name: feed_ending_cash
+  feed_start_date:
+    value: start_date
+    label: start_date
+    machine_name: feed_start_date
+  feed_end_date:
+    value: end_date
+    label: end_date
+    machine_name: feed_end_date
+  feed_title:
+    value: title
+    label: title
+    machine_name: feed_title
+  feed_event_type:
+    value: event_type
+    label: event_type
+    machine_name: feed_event_type
+  feed_host:
+    value: host
+    label: host
+    machine_name: feed_host
+  feed_iou_dancers_full:
+    value: iou_dancers_full
+    label: iou_dancers_full
+    machine_name: feed_iou_dancers_full
+  feed_iou_dancers_student:
+    value: iou_dancers_student
+    label: iou_dancers_student
+    machine_name: feed_iou_dancers_student
+  feed_comped_dancers:
+    value: comped_dancers
+    label: comped_dancers
+    machine_name: feed_comped_dancers
+  feed_student_dancers:
+    value: student_dancers
+    label: student_dancers
+    machine_name: feed_student_dancers
+  feed_other_expenses:
+    value: other_expenses
+    label: other_expenses
+    machine_name: feed_other_expenses
+  feed_promote:
+    value: promote
+    label: promote
+    machine_name: feed_promote
+  feed_rent_cost:
+    value: rent_cost
+    label: rent_cost
+    machine_name: feed_rent_cost
+  feed_sound:
+    value: sound
+    label: sound
+    machine_name: feed_sound
+  feed_sound_pay:
+    value: sound_pay
+    label: sound_pay
+    machine_name: feed_sound_pay
+  feed_starting_cash:
+    value: starting_cash
+    label: starting_cash
+    machine_name: feed_starting_cash
+mappings:
+  -
+    target: field_band
+    map:
+      target_id: feed_band
+    settings:
+      reference_by: title
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_band_pay
+    map:
+      value: feed_band_pay
+  -
+    target: field_band_travel
+    map:
+      value: feed_band_travel
+  -
+    target: field_caller
+    map:
+      target_id: feed_caller
+    settings:
+      reference_by: title
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_caller_pay
+    map:
+      value: feed_caller_pay
+  -
+    target: field_caller_travel
+    map:
+      value: feed_caller_travel
+  -
+    target: field_cash_added_from_atm
+    map:
+      value: feed_cash_from_atm
+  -
+    target: field_checks_for_dance_admission
+    map:
+      value: feed_checks_admission
+  -
+    target: field_cost
+    map:
+      value: feed_cost
+    unique: {  }
+  -
+    target: field_ending_cash
+    map:
+      value: feed_ending_cash
+  -
+    target: field_event_date
+    map:
+      value: feed_start_date
+      end_value: feed_end_date
+    settings:
+      timezone: UTC
+  -
+    target: title
+    map:
+      value: feed_title
+    unique: {  }
+  -
+    target: field_event_type
+    map:
+      target_id: feed_event_type
+    settings:
+      reference_by: name
+      autocreate: false
+  -
+    target: field_host
+    map:
+      target_id: feed_host
+    settings:
+      reference_by: title
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_iou_dancers_full
+    map:
+      value: feed_iou_dancers_full
+  -
+    target: field_iou_dancers_student
+    map:
+      value: feed_iou_dancers_student
+  -
+    target: field_num_of_comped_dancers
+    map:
+      value: feed_comped_dancers
+  -
+    target: field_student_dancers
+    map:
+      value: feed_student_dancers
+  -
+    target: field_other_expenses
+    map:
+      value: feed_other_expenses
+  -
+    target: promote
+    map:
+      value: feed_promote
+  -
+    target: field_rent_cost
+    map:
+      value: feed_rent_cost
+  -
+    target: field_sound
+    map:
+      target_id: feed_sound
+    settings:
+      reference_by: title
+      autocreate: false
+      feeds_item: false
+  -
+    target: field_sound_pay
+    map:
+      value: feed_sound_pay
+  -
+    target: field_starting_cash
+    map:
+      value: feed_starting_cash

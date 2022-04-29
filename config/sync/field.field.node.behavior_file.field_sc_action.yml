@@ -1,0 +1,37 @@
+uuid: 8c167414-db8d-4349-a01d-a240171cbdf0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sc_action
+    - node.type.behavior_file
+    - paragraphs.paragraphs_type.sc_action
+  module:
+    - entity_reference_revisions
+id: node.behavior_file.field_sc_action
+field_name: field_sc_action
+entity_type: node
+bundle: behavior_file
+label: 'SC Action'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      sc_action: sc_action
+    negate: 0
+    target_bundles_drag_drop:
+      complaint:
+        weight: 4
+        enabled: false
+      from_library:
+        weight: 5
+        enabled: false
+      sc_action:
+        weight: 6
+        enabled: true
+field_type: entity_reference_revisions

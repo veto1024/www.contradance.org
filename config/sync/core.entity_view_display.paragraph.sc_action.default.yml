@@ -1,0 +1,37 @@
+uuid: fd37824b-0dd6-4d3c-8a93-0d636a87b13a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sc_action.field_sc_action_date
+    - field.field.paragraph.sc_action.field_sc_taken_by
+    - paragraphs.paragraphs_type.sc_action
+  module:
+    - datetime
+id: paragraph.sc_action.default
+targetEntityType: paragraph
+bundle: sc_action
+mode: default
+content:
+  field_sc_action_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_sc_taken_by:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

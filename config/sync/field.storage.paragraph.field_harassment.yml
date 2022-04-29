@@ -1,0 +1,18 @@
+uuid: 066b3d2d-f5a9-43da-8ed8-28d9084fc285
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_harassment
+field_name: field_harassment
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

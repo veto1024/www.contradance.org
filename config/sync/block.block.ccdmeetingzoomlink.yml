@@ -1,0 +1,37 @@
+uuid: 3f541719-a25f-40af-96a7-b1bc0e2a41da
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:d7a020d6-1c3b-483f-8be5-1ab33448b7c8'
+  module:
+    - block_content
+    - block_visibility_groups
+    - system
+  theme:
+    - ccd_bs
+id: ccdmeetingzoomlink
+theme: ccd_bs
+region: content
+weight: 14
+provider: null
+plugin: 'block_content:d7a020d6-1c3b-483f-8be5-1ab33448b7c8'
+settings:
+  id: 'block_content:d7a020d6-1c3b-483f-8be5-1ab33448b7c8'
+  label: 'CCD Meeting Zoom Link'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

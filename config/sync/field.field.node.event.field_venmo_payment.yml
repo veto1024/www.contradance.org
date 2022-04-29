@@ -1,0 +1,55 @@
+uuid: 3fd1c465-6425-45a7-945e-7d8921ee2122
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_venmo_payment
+    - node.type.event
+    - paragraphs.paragraphs_type.venmo_payment
+  module:
+    - entity_reference_revisions
+id: node.event.field_venmo_payment
+field_name: field_venmo_payment
+entity_type: node
+bundle: event
+label: 'Venmo Payment'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      venmo_payment: venmo_payment
+    negate: 0
+    target_bundles_drag_drop:
+      agenda_item:
+        weight: 10
+        enabled: false
+      complaint:
+        weight: 8
+        enabled: false
+      complaint_type:
+        weight: 9
+        enabled: false
+      donation:
+        weight: 13
+        enabled: false
+      external_contact:
+        weight: 11
+        enabled: false
+      from_library:
+        weight: 12
+        enabled: false
+      people_and_payments:
+        weight: 13
+        enabled: false
+      sc_action:
+        weight: 14
+        enabled: false
+      venmo_payment:
+        weight: 16
+        enabled: true
+field_type: entity_reference_revisions

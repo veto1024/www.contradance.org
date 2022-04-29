@@ -1,0 +1,50 @@
+uuid: f6ca62d8-3978-4d68-bb5d-7eca4839369e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_visibility_groups
+    - ccd_cashbox
+    - node
+    - system
+    - user
+  theme:
+    - ccd_bs
+id: ccdcashboxoperationsaddfullioubutton
+theme: ccd_bs
+region: content
+weight: 8
+provider: null
+plugin: ccd_cashbox_cashbox_operations_add_full_iou_block
+settings:
+  id: ccd_cashbox_cashbox_operations_add_full_iou_block
+  label: 'CCD Cashbox Operations Add Full IOU Button'
+  label_display: '0'
+  provider: ccd_cashbox
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: '/node/*/edit'
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      cashbox: cashbox
+      board_member: board_member
+  node_type:
+    id: node_type
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      event: event

@@ -1,0 +1,9 @@
+uuid: 632f4a01-6393-4211-aafa-810746829432
+langcode: en
+status: true
+dependencies: {  }
+id: sc_action
+label: 'SC Action'
+icon_uuid: null
+description: 'Paragraphs for Steering Committee actions'
+behavior_plugins: {  }

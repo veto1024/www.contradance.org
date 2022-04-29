@@ -1,0 +1,14 @@
+uuid: c6aa42a4-30f4-45de-b02f-3591ecb9286d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cashbox
+  module:
+    - user
+id: user_add_role_action.cashbox
+label: 'Add the Cashbox role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cashbox

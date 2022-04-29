@@ -1,0 +1,26 @@
+uuid: be5151d6-3796-4057-8508-d4c37eaef0ee
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+id: events
+label: Events
+logic: and
+conditions:
+  ada82355-e43d-46ad-a5f1-085abdc69986:
+    id: node_type
+    negate: false
+    uuid: ada82355-e43d-46ad-a5f1-085abdc69986
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      event: event
+  aed82330-c6cc-473f-ac85-362c2661f3d3:
+    id: request_path
+    negate: true
+    uuid: aed82330-c6cc-473f-ac85-362c2661f3d3
+    context_mapping: {  }
+    pages: '<front>'
+allow_other_conditions: false

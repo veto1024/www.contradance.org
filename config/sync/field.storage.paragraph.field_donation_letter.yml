@@ -1,0 +1,18 @@
+uuid: 9f38f23b-a9df-42a0-ad4a-c93c867c2578
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_donation_letter
+field_name: field_donation_letter
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

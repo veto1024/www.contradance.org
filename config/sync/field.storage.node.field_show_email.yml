@@ -1,0 +1,18 @@
+uuid: 1bb642d2-b479-4717-a3da-07966047de27
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_show_email
+field_name: field_show_email
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

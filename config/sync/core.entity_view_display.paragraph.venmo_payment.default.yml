@@ -1,0 +1,41 @@
+uuid: 8c049eef-4603-44e9-8046-af017bfc623c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.venmo_payment.field_amount
+    - field.field.paragraph.venmo_payment.field_dancer_name
+    - field.field.paragraph.venmo_payment.field_note
+    - field.field.paragraph.venmo_payment.field_timestamp
+    - paragraphs.paragraphs_type.venmo_payment
+id: paragraph.venmo_payment.default
+targetEntityType: paragraph
+bundle: venmo_payment
+mode: default
+content:
+  field_amount:
+    type: number_decimal
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_dancer_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_note: true
+  field_timestamp: true
+  search_api_excerpt: true

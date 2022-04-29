@@ -1,0 +1,23 @@
+uuid: 132bbf21-f4f4-464f-8f58-5b707423b4f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.sc_only_page
+  module:
+    - text
+id: node.sc_only_page.body
+field_name: body
+entity_type: node
+bundle: sc_only_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

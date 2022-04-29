@@ -1,0 +1,19 @@
+uuid: f7756e96-99d8-45ae-a468-6b06ca86d645
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  shortlink: '[site:url]'
+  title: 'Chattahoochee Contra Dancers'
+  description: 'Come Contra Dancing in Atlanta every Friday night!'
+  image_src: 'https://ccds3bucket.s3.us-east-2.amazonaws.com/s3fs-public/styles/thumbnail/public/icons/default_person.png'
+  robots: noimageindex
+  canonical_url: '[site:url]'
+  og_site_name: Contrandance.org
+  og_description: 'The Chattahoochee Contra Dancers invite you to contra dance in Atlanta! Join us every Friday night at Decatur Recreation Center for live bands and dancing! '
+  og_image: 'https://ccds3bucket.s3.us-east-2.amazonaws.com/s3fs-public/styles/thumbnail/public/icons/default_person.png'
+  og_image_url: 'https://ccds3bucket.s3.us-east-2.amazonaws.com/s3fs-public/styles/thumbnail/public/icons/default_person.png'

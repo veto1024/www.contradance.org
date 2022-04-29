@@ -1,0 +1,19 @@
+uuid: 3b47b258-1c31-430b-b7e5-c6ed96a5b77e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_donation_purpose
+    - paragraphs.paragraphs_type.donation
+id: paragraph.donation.field_donation_purpose
+field_name: field_donation_purpose
+entity_type: paragraph
+bundle: donation
+label: 'Donation Purpose'
+description: 'Purpose of donation (general funds, sponsor a dance, etc.)'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

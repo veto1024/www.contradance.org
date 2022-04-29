@@ -1,0 +1,18 @@
+uuid: 29a89a89-3c1e-49e3-89aa-646d4aab9f3f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_ending_cash
+field_name: field_ending_cash
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

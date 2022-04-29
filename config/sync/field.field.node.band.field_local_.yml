@@ -1,0 +1,23 @@
+uuid: 203bfcd7-d3db-4e9d-957d-04d07a27702a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_local_
+    - node.type.band
+id: node.band.field_local_
+field_name: field_local_
+entity_type: node
+bundle: band
+label: 'Local?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Local Talent'
+  off_label: 'Out of Town'
+field_type: boolean

@@ -1,0 +1,19 @@
+uuid: c22e0a14-e0e9-4384-89b4-9e5039c9fc2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ccd_contact
+    - node.type.venue
+id: node.venue.field_ccd_contact
+field_name: field_ccd_contact
+entity_type: node
+bundle: venue
+label: 'CCD Contact'
+description: 'Does CCD have an established contact with the organization?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

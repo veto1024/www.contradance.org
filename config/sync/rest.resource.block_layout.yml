@@ -1,0 +1,18 @@
+uuid: ec8d5a19-4d0e-4ea7-b980-6e3021875bf6
+langcode: en
+status: true
+dependencies:
+  module:
+    - rest_block_layout
+    - serialization
+    - user
+id: block_layout
+plugin_id: block_layout
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

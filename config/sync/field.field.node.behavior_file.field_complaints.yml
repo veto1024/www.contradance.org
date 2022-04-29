@@ -1,0 +1,37 @@
+uuid: 673f90a3-3883-488e-9ff3-72e730197303
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_complaints
+    - node.type.behavior_file
+    - paragraphs.paragraphs_type.complaint
+  module:
+    - entity_reference_revisions
+id: node.behavior_file.field_complaints
+field_name: field_complaints
+entity_type: node
+bundle: behavior_file
+label: Complaints
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      complaint: complaint
+    negate: 0
+    target_bundles_drag_drop:
+      complaint:
+        weight: 4
+        enabled: true
+      from_library:
+        weight: 5
+        enabled: false
+      sc_action:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

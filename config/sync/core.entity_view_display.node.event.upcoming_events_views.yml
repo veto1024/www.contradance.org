@@ -1,0 +1,308 @@
+uuid: 10a006ff-32a4-49c6-b402-9a61625b0962
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.upcoming_events_views
+    - field.field.node.event.body
+    - field.field.node.event.field_add_to_calendar
+    - field.field.node.event.field_additional_information
+    - field.field.node.event.field_band
+    - field.field.node.event.field_band_pay
+    - field.field.node.event.field_band_travel
+    - field.field.node.event.field_caller
+    - field.field.node.event.field_caller_pay
+    - field.field.node.event.field_caller_travel
+    - field.field.node.event.field_cash_added_from_atm
+    - field.field.node.event.field_cash_donations
+    - field.field.node.event.field_cash_to_be_deposited
+    - field.field.node.event.field_check_donations
+    - field.field.node.event.field_checks_for_dance_admission
+    - field.field.node.event.field_competing_events
+    - field.field.node.event.field_cost
+    - field.field.node.event.field_dance_reporter_name
+    - field.field.node.event.field_deposited
+    - field.field.node.event.field_donation_info
+    - field.field.node.event.field_ending_cash
+    - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_pay_boolean
+    - field.field.node.event.field_event_type
+    - field.field.node.event.field_gross_revenue
+    - field.field.node.event.field_host
+    - field.field.node.event.field_iou_dancers_full
+    - field.field.node.event.field_iou_dancers_student
+    - field.field.node.event.field_location
+    - field.field.node.event.field_net_income
+    - field.field.node.event.field_num_of_comped_dancers
+    - field.field.node.event.field_other_expenses
+    - field.field.node.event.field_payout_discrepancy_
+    - field.field.node.event.field_payout_discrepancy_note
+    - field.field.node.event.field_person_paid
+    - field.field.node.event.field_rent_cost
+    - field.field.node.event.field_sound
+    - field.field.node.event.field_sound_pay
+    - field.field.node.event.field_starting_cash
+    - field.field.node.event.field_student_dancers
+    - field.field.node.event.field_total_full_pay_dancers
+    - field.field.node.event.field_total_no_of_dancers
+    - field.field.node.event.field_venmo_admission
+    - field.field.node.event.field_venmo_donation
+    - field.field.node.event.field_venmo_payment
+    - node.type.event
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: Main
+          column_widths: 50-50
+        components:
+          31385441-bff1-40df-91af-2b984336edef:
+            uuid: 31385441-bff1-40df-91af-2b984336edef
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_event_date'
+              label: 'Event Date'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: daterange_custom
+                label: hidden
+                settings:
+                  timezone_override: America/New_York
+                  date_format: 'D M j, g:i A'
+                  separator: '-'
+                third_party_settings:
+                  addtocalendar:
+                    addtocalendar_show: 0
+                    addtocalendar_settings:
+                      style: blue
+                      display_text: 'Add to Calendar'
+                      atc_title:
+                        field: token
+                        tokenized: Title
+                      atc_description:
+                        field: token
+                        tokenized: Description
+                      atc_location:
+                        field: token
+                        tokenized: Location
+                      atc_organizer:
+                        field: token
+                        tokenized: 'Contra Dance in Atlanta'
+                      atc_organizer_email:
+                        field: token
+                        tokenized: jonathan.roveto@gmail.com
+                      atc_date_end:
+                        field: token
+                        tokenized: ''
+                      atc_privacy: public
+                      data_secure: auto
+                      data_calendars:
+                        iCalendar: 0
+                        'Google Calendar': 0
+                        Outlook: 0
+                        'Outlook Online': 0
+                        'Yahoo! Calendar': 0
+            weight: 2
+            additional: {  }
+          46c9b3d5-4c6e-40b0-bafb-0ca54814e3a5:
+            uuid: 46c9b3d5-4c6e-40b0-bafb-0ca54814e3a5
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_host'
+              label: Host
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          7d437eaa-11c6-4e13-8084-a64073c3752b:
+            uuid: 7d437eaa-11c6-4e13-8084-a64073c3752b
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_cost'
+              label: Cost
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          56c0cd94-42cd-47df-b026-2814fba3b218:
+            uuid: 56c0cd94-42cd-47df-b026-2814fba3b218
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_location'
+              label: Location
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: _blank
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          218e21ab-db1b-4dba-8e60-36f55631743f:
+            uuid: 218e21ab-db1b-4dba-8e60-36f55631743f
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_sound'
+              label: Sound
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          cd7d4ee3-05c8-470e-adc5-ba2aa52ec63d:
+            uuid: cd7d4ee3-05c8-470e-adc5-ba2aa52ec63d
+            region: first
+            configuration:
+              id: 'field_block:node:event:body'
+              label: Description
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          d49190ca-cf15-4ac0-b256-0c636a5df5eb:
+            uuid: d49190ca-cf15-4ac0-b256-0c636a5df5eb
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_add_to_calendar'
+              label: 'Add to Calendar'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: add_to_calendar
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
+          65ff3437-0699-427a-bbc5-934a5f0a6b42:
+            uuid: 65ff3437-0699-427a-bbc5-934a5f0a6b42
+            region: second
+            configuration:
+              id: 'field_block:node:event:field_band'
+              label: Band
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: visually_hidden
+                settings:
+                  view_mode: teaser
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: node.event.upcoming_events_views
+targetEntityType: node
+bundle: event
+mode: upcoming_events_views
+content: {  }
+hidden:
+  body: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_add_to_calendar: true
+  field_additional_information: true
+  field_band: true
+  field_band_pay: true
+  field_band_travel: true
+  field_caller: true
+  field_caller_pay: true
+  field_caller_travel: true
+  field_cash_added_from_atm: true
+  field_cash_donations: true
+  field_cash_to_be_deposited: true
+  field_check_donations: true
+  field_checks_for_dance_admission: true
+  field_competing_events: true
+  field_cost: true
+  field_dance_reporter_name: true
+  field_deposited: true
+  field_donation_info: true
+  field_ending_cash: true
+  field_event_date: true
+  field_event_pay_boolean: true
+  field_event_type: true
+  field_gross_revenue: true
+  field_host: true
+  field_iou_dancers_full: true
+  field_iou_dancers_student: true
+  field_location: true
+  field_net_income: true
+  field_num_of_comped_dancers: true
+  field_other_expenses: true
+  field_payout_discrepancy_: true
+  field_payout_discrepancy_note: true
+  field_person_paid: true
+  field_rent_cost: true
+  field_sound: true
+  field_sound_pay: true
+  field_starting_cash: true
+  field_student_dancers: true
+  field_total_full_pay_dancers: true
+  field_total_no_of_dancers: true
+  field_venmo_admission: true
+  field_venmo_donation: true
+  field_venmo_payment: true
+  links: true
+  search_api_excerpt: true

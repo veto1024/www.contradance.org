@@ -1,0 +1,28 @@
+uuid: 7f392a56-36d0-4f46-97ee-8b0a07d8bb26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_band_members
+    - node.type.band
+    - node.type.person
+id: node.band.field_band_members
+field_name: field_band_members
+entity_type: node
+bundle: band
+label: 'Band Members'
+description: 'Who is in this band?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

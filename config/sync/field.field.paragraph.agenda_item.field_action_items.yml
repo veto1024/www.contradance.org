@@ -1,0 +1,21 @@
+uuid: 7d4785c6-e1df-4bf2-8a8c-f857847a66ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_action_items
+    - paragraphs.paragraphs_type.agenda_item
+  module:
+    - text
+id: paragraph.agenda_item.field_action_items
+field_name: field_action_items
+entity_type: paragraph
+bundle: agenda_item
+label: 'Action items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

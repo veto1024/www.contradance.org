@@ -1,0 +1,23 @@
+uuid: f7e2c894-de27-430b-ab17-99f2b52d56ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_in_use
+    - node.type.venue
+id: node.venue.field_in_use
+field_name: field_in_use
+entity_type: node
+bundle: venue
+label: 'In Use'
+description: 'Do we currently use this venue (DRC, Messiah Lutheran, Kimbi''s?)'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

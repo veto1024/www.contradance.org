@@ -1,0 +1,32 @@
+uuid: faf19e1d-cd32-46b0-96d2-5dc4d72247b2
+langcode: en
+status: false
+dependencies:
+  module:
+    - block_visibility_groups
+    - dr_fundraiser
+    - system
+  theme:
+    - ccd_bs
+id: drfundraiserblock
+theme: ccd_bs
+region: content
+weight: -5
+provider: null
+plugin: drfundraiser_block
+settings:
+  id: drfundraiser_block
+  label: 'DR fundraiser block'
+  label_display: '0'
+  provider: dr_fundraiser
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

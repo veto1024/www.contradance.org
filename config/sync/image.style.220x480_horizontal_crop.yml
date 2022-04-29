@@ -1,0 +1,14 @@
+uuid: e95ea7a2-ee2b-4901-937e-32e6fc83df0e
+langcode: en
+status: true
+dependencies: {  }
+name: 220x480_horizontal_crop
+label: '240x480 Horizontal Crop'
+effects:
+  366df517-e355-4598-b6da-dc3ec6d0de42:
+    uuid: 366df517-e355-4598-b6da-dc3ec6d0de42
+    id: image_resize
+    weight: 2
+    data:
+      width: 480
+      height: 240

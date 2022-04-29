@@ -1,0 +1,45 @@
+uuid: 3b7328ef-da05-476c-9dd6-05b66554f719
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.attendance_data_view
+  module:
+    - block_visibility_groups
+    - system
+    - user
+    - views
+  theme:
+    - ccd_bs
+id: views_block__attendance_data_view_block_4
+theme: ccd_bs
+region: content
+weight: -10
+provider: null
+plugin: 'views_block:attendance_data_view-block_4'
+settings:
+  id: 'views_block:attendance_data_view-block_4'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /internal/attendance-data
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      board_member: board_member

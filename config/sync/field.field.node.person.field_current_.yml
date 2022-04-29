@@ -1,0 +1,23 @@
+uuid: 67f7e832-4783-4ede-9d17-8e91cf90c9d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_current_
+    - node.type.person
+id: node.person.field_current_
+field_name: field_current_
+entity_type: node
+bundle: person
+label: 'Current?'
+description: 'Are they currently active?'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Current
+  off_label: 'Not current'
+field_type: boolean

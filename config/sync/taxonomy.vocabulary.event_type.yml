@@ -1,0 +1,8 @@
+uuid: 73f5f9d4-695b-4dba-86fe-a19e749fc7ba
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Type'
+vid: event_type
+description: 'Types of events held by CCD'
+weight: 0

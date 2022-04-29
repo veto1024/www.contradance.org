@@ -1,0 +1,13 @@
+uuid: c6cb2f0c-79c5-4911-9479-3b0b70f3b4b5
+langcode: en
+status: true
+dependencies: {  }
+id: dance_rhapsody_donation
+label: 'Dance Rhapsody Donation'
+traits: {  }
+locked: false
+description: ''
+variationType: dance_rhapsody_donation
+variationTypes: {  }
+multipleVariations: true
+injectVariationFields: true
