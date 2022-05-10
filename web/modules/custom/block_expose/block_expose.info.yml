@@ -1,0 +1,6 @@
+name: Block Expose
+type: module
+description: API for exposing block html
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9

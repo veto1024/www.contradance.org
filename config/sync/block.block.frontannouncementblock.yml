@@ -1,0 +1,30 @@
+uuid: e8ef2168-950c-4c47-ae1a-aa96cd6b7bc2
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ee800c8d-0fa1-46ab-9b25-4a963942e8b0'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - ccd_bs
+id: frontannouncementblock
+theme: ccd_bs
+region: highlighted
+weight: 0
+provider: null
+plugin: 'block_content:ee800c8d-0fa1-46ab-9b25-4a963942e8b0'
+settings:
+  id: 'block_content:ee800c8d-0fa1-46ab-9b25-4a963942e8b0'
+  label: 'Front Announcement Block'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''

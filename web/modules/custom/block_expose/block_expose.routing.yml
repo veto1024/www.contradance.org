@@ -1,0 +1,10 @@
+block_expose.block:
+  path: '/api/block-expose/block'
+  defaults:
+    _title: 'Block Expose'
+    _controller: '\Drupal\block_expose\Controller\BlockExposeController::getHTML'
+  requirements:
+    _permission: 'access content'
+    _format: 'json'
+    _method: 'GET'
+

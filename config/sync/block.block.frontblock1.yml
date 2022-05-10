@@ -1,0 +1,35 @@
+uuid: a7bcf0b4-5ddb-494f-91aa-02752a059c4c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:fd105f46-cbc8-40b2-bf58-fbfbb106d83a'
+  module:
+    - block_content
+    - block_visibility_groups
+    - system
+  theme:
+    - ccd_bs
+id: frontblock1
+theme: ccd_bs
+region: content
+weight: -25
+provider: null
+plugin: 'block_content:fd105f46-cbc8-40b2-bf58-fbfbb106d83a'
+settings:
+  id: 'block_content:fd105f46-cbc8-40b2-bf58-fbfbb106d83a'
+  label: 'Front Block 1'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
