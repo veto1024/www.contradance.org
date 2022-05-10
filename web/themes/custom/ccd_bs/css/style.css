@@ -16,6 +16,12 @@ body {
   color:white;
 }
 
+html {
+  font-size: 1.5em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: visible !important;
+}
+
 
 h1,h2,h3,h4,h5 {
   color:white;
@@ -210,6 +216,7 @@ div.highlighted.jumbotron {
 
 footer.footer {
   padding-left: inherit;
+  margin-top: 1em;
 }
 
 
@@ -1070,10 +1077,10 @@ body.path-frontpage header.navbar {
   -o-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 
-  -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 6s; /* Firefox < 16 */
-  -o-animation: fadein 6s; /* Opera < 12.1 */
-  animation: ease-in fadein 6s;
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s; /* Firefox < 16 */
+  -o-animation: fadein 3s; /* Opera < 12.1 */
+  animation: ease-in fadein 3s;
 
   /*  -webkit-animation-delay: 3s;
     -moz-animation-delay:3s;
@@ -1823,7 +1830,7 @@ div.js-filter-wrapper[id*='description-format'] {
 .bold-header {
   color: white;
   font-weight: 600;
-  font-size:2em;
+  font-size:1.5em;
   font-family: Ubuntu, sans-serif;
   text-transform: uppercase;
 }
@@ -1883,4 +1890,89 @@ div#dr-fundraiser-block{
 
 div#dr-fundraiser-block .dr-fundraiser-total {
   text-align: center;
+}
+
+.event-container div>p {
+  margin-bottom: 0;
+}
+
+
+.card {
+  background-color: black;
+}
+
+body header a.nav-link {
+  text-decoration: none;
+}
+
+
+.event-name {
+  font-size:2em;
+  line-height: 1.25em;
+}
+
+.event-container {
+  line-height: 1.25em;
+}
+
+.event-name a {
+  text-decoration: none;
+  color: white;
+}
+
+body .main-container.fade {
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s; /* Firefox < 16 */
+  -o-animation: fadein 3s; /* Opera < 12.1 */
+  animation: ease-in fadein 3s;
+}
+
+div.video-background {
+  height: 100%;
+}
+
+video.vjs-tech {
+  width: 100%;
+}
+
+div#video-background div, div#video-background button,
+div#video-foreground div, div#video-foreground button  {
+  display:none !important;
+}
+
+div#video-foreground {
+  width: 100%;
+  height: auto;
+}
+
+div#video-foreground {
+  opacity: 1;
+}
+
+div#video-background {
+  opacity: .3;
+}
+nav.navbar .navbar-collapse div.nav a {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+footer {
+  display: block !important;
+}
+
+footer div > a > img {
+  height: 100px;
+  width: auto;
+  margin-bottom: 1em;
+}
+
+nav.navbar {
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 992px) {
+  .collapse:not(.show) {
+    display: none !important;
+  }
 }

@@ -12,8 +12,25 @@
  */
 function ccd_bs_page_attachments_alter(&$attachments) {
   if (\Drupal::service('path.matcher')->isFrontPage()) {
-    $attachments['#attached']['library'][] = 'ccd_bs/framework';
+    $attachments['#attached']['library'][] = 'ccd_bs/ccd_front';
+    if (($key = array_search('bootstrap/theme', $attachments['#attached']['library'])) !== false) {
+      unset($attachments['#attached']['library'][$key]);
+    }
   }
+}
+
+/**
+ * Implements hook_css_alter().
+ */
+function ccd_bs_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    // Dump old Bootstrap on homepage for newer sexy Bootstrap 5
+    foreach($css as $key=>$value){
+      if (strpos($key, 'bootstrap') !== FALSE)
+        unset($css[$key]);
+    }
+  }
+
 }
 
 /**

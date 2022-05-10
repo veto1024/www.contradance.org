@@ -15,10 +15,10 @@ framework:
 ccd_front:
   css:
     theme:
-      css/ccd_front/main.5c0477fc.css: {}
+      css/ccd_front/main.cbd573ef.css: {}
   js:
     js/ccd_front/787.389096e4.chunk.js: {}
-    js/ccd_front/main.a8124985.js: {}
+    js/ccd_front/main.73c34901.js: {}
 
 donation:
   js:

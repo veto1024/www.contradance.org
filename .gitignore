@@ -13,7 +13,10 @@
 /web/sites/default/settings.lando.php
 
 # Ignore Drupal's file directory
-/web/sites/*/files/
+# /web/sites/*/files/
+
+# Ignore Drupal php temp
+# /web/sites/*/files/php/
 
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
