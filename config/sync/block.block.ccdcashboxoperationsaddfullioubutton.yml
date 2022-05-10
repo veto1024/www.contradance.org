@@ -13,7 +13,7 @@ dependencies:
 id: ccdcashboxoperationsaddfullioubutton
 theme: ccd_bs
 region: content
-weight: 8
+weight: 7
 provider: null
 plugin: ccd_cashbox_cashbox_operations_add_full_iou_block
 settings:

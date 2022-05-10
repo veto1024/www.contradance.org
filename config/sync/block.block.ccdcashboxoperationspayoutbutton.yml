@@ -13,7 +13,7 @@ dependencies:
 id: ccdcashboxoperationspayoutbutton
 theme: ccd_bs
 region: content
-weight: 10
+weight: 9
 provider: null
 plugin: ccd_cashbox_cashbox_operations_payout_block
 settings:

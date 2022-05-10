@@ -13,7 +13,7 @@ dependencies:
 id: ccdcashboxoperationssendtoscbutton
 theme: ccd_bs
 region: content
-weight: 13
+weight: 12
 provider: null
 plugin: ccd_cashbox_cashbox_operations_send_to_sc_block
 settings:

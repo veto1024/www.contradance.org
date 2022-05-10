@@ -12,7 +12,7 @@ dependencies:
 id: infoforbandsandcallers
 theme: ccd_bs
 region: content
-weight: -25
+weight: -23
 provider: null
 plugin: 'block_content:afad91e2-7e96-4335-958e-a583ee0f9911'
 settings:

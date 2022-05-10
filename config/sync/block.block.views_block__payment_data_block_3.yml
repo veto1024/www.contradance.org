@@ -13,7 +13,7 @@ dependencies:
 id: views_block__payment_data_block_3
 theme: ccd_bs
 region: content
-weight: -2
+weight: -3
 provider: null
 plugin: 'views_block:payment_data-block_3'
 settings:

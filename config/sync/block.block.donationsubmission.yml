@@ -13,7 +13,7 @@ dependencies:
 id: donationsubmission
 theme: ccd_bs
 region: content
-weight: -9
+weight: -7
 provider: null
 plugin: ccd_cashbox_donation_button
 settings:

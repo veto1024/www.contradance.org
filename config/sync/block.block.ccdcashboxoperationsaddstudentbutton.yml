@@ -13,7 +13,7 @@ dependencies:
 id: ccdcashboxoperationsaddstudentbutton
 theme: ccd_bs
 region: content
-weight: 5
+weight: 4
 provider: null
 plugin: ccd_cashbox_cashbox_operations_add_student_block
 settings:

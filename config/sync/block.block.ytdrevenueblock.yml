@@ -12,7 +12,7 @@ dependencies:
 id: ytdrevenueblock
 theme: ccd_bs
 region: content
-weight: 3
+weight: 2
 provider: null
 plugin: ccd_financials_ytd_revenue_block
 settings:

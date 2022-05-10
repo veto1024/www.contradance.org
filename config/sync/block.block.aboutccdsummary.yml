@@ -13,7 +13,7 @@ dependencies:
 id: aboutccdsummary
 theme: ccd_bs
 region: content
-weight: -21
+weight: -19
 provider: null
 plugin: 'block_content:69bcd72a-2b30-4479-938a-769290b42292'
 settings:

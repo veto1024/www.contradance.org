@@ -14,7 +14,7 @@ dependencies:
 id: views_block__agenda_item_search_new_block_1
 theme: ccd_bs
 region: content
-weight: -7
+weight: -5
 provider: null
 plugin: 'views_block:agenda_item_search_new-block_1'
 settings:

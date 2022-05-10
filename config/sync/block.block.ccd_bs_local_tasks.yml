@@ -9,7 +9,7 @@ _core:
 id: ccd_bs_local_tasks
 theme: ccd_bs
 region: content
-weight: -24
+weight: -22
 provider: null
 plugin: local_tasks_block
 settings:

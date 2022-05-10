@@ -14,7 +14,7 @@ dependencies:
 id: views_block__agenda_items_agenda_items_public_collecting
 theme: ccd_bs
 region: content
-weight: -6
+weight: -4
 provider: null
 plugin: 'views_block:agenda_items-agenda_items_public_collecting'
 settings:

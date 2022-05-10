@@ -13,7 +13,7 @@ dependencies:
 id: views_block__my_hosting_dates_my_hosting_dates
 theme: ccd_bs
 region: content
-weight: 1
+weight: 0
 provider: null
 plugin: 'views_block:my_hosting_dates-my_hosting_dates'
 settings:

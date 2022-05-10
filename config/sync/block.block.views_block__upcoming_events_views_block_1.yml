@@ -13,7 +13,7 @@ dependencies:
 id: views_block__upcoming_events_views_block_1
 theme: ccd_bs
 region: content
-weight: 4
+weight: 3
 provider: null
 plugin: 'views_block:upcoming_events_views-block_1'
 settings:

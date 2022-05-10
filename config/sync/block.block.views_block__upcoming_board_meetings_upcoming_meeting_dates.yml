@@ -14,7 +14,7 @@ dependencies:
 id: views_block__upcoming_board_meetings_upcoming_meeting_dates
 theme: ccd_bs
 region: content
-weight: 2
+weight: 1
 provider: null
 plugin: 'views_block:upcoming_board_meetings-upcoming_meeting_dates'
 settings:

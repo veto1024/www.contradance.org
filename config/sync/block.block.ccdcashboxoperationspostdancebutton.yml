@@ -13,7 +13,7 @@ dependencies:
 id: ccdcashboxoperationspostdancebutton
 theme: ccd_bs
 region: content
-weight: 12
+weight: 11
 provider: null
 plugin: ccd_cashbox_cashbox_operations_post_dance_block
 settings:

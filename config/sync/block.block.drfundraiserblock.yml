@@ -11,7 +11,7 @@ dependencies:
 id: drfundraiserblock
 theme: ccd_bs
 region: content
-weight: -5
+weight: 13
 provider: null
 plugin: drfundraiser_block
 settings:
