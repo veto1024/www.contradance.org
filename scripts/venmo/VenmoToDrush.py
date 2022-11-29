@@ -9,8 +9,8 @@ UNSEEN_FLAG = 'UNSEEN'
 HOST_NAME = 'imap.gmail.com'
 USER_NAME = 'ccd.venmo'
 PASS = 'fobh ulkf nhgb hvfc'
-LOG_FILENAME = "/var/log/CCDDrushVenmo.log"
-
+LOG_FILENAME = "./CCDDrushVenmo.log"
+LOG_SL = "/var/log/CCDDrushVenmo.log"
 
 
 

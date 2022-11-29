@@ -1,8 +1,0 @@
-uuid: ce7eb498-a49b-4daa-b4f8-e4c0bb27314b
-langcode: en
-status: true
-dependencies: {  }
-name: 'Minutes status'
-vid: minutes_status
-description: 'Status of a board meeting''s minutes'
-weight: 0

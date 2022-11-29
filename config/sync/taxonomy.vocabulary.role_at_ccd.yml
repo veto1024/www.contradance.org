@@ -1,8 +1,0 @@
-uuid: 11082d64-4c3e-46df-8e90-c0e26deb0b45
-langcode: en
-status: true
-dependencies: {  }
-name: 'Role at CCD'
-vid: role_at_ccd
-description: 'Taxonomy of roles at CCD'
-weight: 0

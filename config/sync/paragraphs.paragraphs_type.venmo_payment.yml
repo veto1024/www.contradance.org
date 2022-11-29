@@ -1,9 +1,0 @@
-uuid: 8703372c-f58b-40c6-ba2d-77453ba9dc13
-langcode: en
-status: true
-dependencies: {  }
-id: venmo_payment
-label: 'Venmo payment'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

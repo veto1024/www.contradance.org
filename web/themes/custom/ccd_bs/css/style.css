@@ -59,7 +59,7 @@ form#node-event-form div.panel label {
 body.path-frontpage {
   background-image: none;
   color:white;
-  animation: fadein 2s;
+  /* animation:  fadein 10s; */
 }
 
 div iframe.iframe-centered {
@@ -70,8 +70,17 @@ div iframe.iframe-centered {
 span.field-content {
   color:black;
 }
+
 body.page-node-type-event span.field-content {
   color:white;
+}
+
+body.page-node-type-event .panel {
+  color: black !important;
+}
+
+body.page-node-type-event .panel .inline-entity-form-paragraph-label {
+  color:black !important;
 }
 
 body.page-node-type-event .field.field--name-field-cost.field--type-string.field--label-hidden.field--item {
@@ -331,6 +340,22 @@ div.jumbotron.jumbotronImg {
   width: 100%;
   opacity: 0;
 }
+
+/*****************************************************************
+*
+* Webform css
+*
+*****************************************************************/
+
+.form-item-captcha-response {
+ font-size: 1em;
+  color:black;
+}
+
+#captcha p {
+  color:black
+}
+
 
 /**************************************************************
 *
@@ -1077,9 +1102,9 @@ body.path-frontpage header.navbar {
   -o-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 
-  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 3s; /* Firefox < 16 */
-  -o-animation: fadein 3s; /* Opera < 12.1 */
+  -webkit-animation: ease-in fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: ease-in fadein 3s; /* Firefox < 16 */
+  -o-animation: ease-in fadein 3s; /* Opera < 12.1 */
   animation: ease-in fadein 3s;
 
   /*  -webkit-animation-delay: 3s;
@@ -1483,26 +1508,27 @@ div#drupal-modal div.help-block {
   color:black;
   font-size:1em;
 }
-div.form-group tr label.control-label {
-  color:black;
-}
-
-div.form-group div.form-item thead th {
+div.form-group js-form-wrapper:not(panel) tr label.control-label {
   color:white;
 }
 
-form.node-form div[id^="edit-"][id$="-wrapper"] {
+div.form-group js-form-wrapper:not(panel) div.form-item thead th {
   color:white;
 }
-form.node-form div[id^="edit-"][id$="-wrapper"] div.panel-body label.control-label,  form.node-form div[id^="edit-"][id$="-wrapper"]  .paragraph-type-title {
-  color:black;
+
+form.node-form js-form-wrapper:not(panel) div[id^="edit-"][id$="-wrapper"] {
+  color:white;
+}
+
+form.node-form js-form-wrapper:not(panel) div[id^="edit-"][id$="-wrapper"] div.panel-body label.control-label,  form.node-form js-form-wrapper:not(panel) div[id^="edit-"][id$="-wrapper"]  .paragraph-type-title {
+  color:white;
 }
 
 div.form-group div.form-item div.panel-body div.help-block.description {
   font-size:1em;
   color:black;
 }
-form.node-form div[id^="edit-"][id$="-wrapper"] div.description.help-block {
+form.node-form js-form-wrapper:not(panel) div[id^="edit-"][id$="-wrapper"] div.description.help-block {
   font-size:1em;
   color:white;
 }
@@ -1921,9 +1947,9 @@ body header a.nav-link {
 }
 
 body .main-container.fade {
-  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 3s; /* Firefox < 16 */
-  -o-animation: fadein 3s; /* Opera < 12.1 */
+  -webkit-animation: ease-in fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: ease-in fadein 3s; /* Firefox < 16 */
+  -o-animation: ease-in fadein 3s; /* Opera < 12.1 */
   animation: ease-in fadein 3s;
 }
 
@@ -1972,7 +1998,7 @@ nav.navbar {
 }
 
 @media only screen and (max-width: 992px) {
-  .collapse:not(.show) {
+  navbar-collapse.collapse:not(.show):not(.in) {
     display: none !important;
   }
 }

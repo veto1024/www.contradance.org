@@ -1,7 +1,0 @@
-uuid: d33f05a8-2a45-472e-b067-3466f2d34822
-langcode: en
-status: false
-dependencies: {  }
-formId: ccd_cashbox_operations_add_student_form
-captchaType: default
-label: ccd_cashbox_operations_add_student_form
